@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Cómo restaurar la barra de tareas de Ubuntu"
+text_date: Lunes, 20 de diciembre de 2010
+tags: [ubuntu,linux]
+disqus_identifier: como-restaurar-la-barra-de-tareas-de-ubuntu
+disqus_url: http://blog.falvarez.es/2010/12/como-restaurar-la-barra-de-tareas-de.html
+
+---
+<p>Si eres un zarpas como yo, puede que trasteando te hayas cargado las barras de tareas de Ubuntu. Para restaurarlas a su estado inicial, puedes hacer lo siguiente, desde una terminal:</p>
+<p>
+</p><pre>
+<p>gconftool-2 --shutdown</p><p>rm -rf ~/.gconf/apps/panel</p><p>pkill gnome-panel</p></pre>
+<p>Fuente: <a href="http://www.ubuntu-es.org/node/116254">http://www.ubuntu-es.org/node/116254</a></p>

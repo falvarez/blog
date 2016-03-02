@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Actualizando el iPhone a iOS 4.3 sin Windows"
+header_image: /uploads/2011/03/ios43.png
+text_date: Miércoles, 16 de marzo de 2011
+tags: [apple,linux,iphone]
+disqus_identifier: actualizando-el-iphone-a-ios-4-3-sin-windows
+disqus_url: http://blog.falvarez.es/2011/03/actualizando-el-iphone-ios-43-sin.html
+
+---
+<p>No deja de ser curiosa (corregidme si me equivoco) la obligación de usar iTunes para actualizar nuestro terminal. De hecho, ya es bastante curioso que estemos obligados a tener un ordenador. Vale, hoy en día casi todo el mundo lo tiene. Y, un usuario de iPhone, casi con total seguridad, pero es curioso. Pero todavía es más inquietante el hecho de que sólo hay versiones de iTunes para OSX y Windows, por lo que tendremos que pasar por caja. En este caso, la manera más económica de hacerlo es usar Windows. Estoy dando por hecho de que lo habitual es disponer de un PC; es probable que en EE.UU. la realidad sea bien distinta y todo el mundo tenga un Mac en sus hogares.</p>
+<p>Pero bueno, a lo que íbamos. Como recordaréis, hace unos meses que decidí <a href="http://falvarez.blogspot.com/2010/10/adios-windows-hola-linux.html">cambiar definitivamente a Linux</a>. Así que, ¿cómo demonios hago para actualizar el iPhone, ahora que ha salido la <a href="http://www.apple.com/es/ios/">nueva versión 4.3 de iOS</a>?</p>
+<p>Podría dejarlo sin actualizar, si no fuera por el pequeño detalle sin importancia de que la nueva versión trae una característica muy interesante (entre otras novedades): el <em>WiFi <a href="http://es.wikipedia.org/wiki/Tethering">Tethering</a></em>, o lo que viene siendo "compartir la conexión a Internet" de toda la vida. Eso sí, vía WiFi. ¿Qué tiene esto de interesante? Que cuando esté de guardia puedo conectarme a Internet a través del móvil con mi portátil en Linux. No tengo claro que con las anteriores opciones (bluetooth o cable USB) fuera factible sin usar iTunes, con lo que volvemos al problema inicial.</p>
+<p>Parece que no nos vamos a librar de iTunes tan fácilmente. Además, también es necesario, en principio, para gestionar la biblioteca musical del iPod. Pero de eso hablaremos otro día, porque esto puede que tenga solución.</p>
+<p>Para instalar y usar iTunes, ya que no es posible ejecutarlo con <a href="http://www.winehq.org/">Wine</a>, nos valdremos de una máquina virtual (Windows XP en mi caso, que era mi antigua instalación en el trabajo) corriendo sobre <a href="http://www.virtualbox.org/">Virtual Box</a>.</p>
+<p>Lo primero que toca es actualizar iTunes. No sé cómo lo hago, pero siempre que lo arranco, ha salido una versión nueva. Una vez actualizado, conectamos el iPhone y nos saltará una alerta indicándonos que hay una nueva versión de iOS disponible. Así que vamos allá, haciendo previamente una copia de seguridad.</p>
+<p>Aquí es cuando empieza el dolor de cabeza, ya que la actualización da error y el programa me indica que tengo que restaurar mi iPhone. Pero también da error al restaurar. Así que, en este momento, tengo sobre la mesa un bonito pisapapeles.</p>
+<p>Vamos a ver qué puede estar pasando. Hacemos unas cuantas búsquedas en Google y no encontramos información relevante. De lo que sí que me doy cuenta es de que, cuando va a comenzar la actualización/restauración, el teléfono se desconecta de la máquina virtual, y al reconectarlo manualmente se queda en un estado en el que Ubuntu no puede montarlo. A ver si va a ser tema de drivers.</p>
+<p>Actualizo Virtual Box (tenía la versión 3 y ya van por la 4). También instalo <a href="http://www.libimobiledevice.org/">ifuse</a>. Reinicio todo y, esta vez, la actualización funciona. Aunque, por alguna razón, la copia de seguridad había fallado, y me toca reinstalar todas las aplicaciones.</p>
+<div><img class="center-block img-responsive" src="/uploads/2011/03/ios43.png"></div>
+<p>En definitiva, no te puedes librar de iTunes (para Windows o Mac OSX) si quieres actualizar el teléfono, pero con ayuda de algún software de virtualización, es totalmente factible (aunque con algún dolor de cabeza que otro).</p>

@@ -1,0 +1,57 @@
+---
+layout: post
+title: "Cómo generar un PDF a partir de mútiples imágenes en JPG"
+header_image: /uploads/2013/01/Screen+Shot+2013-01-21+at+20.01.52.png
+text_date: Lunes, 21 de enero de 2013
+tags: [pdf,preservación,mac]
+disqus_identifier: como-generar-un-pdf-a-partir-de-mutiples-imagenes-en-jpg
+disqus_url: http://blog.falvarez.es/2013/01/como-generar-un-pdf-partir-de-mutiples.html
+
+---
+<div>
+<p>Una de las comodidades que nos permiten las tabletas, en especial las que tienen pantalla de alta resolución (o "<a href="http://es.wikipedia.org/wiki/Retina_Display">retina</a>") es poder leer revistas. Actualmente hay una oferta (cada vez más en aumento) de publicaciones que pueden adquirirse en el quiosco o bien de manera digital.</div></p><div>
+</div>
+<div>
+<p>Otra cara de esta moneda es poder leer revistas antiguas que tengamos por casa, previo paso al formato digital.</div></p><div>
+</div>
+<div>
+<p>Si somos unos fanáticos de la preservación digital y nos da por perder la tarde escaneando revistas, obtendremos una bonita colección de ficheros de imagen, normalmente <a href="http://es.wikipedia.org/wiki/Tagged_Image_File_Format">TIFF</a> si los hemos guardado sin pérdidas, o JPG si optamos por un formato con pérdidas. Pero esta colección de ficheros es poco manejable. Así que, por comodidad, podemos "imprimirlos" en un PDF que podremos leer en nuestro ordenador o, como he comentado, en nuestra tableta. También en el móvil, pero creo que eso es bastante incómodo.</div></p><div>
+</div>
+<div>
+<p>Supongamos que los ficheros los hemos escaneado a una resolución digna (al menos 300ppp), así que en el proceso vamos a incluir un paso que nos permitirá bajar el peso de los ficheros resultantes, buscando alcanzar un compromiso entre tamaño y calidad.</div></p><div>
+</div>
+<div>
+<p>Estas instrucciones son para OSX, que es mi equipo actual. No creo que sea mucho más complicado conseguir algo parecido en sistemas Linux o Windows. Por cierto, los nombres de las opciones en español son orientativos, ya que tengo el SO configurado en inglés.</div></p><div>
+</div>
+<div>
+<p>Lo primero que haremos será abrir la herramienta de previsualización (Preview). Desde la misma, accederemos al directorio donde hayamos almacenado los ficheros y lo abriremos. Se cargarán todas las imágenes. Si el orden de páginas no es el adecuado, podremos reordenarlas sin dificultad:</div></p><div>
+</div>
+<div>
+<a href="/uploads/2013/01/Screen+Shot+2013-01-21+at+20.01.52.png" imageanchor="1"><img class="center-block img-responsive" border="0" src="/uploads/2013/01/Screen+Shot+2013-01-21+at+20.01.52.png"></a></div>
+<div>
+</div>
+<div>
+<p>Una vez cargadas y reordenadas, accederemos a la función de imprimir (⌘ + P) y configuraremos las opciones. Yo me he definido un tamaño de papel a partir del A4 pero un pelín más ancho, para poder mantener la relación de aspecto sin perder contenido por los bordes. Lo suyo sería aplicar las dimensiones exactas de la revista original. Marcamos las opciones "escalar para ajustar" (scale to fit) y "llenar la hoja entera" (fill entire paper).</div></p><div>
+</div>
+<div>
+<a href="http://4.bp.blogspot.com/-7EbKZXUUEGQ/UP2QyinTjBI/AAAAAAAAB44/uKIAySr2nDo/s1600/Screen+Shot+2013-01-21+at+19.54.41.png" imageanchor="1"><img class="center-block img-responsive" border="0" height="364" src="/uploads/2013/01/Screen+Shot+2013-01-21+at+19.54.41.png" width="400"></a></div>
+<div>
+</div>
+<div>
+<p>Como se ve en la captura de pantalla, no le daremos al botón imprimir, sino que accederemos a la opción "abrir PDF en vista previa" (open PDF in Preview), abajo a la izquierda, que abrirá una nueva instancia del programa con el PDF ya cargado.</div></p><div>
+</div>
+<div>
+<p>Ahora es el momento de bajar el tamaño del fichero PDF resultante. Para ello, usaremos la opción "exportar" (export), a formato PDF, y en los filtros seleccionaremos el de 150ppp con calidad media. De todos los que hay es el que me ha dado mejor relación calidad/peso.</div></p><div>
+</div>
+<div>
+<a href="/uploads/2013/01/Screen+Shot+2013-01-21+at+19.54.05.png" imageanchor="1"><img class="center-block img-responsive" border="0" src="/uploads/2013/01/Screen+Shot+2013-01-21+at+19.54.05.png"></a></div>
+<div>
+</div>
+<div>
+<p>Le daremos a exportar y obtendremos nuestro PDF.</div></p><div>
+</div>
+<div>
+<p>Pero, ¡un momento!, a mí no me aparecen esos filtros. Cierto, pero si leemos estos dos hilos:</div></p><ul><li><a href="https://discussions.apple.com/thread/3048661?start=0&tstart=0">https://discussions.apple.com/thread/3048661?start=0&tstart=0</a></li>
+<li><a href="https://discussions.apple.com/thread/1292868?tstart=0">https://discussions.apple.com/thread/1292868?tstart=0</a> (hilo original del que descargar los filtros)</li>
+</ul><div>
+<p>veremos que no son estándar, sino que alguien (una persona llamada Jerome Colas) se ha molestado en generarlos y compartirlos. Para simplificar, tendremos que descargar los filtros y copiarlos en /Library/Filters (al principio lo hice en $HOME/Library/Filters/ y no me aparecían en el selectbox de Quartz filters, al menos esto es así con Mac OSX 10.8.2).</div></p>

@@ -1,0 +1,161 @@
+---
+layout: post
+title: "MegaFlashROM SCC+ SD Tutorial"
+header_image: /uploads/2013/04/sFXN2l8m9IvSZM3FDzQW0Lj4pWsdd5tqloDp_H_lFd_sYH8dVptQ4K5QxGhPFzWvYaKpwnjRHOvI_MjkXFhmRr4Av-OK-rSv8MpOfrzj1ghvJfDz_mGDXdnuZg
+text_date: Martes,  9 de abril de 2013
+tags: [tutorial,retrocomputing,msx]
+disqus_identifier: megaflashrom-scc-sd-tutorial
+disqus_url: http://blog.falvarez.es/2013/04/megaflashrom-scc-sd-tutorial.html
+
+---
+<h2>
+<p>DESCRIPTION</h2></p><p>(<a href="http://blog.falvarez.es/2013/03/tutorial-megaflashrom-scc-sd.html">versión en español</a>)</p><p>MegaFlashROM is a MSX cartridge developed by Manuel Pazos which has a flash memory inside, were we can save an original ROM dump in a non-volatile way.</p><div>
+<a href="/uploads/2013/04/sFXN2l8m9IvSZM3FDzQW0Lj4pWsdd5tqloDp_H_lFd_sYH8dVptQ4K5QxGhPFzWvYaKpwnjRHOvI_MjkXFhmRr4Av-OK-rSv8MpOfrzj1ghvJfDz_mGDXdnuZg" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/sFXN2l8m9IvSZM3FDzQW0Lj4pWsdd5tqloDp_H_lFd_sYH8dVptQ4K5QxGhPFzWvYaKpwnjRHOvI_MjkXFhmRr4Av-OK-rSv8MpOfrzj1ghvJfDz_mGDXdnuZg" width="400"></a></div>
+<p>MegaFlashROM SSC+ SD has been released on March 2013. The main improvement of this brand new version is that it provides a MicroSD slot, from where we can upload software directly to the flash memory. Let's have a quick glance over it's main features:</p><ul><li>8 MB Flash ROM.</li>
+<li>7 MB MegaFlashROM where we can write:</li>
+<ul><li>Up to 9 disk images (DSK).</li>
+<li>Multi ROMs up to 511 ROMs.</li>
+</ul><li>SCC+ chip (an improved version of <a href="http://en.wikipedia.org/wiki/Konami_SCC">SCC chip</a>).</li>
+<li>One MicroSD slot (there is another version with two slots and higher price).</li>
+<li>Recovery mode, useful to erase MegaFlashROM or restore kernel in case we have broken something.</li>
+<li>And any other feature already found in MegaFlashROM SSC+ previous cartdridge.</li>
+</ul>
+<p>The cartdridge is MSX (64 MB RAM) and MSX2 (128 KB RAM) compatible, and has a price of 99€ (March 2013).</p><div>
+<a href="/uploads/2013/04/t-hLqqS9rL31YCHtVTw00nZFyBjYdI1zd_Cn6m5_lfbRiLNy_r9BDFrPdG9uTzWb-obX83EVcoGT0DP1RUQNu45LwIeXCsT5XyKb240Dcr5UCW8kw2QdccNp9g" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/t-hLqqS9rL31YCHtVTw00nZFyBjYdI1zd_Cn6m5_lfbRiLNy_r9BDFrPdG9uTzWb-obX83EVcoGT0DP1RUQNu45LwIeXCsT5XyKb240Dcr5UCW8kw2QdccNp9g" width="400"></a></div>
+<p>We will see all the features that it offers to a basic MSX user, not very experienced, and with the aim of enjoying with the huge catalog of games. In case that we have a MSX2 computer, it has obviously more capabilities and the cartridge offers more possibilities, but we are not covering this case, mainly because the lack of a testing unit.</p><p>All these tests have been done on a Sony HitBit 75P MSX computer.</p><p>MSX-DOS operating system does not support subdirectories, so every file will be at the root of the SD partition we are working with.</p><p>Of course, software, in ROM or DSK format, must be MSX1 compatible. Otherwise, it will not work. MegaFlashROM is a great piece of hardware, but it does not make miracles. We should also be careful with untrusty disk to ROM or tape to ROM dumps, because the may not work for any reason.</p><h2>
+<p>THE CARTRIDGE</h2></p><p>MegaFlashROM cartridge may be considered as the sum of three devices:</p><ul><li>MegaFlashROM SCC+ it self that is the flash ROM where memory dumps, disk images, etc., are flashed. It contains also SCC+ chip.</li>
+<li>SD reader, where Nextor operating system is stored.</li>
+<li>Recovery tool, which can be used to to reinstall cartridge kernel or delete any of their parts.</li>
+</ul><h2>
+<p>BOOTING FROM THE CARTRIDGE</h2></p><p>Booting the MSX from the MegaFlashROM, as is configured by Manuel, we will find Nextor operating system instead of our beloved BASIC. Well, if our computer is a 64 KB MSX1, it will be MSX-DOS, not Nextor. It will bring us back to old MS-DOS days, because MSX-DOS is very similar (but more limited).</p><p>Inside MegaFlashROM there is a read only flash drive mapped to A:; this drive has the operating system inside with OPFXSD.COM, the real core utility of the cartridge. If we run DIR command, we will see the directory listing.</p><p>Nextor, as MS-DOS did, handles 8+3 filenames (8 characters name plus 3 characters extension), with no capitalization.</p><p>If run on a MSX1, we will see some errors during the booting procedure. It is because Manuel prepares the cartridge to run MSX2 utilities automatically. We can ignore them with no harm.</p><div>
+<a href="/uploads/2013/04/tSHfUP6twnHBRgIuNj_HfCRtrJGsjEBeNbXEID8-L_CqylkiFXKjY12J5fX15N048PyImpEGoztiWVTWnWJhB_6WIEEyDaby0V0CyP5ll-n8kPjU9iLeU5ukZg" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/tSHfUP6twnHBRgIuNj_HfCRtrJGsjEBeNbXEID8-L_CqylkiFXKjY12J5fX15N048PyImpEGoztiWVTWnWJhB_6WIEEyDaby0V0CyP5ll-n8kPjU9iLeU5ukZg" width="400"></a></div>
+<h2>
+<p>PREPARING THE MICROSD CARD</h2></p><p>First of all we have to prepare the MicroSD card that we will use to load software into the cartridge. Talking about MSX1, we need a FAT12 partition. To avoid problems, the best way is to partition it from the MSX itself. Let's see the way to do it:</p><p>We get into BASIC with this command:</p><pre>BASIC
+</pre>
+<pre></pre>
+<div>
+<a href="/uploads/2013/04/UnQdMM6OWcL7U57gTwSEIhngcdZww_DUnpXtDfYs0mLnXz-xP4AvtbRworuOiKqtruEVmDI-7OsgC5MEAFDu3tc7IcM_fy7f_Byi0Mx2_mfIdsDnONRktag1wA" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/UnQdMM6OWcL7U57gTwSEIhngcdZww_DUnpXtDfYs0mLnXz-xP4AvtbRworuOiKqtruEVmDI-7OsgC5MEAFDu3tc7IcM_fy7f_Byi0Mx2_mfIdsDnONRktag1wA" width="400"></a></div>
+<pre></pre>
+<p>We start partitioning tool with this command:</p><pre>CALL FDISK
+</pre>
+<pre></pre>
+<div>
+<a href="/uploads/2013/04/mgZy-GU2JvD3yr0Tf447EMgRO4je3YCzIKOuUN9y21jeJiH6fimIgqXFD3YLCSxEaS-xgLK5bXgUFx4BiotdhEPH5L9QC7PxYSPLhCrW3-UL_R9ATWF_7gTuSg" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/mgZy-GU2JvD3yr0Tf447EMgRO4je3YCzIKOuUN9y21jeJiH6fimIgqXFD3YLCSxEaS-xgLK5bXgUFx4BiotdhEPH5L9QC7PxYSPLhCrW3-UL_R9ATWF_7gTuSg" width="400"></a></div>
+<pre></pre>
+<p>Once into partitioning tool, we select our device, MegaFlashROM (1):</p><div>
+<a href="/uploads/2013/04/UPbQ04NyWKX74FoFtANlUQp_QlJM1mjTAMwCyX_KaPoz1mO_7RnH_cbENx2L9JcTn-HgWw3oAQKIK6PBSMw3av-z8r03k-9DAn0HROn4urdTvxaEyIDpDb5WgQ" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/UPbQ04NyWKX74FoFtANlUQp_QlJM1mjTAMwCyX_KaPoz1mO_7RnH_cbENx2L9JcTn-HgWw3oAQKIK6PBSMw3av-z8r03k-9DAn0HROn4urdTvxaEyIDpDb5WgQ" width="400"></a></div>
+<p>Our MicroSD card (2). Drive (1) is read only flash disk:</p><div>
+<a href="/uploads/2013/04/PrH6VmH6SkgvY2If1t9hcO089hiaaHg7laZFN0F6yszFmKitviwOR3ljWXH3QOjcWrtX8nTzwLGH4E-G9PadZNlimWLf1i3J7YglNA3tMxZR1JszVnBAZ37DRQ" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/PrH6VmH6SkgvY2If1t9hcO089hiaaHg7laZFN0F6yszFmKitviwOR3ljWXH3QOjcWrtX8nTzwLGH4E-G9PadZNlimWLf1i3J7YglNA3tMxZR1JszVnBAZ37DRQ" width="400"></a></div>
+<p>At last, we select logical unit (1):</p><div>
+<a href="/uploads/2013/04/Hgh3yRRjGrYkKvoyI_LqgSiVl3v08HLyD_fenO0mqVHCsoe1myf9v7QMkKFMSXsXXm3KfSv-IdfKTs9lwSc1AocvD8Oe5YFf-x8-pJo0ceaRP_vEg7SjAvWw0Q" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/Hgh3yRRjGrYkKvoyI_LqgSiVl3v08HLyD_fenO0mqVHCsoe1myf9v7QMkKFMSXsXXm3KfSv-IdfKTs9lwSc1AocvD8Oe5YFf-x8-pJo0ceaRP_vEg7SjAvWw0Q" width="400"></a></div>
+<p>Partitions can be added one by one, but if we want to delete one, we must delete anyone. We are going to do so (delete all partitions) and create a couple of 16 MB. To delete partitions, we use option (D):</p><div>
+<a href="/uploads/2013/04/DOcCh2yKdiUFLDdEmn2f6FWbQGl2KUuSn5JRGZ2py-YxOGG8PI6aPcUbLlWGYPEP5FvrMDLtkDA_C_KnCfIz38996rd2Y_T_g5zWfGxxi4iDGZhmaerhMefRbw" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/DOcCh2yKdiUFLDdEmn2f6FWbQGl2KUuSn5JRGZ2py-YxOGG8PI6aPcUbLlWGYPEP5FvrMDLtkDA_C_KnCfIz38996rd2Y_T_g5zWfGxxi4iDGZhmaerhMefRbw" width="400"></a></div>
+<p>Confirmation is required in order to proceed:</p><div>
+<a href="/uploads/2013/04/dagfchE0TrRtbdFx11fmAqjluO2D8fpzD8bKVS86Jp0AnDK4NFjmN_3DqF3h_QX8MWnji35jxBxcfmcHdfdhGDx2HeTmrYd7IULVtXvrAi8EGJv8xu1sBXYseA" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/dagfchE0TrRtbdFx11fmAqjluO2D8fpzD8bKVS86Jp0AnDK4NFjmN_3DqF3h_QX8MWnji35jxBxcfmcHdfdhGDx2HeTmrYd7IULVtXvrAi8EGJv8xu1sBXYseA" width="400"></a></div>
+<p>Once deleted, we now create new partitions with option (A):</p><div>
+<a href="/uploads/2013/04/PRp4FRducb8xqhEXI64vsw-0IHpGQYa4TDunh0In0jAHrOteyM5OOrCqgDyqra0fuv5ARX4piBUFhHOBEPmaD2XDGxAeOQMI5yYPj6F3niUcb_5iMmTE6CkTZw" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/PRp4FRducb8xqhEXI64vsw-0IHpGQYa4TDunh0In0jAHrOteyM5OOrCqgDyqra0fuv5ARX4piBUFhHOBEPmaD2XDGxAeOQMI5yYPj6F3niUcb_5iMmTE6CkTZw" width="400"></a></div>
+<p>One more. We could add partitions of any size we wanted, but 16 MB ones work well with MSX1.</p><div>
+<a href="/uploads/2013/04/adc9cdWcjOGpPV1aFmdpVA_tGHE8SttW6wWCRhrY6W3R4Wv4lVqB5gq5bDSojy2rRQfdNIx01zh9f5A7QGpDSixxTodpQCquwXPqTzTT5dppodKn0RXzUNTFug" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/adc9cdWcjOGpPV1aFmdpVA_tGHE8SttW6wWCRhrY6W3R4Wv4lVqB5gq5bDSojy2rRQfdNIx01zh9f5A7QGpDSixxTodpQCquwXPqTzTT5dppodKn0RXzUNTFug" width="400"></a></div>
+<p>We will choose option (W) in order to save partition table in the MicroSD card:</p><div>
+<a href="/uploads/2013/04/6OuA0NE9E1ywHgvzYyl26_f5RQhjOkTQLf-io8PJwLrv9U8xf5v9ibH3HAhpyliACGfhToLwy0PyQVH5Xf5xw3Wf29ci-WzIEZZtgf9D5Ddgg0esE0n1rPVezA" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/6OuA0NE9E1ywHgvzYyl26_f5RQhjOkTQLf-io8PJwLrv9U8xf5v9ibH3HAhpyliACGfhToLwy0PyQVH5Xf5xw3Wf29ci-WzIEZZtgf9D5Ddgg0esE0n1rPVezA" width="400"></a></div>
+<p>We are done. System recommends to reset before continuing:</p><div>
+<a href="/uploads/2013/04/gAV5tEtbidR6N80k2pItjoyNkOU5I5Dc_iKUUZXlEozidmLU7QX6wIkaqs-SV3RayrAtvPNyqCTTPMkbqgEMi9A5-fzjHdP_SsoTQXQQ8akpoJrOI79R7aDrVQ" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/gAV5tEtbidR6N80k2pItjoyNkOU5I5Dc_iKUUZXlEozidmLU7QX6wIkaqs-SV3RayrAtvPNyqCTTPMkbqgEMi9A5-fzjHdP_SsoTQXQQ8akpoJrOI79R7aDrVQ" width="400"></a></div>
+<p>Once we have our card ready, we can put it into our PC and save ROM and DSK files that we are going to flash into the cartridge in a while.</p><div>
+<a href="http://4.bp.blogspot.com/-uMFHHoYBK-I/UViF1IscTKI/AAAAAAAAB8I/hsiE5xO4bWo/s1600/Screen+Shot+2013-03-27+at+12.09.41.png" imageanchor="1"><img class="center-block img-responsive" border="0" height="281" src="/uploads/2013/04/Screen+Shot+2013-03-27+at+12.09.41.png" width="400"></a></div>
+<p>As a precaution, it is recommended to copy A: drive files into MicroSD and store them safely, just in case we need them to restore the cartridge to its initial state.</p><div>
+<a href="/uploads/2013/04/gAV5tEtbidR6N80k2pItjoyNkOU5I5Dc_iKUUZXlEozidmLU7QX6wIkaqs-SV3RayrAtvPNyqCTTPMkbqgEMi9A5-fzjHdP_SsoTQXQQ8akpoJrOI79R7aDrVQ" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/gAV5tEtbidR6N80k2pItjoyNkOU5I5Dc_iKUUZXlEozidmLU7QX6wIkaqs-SV3RayrAtvPNyqCTTPMkbqgEMi9A5-fzjHdP_SsoTQXQQ8akpoJrOI79R7aDrVQ" width="400"></a></div>
+<p>We have only A: (read only flash disk) and B: (first partition on MicroSD card) available on our MSX1. If we want access to the rest of partitions, we have to map them. Let's see how can we do it:</p><ul><li>From MSX-DOS, get into BASIC interpreter.</li>
+</ul>
+<pre>BASIC</pre>
+<ul><li>From BASIC, let's call mapdrv utility. For example, in order to access to the second partition on the MicroSD card, we should use the following command:</li>
+</ul>
+<pre>CALL MAPDRV("B:",2)</pre>
+<ul><li>Get back to MSX-DOS.</li>
+</ul>
+<pre>CALL SYSTEM</pre>
+<ul><li>If we list files, we will see that we are now accessing to the second partition.</li>
+</ul>
+<div>
+<a href="/uploads/2013/04/-Xv-8-Ba1r8zJxupqyNBDF4KzPM9OjavtnQDfkCrcqUGDyujyQ-ZZFrcPutxdF3JuoW6HRddl2QP8W7XKv0Oy8pShq6iXVnF18dEV6-gTxJS6pSKEeGv6Np5ww" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/-Xv-8-Ba1r8zJxupqyNBDF4KzPM9OjavtnQDfkCrcqUGDyujyQ-ZZFrcPutxdF3JuoW6HRddl2QP8W7XKv0Oy8pShq6iXVnF18dEV6-gTxJS6pSKEeGv6Np5ww" width="400"></a></div>
+<h2>
+<p>FLASHING A ROM FILE</h2></p><p>The main program that allows to do "magic" with the MegaFlashROM is OPFXSD.COM. We can download the <a href="http://www.msxcartridgeshop.com/bin/Manual%20de%20usuario%20-%20MegaFlashROM%20SCC+%20SD%201.01.pdf">owner's manual</a> and check the entire list of available parameters. We will only have a look to the more common.</p><p>In order to store a ROM into the cartridge, we have to run the following command:</p><pre>OPFXSD FILE.ROM
+</pre>
+<div>
+<a href="/uploads/2013/04/B0mzQTrkTbmrZ2NH18ygk2pb8ldd6y-BIKEhxDl2l24cPvlIETz5iflfV4ZbJIIohKP1zax4l241SGPvo4mPDXpvi5RyfBzsrM19IGRes6QLn9g7kZ5jbtYRxg" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/B0mzQTrkTbmrZ2NH18ygk2pb8ldd6y-BIKEhxDl2l24cPvlIETz5iflfV4ZbJIIohKP1zax4l241SGPvo4mPDXpvi5RyfBzsrM19IGRes6QLn9g7kZ5jbtYRxg" width="400"></a></div>
+<p>OPFXSD will read the file from SD and will put it into the flash ROM of the cartridge:</p><div>
+<a href="/uploads/2013/04/CXPdCFNeClJNM0xeDl47xGtLVDfCoS48O1oTaNc2aiRjGZ8K-J8z2ZnlOZ3bLQ5ZJfO8YdGXvJdR1OwX63_VJgPLMwYiAT-H331vWXQ3VG3Ygx-yjqsB9xcb4w" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/CXPdCFNeClJNM0xeDl47xGtLVDfCoS48O1oTaNc2aiRjGZ8K-J8z2ZnlOZ3bLQ5ZJfO8YdGXvJdR1OwX63_VJgPLMwYiAT-H331vWXQ3VG3Ygx-yjqsB9xcb4w" width="400"></a></div>
+<p>Once dumped, we have only to reboot the MSX computer and let it run the cartridge's memory content.</p><div>
+<a href="/uploads/2013/04/i0iCWNJC0MS0ZVJ-fDAfQAVFw8p5zmFXXSjVPnJmrbB5noLRT82B91jpSHmQVZmd5i9HmSGgZR150NinbekrbU3hfnrwDk0XMI6-iIXaV13slbPbNhat_ZNMIg" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/i0iCWNJC0MS0ZVJ-fDAfQAVFw8p5zmFXXSjVPnJmrbB5noLRT82B91jpSHmQVZmd5i9HmSGgZR150NinbekrbU3hfnrwDk0XMI6-iIXaV13slbPbNhat_ZNMIg" width="400"></a></div>
+<p>If we want to bypass it we have two choices:</p><ul><li>Boot MSX with Esc key pressed. This will bypass the content of flash ROM and jump into the system.</li>
+<li>Get into recovery tool and erase flash ROM. We will see further how to do this.</li>
+</ul>
+<p>We can flash and run the ROM with just one command, adding /X parameter, like this:</p><pre>OPFXSD FILE.ROM /X
+</pre>
+<div>
+<a href="/uploads/2013/04/J6b0yf1sA749G0cW_5c6OosUVszowCYDy0mcSUupPi1NRGKLu0QhROYWObkuoGiuwiazThJu616GrnolENikuUapw2oJgEBIs0QtV-PecCK_83KJ-g1doXYXJQ" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/J6b0yf1sA749G0cW_5c6OosUVszowCYDy0mcSUupPi1NRGKLu0QhROYWObkuoGiuwiazThJu616GrnolENikuUapw2oJgEBIs0QtV-PecCK_83KJ-g1doXYXJQ" width="400"></a></div>
+<p>This saves us from rebooting MSX, as the tool does it automatically for us after dumping the ROM file.</p><div>
+<a href="/uploads/2013/04/dQBfuSbffss1bilARPkSiGW-QHxllg124rHFRwffUFprfMwJS6s1etkCuGhMPOzhqahsrgmanL5jrKIw0tPVp0J9MywycYVD0qhT3Isa6cHTmTPmtiof9niUeg" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/dQBfuSbffss1bilARPkSiGW-QHxllg124rHFRwffUFprfMwJS6s1etkCuGhMPOzhqahsrgmanL5jrKIw0tPVp0J9MywycYVD0qhT3Isa6cHTmTPmtiof9niUeg" width="400"></a></div>
+<p>If dumping process freezes (it can happen ocassionally) it may be due to any problem with MicroSD card or cartridge slot. In that case, we can try to dump files at 1x speed (the usual speed is 4x for this model of MegaFlashROM). It can be done using /1 parameter:</p><pre>OPFXSD FILES.ROM /1</pre>
+<h2>
+<p>FLASHING A MULTIROM FILE</h2></p><p>Flashing ROM dumps can be a boring process while we are trying new games. MegaFlashROM luckily allows to create up to 511 ROM files compilations. A selection menu is created automatically and shown at boot time.</p><div>
+<a href="/uploads/2013/04/cxWpn9NxQqFcDj5nj0Kbi87LwOfofrvoBrXclM44xu_T0pZXr8D5NMtD2mM0DVqF1RxbH-_6oRGpo4oZaJRjD8_xGkdr1mN_9icTvxlvozMp2p9iUm6iIeHdtA" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/cxWpn9NxQqFcDj5nj0Kbi87LwOfofrvoBrXclM44xu_T0pZXr8D5NMtD2mM0DVqF1RxbH-_6oRGpo4oZaJRjD8_xGkdr1mN_9icTvxlvozMp2p9iUm6iIeHdtA" width="400"></a></div>
+<p>Let's see how can we do it:</p><ul><li>From our usual PC, we create a file named MULTIROM.OPF on the SD card. In this file, we will put the ROM list that we want to add to the boot menu, one file per line, ending with the string [END] (brackets included). Then we have to put all the ROM dumps in the same path. For example:</li>
+</ul><pre>BANKPANI.ROM
+<p>MHUNTER.ROM</p><p>NEMESIS.ROM</p><p>[END]</pre></p><ul><li>OPFXSD allows to choose the ROM's mapper type, just in case that automatic detection fails for any reason. Syntax is the same used when the single ROM command, as can be seen in the owner's manual. In this next example we are using Konami SSC mapper:</li>
+</ul>
+<pre>BANKPANI.ROM
+<p>MHUNTER.ROM /K5</p><p>NEMESIS.ROM</p><p>[END]</pre></p><ul><li>Let's move to the MSX and launch the command OPFXSD /O. This command will analyse  MULTIROM.OPF file and dump into the cartridge's flash memory every ROM in the list. If there is any error (missing files or so) we can check it on screen.</li>
+</ul>
+<div>
+<a href="/uploads/2013/04/g2jvTb2g8JzFp-qibBW_PPWscmLF3B2lyUtPHbMVoDIT2_LBh91B0YZKPmcY7-lUTljUdQa62wDyK3yl-9W0RVVB2wQkWT7tEF-atm1sHMMhuiHTknczSOpheQ" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/g2jvTb2g8JzFp-qibBW_PPWscmLF3B2lyUtPHbMVoDIT2_LBh91B0YZKPmcY7-lUTljUdQa62wDyK3yl-9W0RVVB2wQkWT7tEF-atm1sHMMhuiHTknczSOpheQ" width="400"></a></div>
+<ul><li>If everything is OK, we can reboot the computer and enjoy our just created game compilation.</li>
+</ul>
+<div>
+<a href="/uploads/2013/04/1CskDGsaj3CRjr_O9JbcgR119yOT_KE-wRyinHgNaEElrGuETN0sEDzRYeplBvPGM_CbQB0Wtr5LYJQteNlg5GKnUslL7_iXVa-wbya8xiiicePHrhKPyidZGQ" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/1CskDGsaj3CRjr_O9JbcgR119yOT_KE-wRyinHgNaEElrGuETN0sEDzRYeplBvPGM_CbQB0Wtr5LYJQteNlg5GKnUslL7_iXVa-wbya8xiiicePHrhKPyidZGQ" width="400"></a></div>
+<ul><li>Last version of OPFXSD allows to set the name of the .OPF file that defines the list of archives. So we can store different compilations into the same MicroSD card, ready to be flashed into the MegaFlashROM.</li>
+</ul>
+<h2>
+<p>FLASHING A DISK IMAGE</h2></p><p>Flashing a disk image is fairly the same thing than flashing a ROM dump. The command we have to use is very similar:</p><pre>OPFXSD IMAGE.DSK /D1
+</pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<div>
+<a href="/uploads/2013/04/XD4arfJYYp_x_tCJDZc871jLezEz7HPZ4wZuEjbrB0BotP2JCt3XrgRyvohvY6gS8Y8I0Bbo6_hPBEv90Lf26aoiG6xaHKj8-PRG2-8ENCgyK0WWGv2lsA06Zg" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/XD4arfJYYp_x_tCJDZc871jLezEz7HPZ4wZuEjbrB0BotP2JCt3XrgRyvohvY6gS8Y8I0Bbo6_hPBEv90Lf26aoiG6xaHKj8-PRG2-8ENCgyK0WWGv2lsA06Zg" width="400"></a></div>
+<p>System deals with all the stuff necessary to autoload the disk image and run it at boot time. We can store up to 9 images at the same time (from D1 to D2). MSX always boots from D1 by default, but we can choose another image by pressing its number (from 1 to 9) on keyboard while booting. This feature also allows to run multidisk software.</p><div>
+<a href="/uploads/2013/04/_wUy07Pnv7EVSwhSeX_yyoPXdSUyjgaJ9h2cAmnFhO32wbnYSk6C3IEvjzL6NtGTfOS0VmfTFbYz3XoZG2BVhxoWYfLKnygxtbZtGpszfFNqhqlxQtIvxpsYfg" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/_wUy07Pnv7EVSwhSeX_yyoPXdSUyjgaJ9h2cAmnFhO32wbnYSk6C3IEvjzL6NtGTfOS0VmfTFbYz3XoZG2BVhxoWYfLKnygxtbZtGpszfFNqhqlxQtIvxpsYfg" width="400"></a></div>
+<h2>
+<p>RECOVERY MODE</h2></p><p>In order to access recovery mode, we have to boot MSX with Up key pressed. </p><div>
+<a href="/uploads/2013/04/pw8bidXgosbzFExeGecnQt9MMxRGArNLHc0peHxCFmSoMMznTWmb53hEsnAjsPPOT3TB0xyGiQEOoowNXXdfKCjOdqmYjOzr_0RxBbKhn4ka6oYId8RoACX4iQ" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/pw8bidXgosbzFExeGecnQt9MMxRGArNLHc0peHxCFmSoMMznTWmb53hEsnAjsPPOT3TB0xyGiQEOoowNXXdfKCjOdqmYjOzr_0RxBbKhn4ka6oYId8RoACX4iQ" width="400"></a></div>
+<p>We have the following options:</p><ul><li>F1. Erase flash ROM.</li>
+<li>F2. Erase SD management kernel.</li>
+<li>F3. Erase ROM disk.</li>
+<li>F4. Install cartridge kernel.</li>
+<li>F5. Show information about SD card (or cards).</li>
+</ul>
+<p>We will normally use only the first one.</p><div>
+<a href="/uploads/2013/04/WG1IrgFtvdro46irpdQjQmI2komFWeib0ZSsqWgH3y0Jc81jt28hNv9b_dxVLCxSNbFWDY1T6YCrsk5j-VrFVQx6h55u4cO1OM-XbbuzVjsgdP1nS9r4jHN24Q" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/04/WG1IrgFtvdro46irpdQjQmI2komFWeib0ZSsqWgH3y0Jc81jt28hNv9b_dxVLCxSNbFWDY1T6YCrsk5j-VrFVQx6h55u4cO1OM-XbbuzVjsgdP1nS9r4jHN24Q" width="400"></a></div>
+<p>The other ones are useful in order to restore the initial state of the cartridge in case we have made any mistakes operating it. Let's see how:</p><p>In order to restore the kernel, we have to put KERNEL.DAT file into the MicroSD card. Then boot in recovery mode and using F4 option. The manufacturer suggests that this file is the only present in the primary partition of the card. It is important to know that recovery software performs a low level access to the MicroSD card, so it can be formatted in FAT 16 or, even, FAT 32 (not confirmed).</p><p>In case we have erased the files in A: virtual read only drive (I did it, do not ask me how), we can boot MSX-DOS if we restore the copy of the files that we suggested to do at the beginning.</p><p>Once we have started MSX-DOS, we must run the following command in order to follow with the recovery procedure:</p><pre>OPFXSD DSKROM.ROM /I1
+</pre>
+<p>in order to save disk image management kernel. After that, we run the following command:</p><pre>OPFXSD ROMDISK.DSK /ID
+</pre>
+<p>in order to restore flash read only drive (mapped as A:).</p><h2>
+<p>RECOVERY FILES</h2></p><ul><li><a href="http://www.msxcartridgeshop.com/bin/dskrom.rom">DSKROM.ROM</a></li>
+<li><a href="http://www.konamiman.com/msx/nextor/kernels/Nextor-2.0-beta1.MegaFlashSDSCC.recovery.rom">KERNEL.DAT</a></li>
+<li><a href="http://www.msxcartridgeshop.com/bin/opfxsd.com">OPFXSD.COM</a></li>
+<li><a href="http://www.msxcartridgeshop.com/bin/recovery.rom">RECOVERY.ROM</a> (please do not use unless it has been asked by the manufacturer)</li>
+<li><a href="http://www.msxcartridgeshop.com/bin/ROMDISK.DSK">ROMDISK.DSK</a></li>
+</ul><h2>
+<p>RELATED LINKS (IN SPANISH)</h2></p><ul><li><a href="http://soft.mundivia.es/mpazos/flashrom/">http://soft.mundivia.es/mpazos/flashrom/</a></li>
+<li><a href="http://www.msxcartridgeshop.com/">http://www.msxcartridgeshop.com/</a></li>
+<li><a href="http://www.konamito.com/megaflashrom-scc-sd-ya-a-la-venta/">http://www.konamito.com/megaflashrom-scc-sd-ya-a-la-venta/</a></li>
+<li><a href="http://www.konamito.com/manuel-pazos-anuncia-megaflashrom-scc-sd/">http://www.konamito.com/manuel-pazos-anuncia-megaflashrom-scc-sd/</a></li>
+<li><a href="http://www.konamiman.com/msx/msx-s.html#nextor">http://www.konamiman.com/msx/msx-s.html#nextor</a></li>
+<li><a href="http://zonadepruebas.com/viewtopic.php?f=28&t=2964">http://zonadepruebas.com/viewtopic.php?f=28&t=2964</a></li>
+<li><a href="http://www.msx.org/es/forum/debates-en-espanol/hardware/megaflashrom-scc-sd">http://www.msx.org/es/forum/debates-en-espanol/hardware/megaflashrom-scc-sd</a></li>
+</ul><div>
+<h2>
+<p>COMPATIBILITY</h2></p><p>MegaFlashROM has been tested with multilple MSX computers so far, always with proper results. But with MSX Sony Hit Bit 20P (of Santiago Romero), it did not work. It might be due to the computer scanning for extended slots faster than cartridge's FPGA enables their own ones. In this case, it is necessary to do a soft reset. The command is:</p><pre>DEFUSR=0:?USR(0)
+</pre>
+<h2>
+<p>ACKNOWLEDGEMENTS</h2></p><p>To Manuel Pazos, which not only has created such wonderful device, but also has helped me start using the cartridge and has answered quickly and kindly all my questions.</div></p>

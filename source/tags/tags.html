@@ -1,0 +1,52 @@
+---
+layout: default
+title: Tag Archive
+generator: [posts_tag_index, pagination]
+pagination:
+    provider: page.tag_posts
+    max_per_page: 500
+
+---
+
+{% block head_meta %}
+    <link rel="alternate" type="application/atom+xml" href="{{ site.url }}/tags/{{ page.tag|url_encode(true) }}.xml" title="{{ site.title }} '{{ page.tag }}' tag feed" />
+    <meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block title %}{{ page.title }} "{{ page.tag }}"{% endblock %}
+{% block content %}
+{% set year = '0' %}
+
+<h2>Entradas etiquetadas como "{{ page.tag }}"</h2>
+{% for post in page.pagination.items %}
+{% set this_year %}{{ post.date | date("Y") }}{% endset %}
+{% if year != this_year %}
+  {% set month = '0' %}
+  {% set year = this_year %}
+{% endif %}
+{% set this_month %}{{ post.date | date("F") }}{% endset %}
+{% if month != this_month %}
+  {% set month = this_month %}
+  <h3>{{ month }} {{ year }}</h3>
+{% endif %}
+<article>
+  <div><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></div>
+</article>
+{% endfor %}
+
+<div>
+{% if page.pagination.previous_page or page.pagination.next_page %}
+    <nav class="article clearfix">
+        <ul class="pager">
+    {% if page.pagination.previous_page %}
+    <li class="previous"><a href="{{ site.url }}{{ page.pagination.previous_page.url }}" title="Previous Page"><span aria-hidden="true">&larr;</span> Página anterior</a></li>
+    {% endif %}
+    {% if page.pagination.next_page %}
+    <li class="next"><a class="next" href="{{ site.url }}{{ page.pagination.next_page.url }}" title="Next Page">Página siguiente <span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+---
+layout: default
+title: Tags
+use:
+    - posts_tags
+---
+
+{% set max_tag_size = 1 %}
+{% for tag,posts in data.posts_tags %}
+    {% if posts|length > max_tag_size %}
+        {% set max_tag_size = posts|length %}
+    {% endif %}
+{% endfor %}
+
+<h2>Etiquetas</h2>
+<div class="tag-cloud">
+    {% for tag,posts in data.posts_tags %}
+        {% set tag_size = posts|length * (100 / max_tag_size) + 100 %}
+        <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}" style="font-size: {{ tag_size|round }}%;">{{ tag }}</a>
+    {% endfor %}
+</div>
+

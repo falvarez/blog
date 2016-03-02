@@ -1,0 +1,40 @@
+---
+layout: default
+title: Portada
+generator: pagination
+pagination:
+    max_per_page: 8
+use:
+    - posts
+---
+{% for post in page.pagination.items %}
+    <article>
+        <header class="post-preview">
+            <p class="post-meta">{{ post.text_date }}</p>
+            <a href="{{ site.url }}{{ post.url }}">
+                <h2 class="post-title">{{ post.title }}</h2>
+                {% if post.subtitle %}<h3 class="post-subtitle">{{ post.subtitle }}</h3>{% endif %}
+            </a>
+        </header>
+        <div>
+            {{ post.blocks.content|raw }}
+        </div>
+        {% if post.meta.tags %}
+            <div class="tags">
+            {% for tag in post.meta.tags %}
+                <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}" class="btn btn-primary btn-sm" title="Ver entradas relacionadas con {{ tag|escape('html_attr') }}"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {{ tag }}</a>{% if not loop.last %} {% endif %}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <hr>
+    </article>
+{% endfor %}
+
+{% if page.pagination.previous_page or page.pagination.next_page %}
+    <nav>
+        <ul class="pager">
+            {% if page.pagination.next_page %}<li class="next"><a href="{{ site.url }}{{ page.pagination.next_page.url }}">Entradas anteriores &rarr;</a></li>{% endif %}
+            {% if page.pagination.previous_page %}<li class="previous"><a href="{{ site.url }}{{ page.pagination.previous_page.url }}"> &larr; Entradas siguientes</a></li>{% endif %}
+        </ul>
+    </nav>
+{% endif %}

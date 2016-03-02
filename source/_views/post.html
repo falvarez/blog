@@ -1,0 +1,68 @@
+{% extends "default" %}
+
+{% block template_class %}post{% endblock %}
+
+{% block head_meta %}
+<meta name="robots" content="index, follow">
+{% endblock %}
+
+{% block header %}
+
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url({% if page.header_image %}{{ page.header_image }}{% else %}'/img/home-bg.jpg'{% endif %});">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>{{ page.title }}</h1>
+                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                    <span class="meta">{{ page.text_date }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% endblock %}
+
+{% block content_wrapper %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+{% if page.tags %}
+<div class="tags">
+    {% for tag in page.tags %}
+    <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}" class="btn btn-primary btn-sm" title="Ver entradas relacionadas con {{ tag|escape('html_attr') }}"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {{ tag }}</a>{% if not loop.last %} {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+
+{{ page.blocks.content|raw }}
+
+
+<hr>
+
+{% if site.disqus.shortname and site.disqus.shortname != '' %}
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    {% if page.disqus_identifier  %}var disqus_identifier = '{{page.disqus_identifier}}'; {% endif %}
+    {% if page.disqus_url %}var disqus_url = '{{page.disqus_url}}';{% endif %}
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + '{{site.disqus.shortname}}.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Por favor, habilita JavaScript para ver los <a href="https://disqus.com/?ref_noscript" rel="nofollow">comentarios ofrecidos por Disqus.</a></noscript>
+{% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

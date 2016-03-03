@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "Tutorial MegaFlashROM SCC+ SD"
+summary: "DESCRIPCIÓN"
 header_image: /uploads/2013/03/sFXN2l8m9IvSZM3FDzQW0Lj4pWsdd5tqloDp_H_lFd_sYH8dVptQ4K5QxGhPFzWvYaKpwnjRHOvI_MjkXFhmRr4Av-OK-rSv8MpOfrzj1ghvJfDz_mGDXdnuZg
+main_image: /uploads/2013/03/sFXN2l8m9IvSZM3FDzQW0Lj4pWsdd5tqloDp_H_lFd_sYH8dVptQ4K5QxGhPFzWvYaKpwnjRHOvI_MjkXFhmRr4Av-OK-rSv8MpOfrzj1ghvJfDz_mGDXdnuZg
 text_date: Domingo, 31 de marzo de 2013
 tags: [tutorial,retroinformática,msx]
 disqus_identifier: tutorial-megaflashrom-scc-sd
@@ -145,7 +147,7 @@ disqus_url: http://blog.falvarez.es/2013/03/tutorial-megaflashrom-scc-sd.html
 </ul>
 <p>Normalmente sólo emplearemos la primera de ellas.</p><div>
 <a href="/uploads/2013/03/WG1IrgFtvdro46irpdQjQmI2komFWeib0ZSsqWgH3y0Jc81jt28hNv9b_dxVLCxSNbFWDY1T6YCrsk5j-VrFVQx6h55u4cO1OM-XbbuzVjsgdP1nS9r4jHN24Q" imageanchor="1"><img class="center-block img-responsive" border="0" height="266" src="/uploads/2013/03/WG1IrgFtvdro46irpdQjQmI2komFWeib0ZSsqWgH3y0Jc81jt28hNv9b_dxVLCxSNbFWDY1T6YCrsk5j-VrFVQx6h55u4cO1OM-XbbuzVjsgdP1nS9r4jHN24Q" width="400"></a></div>
-<p>Las tres siguientes son útiles para recuperar el estado inicial del cartucho en el caso de que hayamos cometido algún error en su manejo. A continuación veremos cómo:</p><p>Para restaurar el kernel del cartucho, tenemos que grabar el fichero KERNEL.DAT en la MicroSD, arrancar en modo recuperación y usar la opción F4. Se recomienda que dicho fichero sea el único existente en la primera partición de la tarjeta. <b><span>Comentar que, en este caso, la tarjeta MicroSD puede estar formateada en FAT 16 o, incluso, FAT 32 (no comprobado), ya que el software de recuperación accede a los sectores del dispositivo a nivel físico, no lógico.</span></b></p><p>Si por lo que sea nos hemos cargado el contenido de la unidad A: (yo lo hice y todavía no sé cómo), podemos arrancar MSX-DOS si tenemos los ficheros del sistema en la tarjeta MicroSD (por eso recomendamos al principio hacer una copia del contenido de la unidad A:).</p><p>Una vez hayamos arrancado MSX-DOS, para proseguir la restauración debemos ejecutar el comando:</p><pre>OPFXSD DSKROM.ROM /I1
+<p>Las tres siguientes son útiles para recuperar el estado inicial del cartucho en el caso de que hayamos cometido algún error en su manejo. A continuación veremos cómo:</p><p>Para restaurar el kernel del cartucho, tenemos que grabar el fichero KERNEL.DAT en la MicroSD, arrancar en modo recuperación y usar la opción F4. Se recomienda que dicho fichero sea el único existente en la primera partición de la tarjeta. <strong><span>Comentar que, en este caso, la tarjeta MicroSD puede estar formateada en FAT 16 o, incluso, FAT 32 (no comprobado), ya que el software de recuperación accede a los sectores del dispositivo a nivel físico, no lógico.</span></strong></p><p>Si por lo que sea nos hemos cargado el contenido de la unidad A: (yo lo hice y todavía no sé cómo), podemos arrancar MSX-DOS si tenemos los ficheros del sistema en la tarjeta MicroSD (por eso recomendamos al principio hacer una copia del contenido de la unidad A:).</p><p>Una vez hayamos arrancado MSX-DOS, para proseguir la restauración debemos ejecutar el comando:</p><pre>OPFXSD DSKROM.ROM /I1
 </pre>
 <p>para grabar el kernel necesario para lanzar imágenes de disco. Después, ejecutaremos el comando:</p><pre>OPFXSD ROMDISK.DSK /ID
 </pre>

@@ -4,6 +4,16 @@
 
 {% block head_meta %}
 <meta name="robots" content="index, follow">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@falvarez">
+<meta name="twitter:creator" content="@falvarez">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.summary }}">
+{% if page.main_image %}
+<meta name="twitter:image" content="{{ site.url}}{{ page.main_image }}">
+{% endif %}
+
 {% endblock %}
 
 {% block header %}

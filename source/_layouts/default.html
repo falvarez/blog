@@ -11,6 +11,10 @@
 
     <title>{% block title %}{{ page.title }}{% endblock %} &mdash; {{ site.title }}</title>
 
+    {% block head_meta %}
+    <meta name="robots" content="noindex, follow">
+    {% endblock %}
+
     <!-- Bootstrap Core CSS -->
     <link href="{{ site.url }}/css/bootstrap.min.css" rel="stylesheet">
 

@@ -3,5 +3,8 @@ permalink: none
 ---
 
 User-agent: *
+Disallow: /tags/
+Disallow: /archive/
+Disallow: /search.html
 
 Sitemap: {{ site.url }}/sitemap.xml

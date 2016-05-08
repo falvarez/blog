@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Arqueología informática"
+summary: "¿Qué ocurre cuando intentas rescatar de un viejo backup tus desarrollos de hace 15 años?"
+header_image: /uploads/2016/05/ens2001-notebook.jpg
+main_image: /uploads/2016/05/ens2001-screenshot.png
+text_date: Domingo, 8 de mayo de 2016
+tags: [informática, personal]
+disqus_identifier: arqueologia-informatica
+disqus_url: http://blog.falvarez.es/2016/05/arqueologia-informatica.html
+
+---
+
+<p>No sé exactamente cuál ha sido el interruptor que ha hecho encenderse esta pequeña bombillita en mi cerebro. Quizás durante la lectura de esos artículos preñados de nostalgia que inundan hoy en día los medios generalistas, del tipo: "¿Qué fue de los protagonistas de Regreso al Futuro?", o "10 tecnologías que usabas hace 10 años y que ahora están muertas". La cuestión es que, durante esta pasada semana, recordé que yo una vez hice un Proyecto Fin de Carrera y que, incluso, había una página web donde se alojaba el software que desarrollé.</p>
+
+<p>Se me ocurrió que podía ser buena idea recuperar aquel trabajo y volver a publicarlo en una página web. Y, con esa simple idea de base, ver hasta dónde se puede llegar.</p>
+
+<p>Aunque no soy todo lo organizado y metódico que me gustaría, tengo una copia de seguridad de aquella web. Aunque era una página muy simple, apenas una descripción, unos cuantos enlaces para descargar un puñado de ficheros y un pequeño diario de actualizaciones, en aquel momento, en el que ya hacía mis pinitos con PHP, monté una mini gestión de contenidos para poder realizar de manera ágil tanto las subidas de archivos como la publicación de novedades. El caso es que esa información se almacenaba en una base de datos de la que no conservo el respaldo. Por lo tanto, la copia de los ficheros de la web, en ausencia de datos que la alimenten, es del todo inútil.</p>
+
+<p>En este punto viene en nuestra ayuda, una vez más, la imprescindible <a href="https://web.archive.org/">Wayback Machine</a>, mediante la cual he podido rescatar todo el contenido de la web. Pero primero tenía que averiguar cuál era la URL en la que estaba alojado mi proyecto. En aquella época era muy común que los proveedores de Internet ofrecieran espacio gratuito a sus clientes para alojar sus webs. Recuerdo vagamente haber usado el alojamiento de <a href="http://www.inicia.es/login.php">Inicia</a> (en su momento un portal importante, luego vendido a <a href="http://www.tiscali.it/">Tiscali</a> y ahora veo que ha acabado perteneciendo a <a href="https://masmovil.es/es/">Más Móvil</a>). Posteriormente estuvo alojada en <a href="http://www.lycos.es/">Lycos</a>, que hoy día tampoco existe como tal.</p>
+
+<p>En Wayback Machine <a href="https://web.archive.org/web/20080201000000*/http://usuarios.lycos.es/ens2001">la última copia que se conserva es de 2008</a>, que es la que he tomado como referencia para recuperar le material. Esto nos da una idea de cómo ha cambiado el panorama de Internet en apenas 15 años, con portales importantes naciendo y desapareciendo. Se puede comprobar tristemente si accedemos a contenidos creados en aquella época, como los de nuestra revista <a href="http://magazinezx.speccy.org/">MagazineZX</a>, en los que la mayoría de los enlaces a sitios externos ya no funcionan.</p>
+
+<p>Del proyecto en sí hice una copia que guardé dentro del libro con la memoria del PFC. He mantenido los dedos cruzados mientras introducía el CD-ROM en el ordenador para comprobar con alivio que su contenido era legible. De ahí he podido obtener la memoria que redacté, la presentación que hice y múltiples versiones del código fuente. En aquella época no existía <a href="https://git-scm.com/">Git</a>, pero sí que existían otros sistemas de control de versiones como <a href="http://www.nongnu.org/cvs/">CVS</a> o <a href="https://subversion.apache.org/">SVN</a>. No recuerdo si los conocía en aquella época. Lo que está claro es que, lamentablemente, no los usé.</p>
+
+<p>Una vez recuperado el material, he creado una <a href="https://ens2001.falvarez.es/">sencilla web</a> donde alojarlo. La web original no contenía las últimas versiones de la herramienta, que ahora sí están disponibles. También he aprovechado para recopilar el código fuente, repositarlo y publicarlo en <a href="https://github.com/falvarez/ens2001">GitHub</a>. Tengo pendiente probar en algún ordenador con Windows o Linux si los ejecutables funcionan (no había versión para Mac y, si la hubiera habido, no correría sobre procesadores Intel, ya que en aquella época Apple todavía usaba PowerPC en sus equipos). El código fuente creo que no compila, habría que mirar cuán fácil o complicado es adaptarlo para que lo haga, al menos en la versión para línea de comandos.</p>
+
+<div><img class="center-block img-responsive" width="825" src="/uploads/2016/05/ens2001-screenshot.png" alt="ENS2001 modo CLI en funcionamiento"></div>
+
+<p>Mientras recopilaba toda la información, me he sentido como esos colegas que, hoy en día, andan investigando y publicando artículos sobre programadores de juegos de los 80. Y, al mismo tiempo, como uno de esos programadores cuando se les pregunta por cosas que, muchas veces, ni siquiera recuerdan. Durante la realización del proyecto aprendí C++, lenguaje que no he vuelto a utilizar. También aprendí a hacer una aplicación de escritorio para Windows, usando <a href="https://es.wikipedia.org/wiki/C%2B%2BBuilder">Borland C++ Builder</a> (otro producto que creo que ya no existe como tal). Me pregunto por qué no utilicé Java, pero no lo recuerdo.</p>
+
+<p>Seguramente aproveche para publicar la memoria y la presentación del PFC en la misma web. Lo siguiente que me gustaría sería limpiar y reordenar el código fuente para que, al menos, sea compilable en su versión de línea de comandos para plataformas actuales. La versión para Windows no creo que sea recuperable de forma sencilla. Al menos yo no tengo ese conocimiento (ni es mi prioridad dedicar tiempo a investigar esa vía).</p>
+
+<p>En cualquier caso, lo bueno es que, ahora, la herramienta vuelve a estar disponible, así como la documentación y el código fuente. Si alguien quiere aprovechar mi trabajo como base para un nuevo proyecto o, simplemente, para aprender cómo funciona un ensamblador y una máquina virtual muy sencilla, lo daré por bien empleado. Y, si no, al menos que quede como constancia de un trocito de (mi) historia informática.</p>

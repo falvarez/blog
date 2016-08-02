@@ -19,3 +19,21 @@ disqus_url: http://blog.falvarez.es/2016/07/primera-averia-grave-en-el-mac.html
 <div><img class="center-block img-responsive" width="600" src="/uploads/2016/07/mbp-desmontado.jpg" alt="Mac Book Pro totalmente desmontado"></div>
 <p>Puede que aproveche el momento para hacer una instalación “limpia” del sistema, algo que siempre es recomendable. Aunque la idea de recuperar de nuevo la copia de seguridad y seguir como si no hubiera pasado nada es bastante tentadora.</p>
 <p>También he estado tentado de encender el Macintosh Classic y hacer una foto junto al Mac Book Pro, el primero funcionando y el segundo averiado. Lógicamente sería una comparación muy injusta, pero no exenta de cierta gracia.</p>
+<h3>Actualización 2 de agosto de 2016</h3>
+<p>Estaba yo tan feliz (y con un buen agujero en el bolsillo) con mi disco duro nuevo, cuando he vuelto a encender el ordenador y me he encontrado con el mismo problema. Es una muy mala noticia por varios motivos. El principal es no saber ahora cuál puede ser la causa del problema. El segundo es que, muy probablemente, he comprado un disco SSD sin necesidad (y 50 euros más caro de lo que estaba hace unos pocos días en el Amazon Prime Day. Además el error me ha pillado en el pueblo, con lo que mi margen de maniobra ha sido nulo hasta ayer.</p>
+<p>Arrancando en modo verboso, he visto que el error es el siguiente:</p>
+<div><img class="center-block img-responsive" width="600" src="/uploads/2016/08/mbp-read-error-0x6.jpg" alt="Error 0x6 al arrancar OSX"></div>
+<p>Transcripción del mensaje de error:</p>
+<pre>
+efiboot loaded from device: Acpi (PNP0A03,0)/Pci(1F|2)/SATA(0,0)/HD(Part3,Sig58075
+30D-1BD2D-42C9-802F-0934E6A43EFE)
+efiboot file path: \System\Library\CoreServices\boot.efi
+Read error 0x6
+ERROR!!! Load prelinked kernel with status 0x80000000000000006
+Error loading kernel cache (0x6)
+</pre>
+<p>Y, tras mucho buscar por Internet y leer hilos interminables en foros (llevo haciéndolo desde el fin de semana), he llegado a la conclusión, tremendamente chocante para mí, de que el problema puede estar en el cable SATA que conecta la unidad SSD con la placa. No logro entender cómo puede ser, pero parece que es un <a href="http://www.macuarium.com/foro/index.php?showtopic=351748">defecto</a> <a href="https://m.reddit.com/r/applehelp/comments/4t91vz/trouble_making_el_capitan_work_on_new_ssd_in/">común</a> <a href="http://www.applesfera.com/portatil/posible-solucion-a-los-problemas-con-el-conector-sata-iii-de-los-macbook-pro-del-2011">en los Mac Book Pro no retina de 13"</a>. Estamos hablando de un cable plano que va muy fijado, prácticamente sin margen de movimiento, ya que pasa entre la unidad SSD y el chasis de aluminio. Y quizás ahí está el problema, amén del calor que hace estos días y que hace sobrecalentarse el equipo todavía más.</p>
+<p>Digo que no lo comprendo porque, una vez que consigue arrancar, el ordenador no da síntoma de fallo, pudiendo trabajar con él el tiempo que se desee. Justo eso fue lo que me ocurrió el fin de semana. Después de un buen rato haciendo cosas, lo reinicié y ya no arrancaba. La prueba del nueve ha sido extraer el disco SSD y conectarlo mediante una caja USB externa para comprobar que el sistema operativo arrancaba a la primera y funcionaba con total normalidad.</p>
+<p>De momento, a falta de comprar un cable de repuesto, he aplicado la solución de baja tecnología que comentan en el siguiente vídeo, y que consiste en proteger el cable con cinta aislante para que no haga contacto con el chasis. Tan increible como que estoy escribiendo estas líneas desde el propio ordenador averiado.</p>
+<div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube.com/embed/Amg5w0rlwDo" frameborder="0" allowfullscreen></iframe></div>
+<p>No acabo de creérmelo del todo. Esperemos que sea este el problema verdadero y que la solución empleada sea la correcta.</p>

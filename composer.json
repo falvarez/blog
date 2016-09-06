@@ -1,0 +1,15 @@
+{
+    "name": "falvarez/blog",
+    "description": "¡VAPF! blog source code based on Sculpin, inspired by https://github.com/sculpin/sculpin-blog-skeleton, built on Clean Blog Theme http://startbootstrap.com/template-overviews/clean-blog/",
+    "require-dev": {
+        "sculpin/sculpin": "^2.0"
+    },
+    "minimum-stability": "dev",
+    "license": "CC Attribution-NonCommercial-NoDerivatives 4.0 International",
+    "authors": [
+        {
+            "name": "Federico J. Álvarez Valero",
+            "email": "fede.alvarez@gmail.com"
+        }
+    ]
+}

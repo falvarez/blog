@@ -11,5 +11,8 @@
             "name": "Federico J. Álvarez Valero",
             "email": "fede.alvarez@gmail.com"
         }
-    ]
+    ],
+    "require": {
+        "twig/extensions": "1.0.*@dev"
+    }
 }

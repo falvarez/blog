@@ -13,7 +13,7 @@ p {
   line-height: 1.5;
   margin: 30px 0;
 }
-a {
+.main-content a {
   text-decoration: none;
   border-bottom: 1px dotted #404040;
 }

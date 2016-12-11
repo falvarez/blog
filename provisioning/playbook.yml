@@ -1,6 +1,8 @@
 ---
 - hosts: all
   become: yes
+  roles:
+    - geerlingguy.repo-remi
   tasks:
     - name: Install EPEL repo.
       yum:

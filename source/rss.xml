@@ -1,0 +1,38 @@
+---
+use: ["posts"]
+permalink: rss.xml
+---
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title><![CDATA[{{ site.title }}]]></title>
+        <link>{{ site.url }}</link>
+        <language>es-es</language>
+        <lastBuildDate>{{ site.calculated_date | date('c') }}</lastBuildDate>
+        {% for post in data.posts|slice(0, 10) %}
+            <item>
+                <title><![CDATA[{{ post.title }}]]></title>
+                <link>{{ site.url }}{{ post.url }}</link>
+                <guid>{{ site.url }}{{ post.url }}</guid>
+                <pubDate>{{ post.date|date('c') }}</pubDate>
+                <author>Federico J. Álvarez Valero</author>
+                <description><![CDATA[{{ post.summary }}]]></description>
+                <content:encoded>
+                    <![CDATA[<!doctype html>
+                    <html lang="en" prefix="op: http://media.facebook.com/op#">
+                        <head>
+                            <meta charset="utf-8">
+                            <link rel="canonical" href="{{ site.url }}{{ post.url }}">
+                            <meta property="op:markup_version" content="v1.0">
+                        </head>
+                        <body>
+                            <article>
+                                {{ post.blocks.content | preg_replace('#src="\/#', 'src="https://blog.falvarez.es/$1') | preg_replace('#href="\/#', 'href="https://blog.falvarez.es/$1') | raw }}
+                            </article>
+                        </body>
+                    </html>]]>
+                </content:encoded>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

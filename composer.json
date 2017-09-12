@@ -13,6 +13,7 @@
         }
     ],
     "require": {
-        "twig/extensions": "1.0.*@dev"
+        "twig/extensions": "1.0.*@dev",
+        "jasny/twig-extensions": "^1.1"
     }
 }

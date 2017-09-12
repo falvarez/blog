@@ -4,9 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "446ac781a42a334a0c6caa980f727e12",
-    "content-hash": "524d742096a429c4fcabd601ac576647",
+    "hash": "0d3e8362117bc1661115dab7b8cc5942",
+    "content-hash": "c1ef628a40bacf4d420a30cfd746ad1f",
     "packages": [
+        {
+            "name": "jasny/twig-extensions",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jasny/twig-extensions.git",
+                "reference": "1ef1f2a1dc011eda204029991ad2d50c76a6804e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jasny/twig-extensions/zipball/1ef1f2a1dc011eda204029991ad2d50c76a6804e",
+                "reference": "1ef1f2a1dc011eda204029991ad2d50c76a6804e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "twig/twig": "^1.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "ext-pcre": "*",
+                "jasny/php-code-quality": "^2.1"
+            },
+            "suggest": {
+                "ext-intl": "Required for the use of the LocalDate Twig extension",
+                "ext-pcre": "Required for the use of the PCRE Twig extension"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jasny\\Twig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arnold Daniels",
+                    "email": "arnold@jasny.net",
+                    "homepage": "http://www.jasny.net"
+                }
+            ],
+            "description": "A set of useful Twig filters",
+            "homepage": "http://github.com/jasny/twig-extensions#README",
+            "keywords": [
+                "PCRE",
+                "array",
+                "date",
+                "datetime",
+                "preg",
+                "regex",
+                "templating",
+                "text",
+                "time"
+            ],
+            "time": "2017-02-07 23:24:07"
+        },
         {
             "name": "twig/extensions",
             "version": "v1.0.1",

@@ -1,1 +1,8 @@
-<p><img class="{{ position }}-block img-responsive" src="{{ src }}" alt="{{ alt }}"></p>
+<figure>
+    <img class="{{ position }}-block img-responsive" src="{{ src }}" alt="{{ alt }}">
+    {% if caption %}
+        <figcaption>{{ caption }}</figcaption>
+    {% else %}
+        <figcaption>{{ alt }}</figcaption>
+    {% endif %}
+</figure>

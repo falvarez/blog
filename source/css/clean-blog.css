@@ -9,7 +9,7 @@ body {
   font-size: 20px;
   color: #404040;
 }
-p {
+p, ul, ol {
   line-height: 1.5;
   margin: 30px 0;
 }
@@ -42,6 +42,10 @@ a img:focus {
 blockquote {
   color: #808080;
   font-style: italic;
+}
+figure figcaption {
+  font-size: 80%;
+  text-align: right;
 }
 hr.small {
   max-width: 100px;

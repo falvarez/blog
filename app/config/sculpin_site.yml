@@ -3,5 +3,6 @@
 # in a template to get the contents of the `title` key.
 title: ¡VAPF!
 subtitle: ¡Vete al peo, Fede!
+url: https://blog.falvarez.es
 disqus:
     shortname: blog-falvarez-es

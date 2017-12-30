@@ -9,7 +9,7 @@ body {
   font-size: 20px;
   color: #404040;
 }
-p, ul, ol {
+p, ul, ol, figure {
   line-height: 1.5;
   margin: 30px 0;
 }
@@ -43,7 +43,7 @@ blockquote {
   color: #808080;
   font-style: italic;
 }
-figure figcaption {
+figure figcaption, .figcaption {
   font-size: 80%;
   text-align: right;
 }

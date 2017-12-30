@@ -46,6 +46,7 @@ blockquote {
 figure figcaption, .figcaption {
   font-size: 80%;
   text-align: right;
+  display: block;
 }
 hr.small {
   max-width: 100px;

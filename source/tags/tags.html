@@ -10,7 +10,7 @@ pagination:
 
 {% block head_meta %}
     <link rel="alternate" type="application/atom+xml" href="{{ site.url }}/tags/{{ page.tag|url_encode(true) }}.xml" title="{{ site.title }} '{{ page.tag }}' tag feed" />
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="follow">
 {% endblock %}
 
 {% block title %}{{ page.title }} "{{ page.tag }}"{% endblock %}

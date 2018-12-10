@@ -7,7 +7,7 @@ use:
 ---
 {% set year = '0' %}
 
-<h2>Archivo</h2>
+<h1>Archivo</h1>
 {% for post in page.pagination.items %}
 {% set this_year %}{{ post.date | date("Y") }}{% endset %}
 {% if year != this_year %}
@@ -17,13 +17,21 @@ use:
 {% set this_month %}{{ post.date | localizeddate('none', 'none', locale, timezone, 'MMMM') | capitalize }}{% endset %}
 {% if month != this_month %}
   {% set month = this_month %}
-  <h3>{{ month }} {{ year }}</h3>
+  <h2>{{ month }} {{ year }}</h2>
 {% endif %}
-  <div>
-    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-  </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="media">
+                <div class="media-left"><a href="{{ site.url }}{{ post.url }}"><img class="media-object img-responsive"  src="{{ post.main_image }}"></a></div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <h3 style="margin-top: 0;"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
+            <p>{{ post.summary }}</p>
+        </div>
+    </div>
+    {% if loop.last != true %}<hr>{% endif %}
 {% endfor %}
-
 <div>
 {% if page.pagination.previous_page or page.pagination.next_page %}
     <nav>

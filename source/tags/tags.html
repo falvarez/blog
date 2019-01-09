@@ -29,9 +29,18 @@ pagination:
   {% set month = this_month %}
   <h3>{{ month }} {{ year }}</h3>
 {% endif %}
-<article>
-  <div><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></div>
-</article>
+<div class="row">
+    <div class="col-md-5">
+        <div class="media">
+            <div class="media-left"><a href="{{ site.url }}{{ post.url }}"><img class="media-object img-responsive"  src="{{ post.main_image }}"></a></div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h3 style="margin-top: 0;"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
+        <p>{{ post.summary }}</p>
+    </div>
+</div>
+{% if loop.last != true %}<hr>{% endif %}
 {% endfor %}
 
 <div>

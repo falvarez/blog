@@ -62,6 +62,10 @@
 
 {{ page.blocks.content|raw }}
 
+{% for widget in page.widgets %}
+    {% include 'widgets/' ~ widget ~ '.twig' ignore missing %}
+{% endfor %}
+
 </div>
 
 <hr>

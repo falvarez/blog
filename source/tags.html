@@ -16,7 +16,6 @@ use:
 <div class="tag-cloud">
     {% for tag,posts in data.posts_tags|tagSort %}
         {% set tag_size = posts|length * (200 / max_tag_size) + 70 %}
-        <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}" style="font-size: {{ tag_size|round }}%;" title="{{ posts|length }} {{ posts|length != 1 ? 'entradas' : 'entrada' }}">{{ tag }}</a>
+        <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}" style="font-size: {{ tag_size|round }}%;" title="{{ posts|length }} {{ posts|length != 1 ? 'entradas' : 'entrada' }}">{{ tag|replace({" ": "&nbsp;" })|raw }}</a>
     {% endfor %}
 </div>
-

@@ -408,3 +408,7 @@ body {
 .intro-header .post-heading {
   text-shadow: 1px 1px 1px #666;
 }
+
+.tag-cloud {
+  text-align: center;
+}

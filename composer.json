@@ -15,5 +15,10 @@
     "require": {
         "twig/extensions": "1.0.*@dev",
         "jasny/twig-extensions": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Falvarez\\Blog\\": "src/"
+        }
     }
 }

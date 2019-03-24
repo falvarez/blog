@@ -10,6 +10,10 @@ services:
         class: Jasny\Twig\PcreExtension
         tags:
             - { name: twig.extension }
+    twig.extension.tags:
+        class: Falvarez\Blog\TagsExtension
+        tags:
+            - { name: twig.extension }
 parameters:
     locale: "es_ES"
     timezone: "Europe/Madrid"

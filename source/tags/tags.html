@@ -38,6 +38,13 @@ pagination:
     <div class="col-md-7">
         <h3 style="margin-top: 0;"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
         <p>{{ post.summary }}</p>
+        {% if post.tags %}
+        <div class="tags">
+            {% for tag in post.tags %}
+            <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}/" class="btn btn-primary btn-sm" title="Ver entradas relacionadas con {{ tag|escape('html_attr') }}"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {{ tag }}</a>{% if not loop.last %} {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
 </div>
 {% if loop.last != true %}<hr>{% endif %}

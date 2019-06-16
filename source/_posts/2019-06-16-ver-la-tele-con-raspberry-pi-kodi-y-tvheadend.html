@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Ver la tele con Raspberry Pi, Kodi y TvHeadend"
+summary: "Sacando partido a un sintonizador de TDT USB que tenía por ahí desde hace años"
+main_image: /uploads/2019/06/avermedia-volar-x.jpg
+text_date: Domingo, 16 de junio de 2019
+tags: [cacharreo, raspberry pi, televisión]
+disqus_identifier: ver-la-tele-con-raspberry-pi-kodi-y-tvheadend
+disqus_url: http://blog.falvarez.es/2019/06/ver-la-tele-con-raspberry-pi-kodi-y-tvheadend.html
+
+---
+
+<p>Desde que <a href="/2017/07/hasta-siempre-zotac-gracias-por-todo.html">jubilé mi viejo mediacenter</a> y lo sustituí por una <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/">Raspberry Pi 3 Model B</a>, tenía por ahí un sintonizador TDT en formato USB muerto de risa. La verdad es que la tele la veo poco, así que no le había dado mayor importancia.</p>
+
+<p>Pero hace un par de semanas, mirando otras cosas, leí que al NAS Synology se le puede conectar uno de estos sintonizadores para ver o grabar programas de televisión. Lamentablemente, al ir a probarlo, y luego consultar la documentación, parece ser que el modelo concreto que yo poseo no es compatible. Lo detecta pero no es capaz de sintonizar los canales.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/06/avermedia-volar-x.jpg', 'caption': '<a href="https://www.pccomponentes.com/avermedia-avertv-digi-volar-x-hd-usb">Avermedia Volar X</a>)', 'position': 'center'} %}
+
+<p>Así que, ya que estaba, me pregunté si podría conectarlo a la Raspberry Pi y darle uso. Como de costumbre, hice una búsqueda en Google y me encontré con <a href="https://memoriadebian.wordpress.com/2013/05/17/tdt-usb-a815-en-raspberry-pi/">esta página</a> donde se explica qué proceso seguir para darle uso. Se trata de un artículo de 2013, así que habrá que cruzar los dedos para ver si todo funciona correctamente.</p>
+
+<p>Lo primero que hay que hacer es descargar el firmware. Por desgracia, y como suele ocurrir cuando accedemos a contenido con cierta antigüedad, el enlace ya no está disponible. Afortunadamente, basta con buscar el nombre del fichero "dvb-usb-af9015.fw" en Google para dar con él, en concreto en el <a href="https://github.com/OpenELEC/dvb-firmware/blob/master/firmware/dvb-usb-af9015.fw">repositorio de OpenELEC</a>. Yo, por si acaso, me he hecho una <a href="/uploads/2019/06/dvb-usb-af9015.fw.zip">copia que dejaré por aquí</a>.</p>
+
+<p>Una vez instalado, desconectamos y volvemos a conectar el sintonizador y comprobamos que, efectivamente, el sistema operativo ya lo reconoce.</p>
+
+<p>El siguiente paso consiste en descargar y compilar el software que usaremos como servidor de <em>streaming</em> y grabadora de la señal de televisión. En este caso se trata de <a href="https://tvheadend.org/">Tvheadend</a> (que es el mismo que usaba en mi antiguo Zotac). En este caso me encontré más problemas. Para poder compilarlo necesitamos descargar algunas librerías, que iremos averiguando según avanza la compilación, y de las cuales no fui tomando nota. En cualquier caso, desde que se escribió el artículo la distribución <a href="https://xbian.org/">XBian</a> seguro que ha cambiado bastante, así que es normal que las instrucciones no encajen al pie de la letra. Además, el proceso de compilación en Raspberry Pi es bastante lento. Uniendo ambos factores, finalmente tomé la decisión &mdash;no sé por qué no lo hice así desde un primer momento&mdash; de instalarlo desde el gestor de paquetes, con el ya clásico "apt-get install xbian-package-tvheadend xbmc-pvr-tvheadend-hts".</p>
+
+<p>Una vez instalado y arrancado, el software se maneja mediante una interfaz web en el puerto 9981. Sin embargo, al intentar acceder me pide usuario y contraseña. Tras buscar un rato en Internet cuáles son las credenciales por defecto que se asignan en la instalación, y no sacar nada en claro, se me ocurrió que quizás podría bastar con borrar el directorio "/home/xbian/.hts/tvheadend/accesscontrol". Poco ortodoxo pero ha funcionado. No obstante, tengo pendiente añadir un usuario y contraseña, para mayor seguridad.</p>
+
+<p>Ya dentro de la interfaz web, basta con seleccionar la sintonizadora USB, escanear los canales (en mi caso no he conseguido que se sintonizen todos) y listo. Si activamos el <a href="https://kodi.wiki/view/Tvheadend">plugin de Kodi</a>, podemos acceder desde ahí a ver la televisión.</p>
+
+<p>Por fin vuelvo a dar uso al sintonizador y, sobre todo, puedo acceder a los canales de televisión desde cualquier dispositivo que reproduzca streamings de vídeo y, además puedo grabar un canal mientras veo otro en la tele. Como digo, más por poder hacerlo que otra cosa, ya que no es la televisión uno de mis entretenimientos favoritos.</p>

@@ -1,0 +1,54 @@
+---
+layout: post
+title: "He vuelto a programar en BASIC como en los 80"
+summary: "Una idea que me rondaba por la cabeza durante las pasadas vacaciones y que he podido llevar a cabo en poco tiempo"
+header_image: /uploads/2019/09/cpc-deadend.jpg
+main_image: /uploads/2019/09/cpc-deadend.jpg
+text_date: Martes, 10 de septiembre de 2019
+tags: [basic, personal, programación, retroinformática]
+disqus_identifier: he-vuelto-a-programar-en-basic-como-en-los-80
+disqus_url: http://blog.falvarez.es/2019/09/he-vuelto-a-programar-en-basic-como-en-los-80.html
+
+---
+
+<p>Las vacaciones son momentos en los que, afortunadamente, bajamos un poco el ritmo y tenemos tiempo &mdash;o al menos lo intentamos&mdash; hasta de aburrirnos. En esos ratos es bueno dejar volar la imaginación.</p>
+
+<p>En uno de esos, recordaba que mi <a href="https://matandomarcianitos.wordpress.com">Miguel</a>, amigo y compañero en <a href="https://compiler.speccy.org/">Compiler Software</a>, se había currado <a href="https://matandomarcianitos.wordpress.com/2019/07/26/dead-end_-programando-un-juego-en-basic-de-zx-spectrum-en-dos-dias/">un juego en apenas un par de días</a> para presentarlo al <a href="https://www.bytemaniacos.com/?page_id=3639">Concurso de BASIC 2020 de Bytemaniacos</a>. Un juego sencillo y entretenido para una plataforma obsoleta, pero más viva que nunca gracias a la comunidad, como es el <a href="https://es.wikipedia.org/wiki/Sinclair_ZX_Spectrum">Sinclair ZX Spectrum</a>.</p>
+
+<p>En los años 80, en España había cuatro marcas/modelos de microordenadores de 8 bit que se repartían el mercado (no a partes iguales). A saber: Spectrum, Amstrad, MSX y Commodore 64. Como es bien sabido, yo en aquella época tuve el primero y puede jugar al segundo y tercero en casa de algunos amigos. Curiosamente, hasta la universidad no conocí a nadie que tuviera un Commodore 64.</p>
+
+<p>Años más tarde, a primeros de este siglo, y en plena vorágine coleccionista, terminé por hacerme con los cuatro. Pero, si cierto es que los varios Spectrum que poseo tampoco los he usado demasiado, el resto apenas se han asomado por mi monitor CRT un puñado de veces. No sé, la verdad, cuando era pequeño las compañías sacaban versiones de sus juegos para casi todas las plataformas, y aquella curiosidad que tenía por saber cómo eran, ahora que tengo todas las facilidades se había desvanecido. Hasta ahora.</p>
+
+<p>El objetivo era claro y sencillo: hacer un <em>port</em> del juego de Miguel para Amstrad CPC. Aprovechando que el juego está hecho en <a href="https://es.wikipedia.org/wiki/BASIC">BASIC</a>, y que el BASIC de los microordenadores de la época, aunque no es estándar, sí que se asemeja bastante de uno a otro, la idea es trasladar el programa "línea a línea", adaptando sólo lo imprescindible. Nada de añadir mejoras, optimizar el código o cambiar la manera de hacer las cosas.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/09/basic-para-ninos.jpg', 'alt': 'Basic para niños. Con estos libros, regalo de mis padres, aprendí a programar', 'position': 'center'} %}
+
+<p>¿Por qué el Amstrad CPC y no el MSX o el Commodore? La verdad es que me hubiera dado igual uno que otro, pero lo que me hizo decantarme por la máquina de Alan Sugar fue el emulador <a href="https://www.retrovirtualmachine.org/">Retro Virtual Machine</a>. Es un emulador que llevo usando un tiempo y cuya interfaz y funcionamiento me gustan bastante. Además comprobé que me ofrecía una posibilidad que iba a necesitar tarde o temprano, que no es otra que poder pasar ficheros de mi ordenador al Amstrad virtual, y viceversa.</p>
+
+<p>Como comentaba, en su época solo tuve un Spectrum. Aunque un par de años después quise comprarme &mdash;mejor dicho, que me comprasen&mdash; un CPC 6128, finalmente fue un PC Compatible el que llegó a casa; en su momento no me hizo mucha gracia pero fue una decisión acertada. Pero sí que tengo el manual de instrucciones, y con eso es suficiente, ya que nos explica tanto las características de la máquina como la sintaxis de su dialecto de BASIC.</p>
+
+<p>Cuando se programa para ordenadores antiguos, usando emuladores, lo normal es usar un editor de texto en tu ordenador y luego cargar el listado en el emulador de alguna forma más o menos automática. Para Spectrum contamos con la utilidad BAS2TAP, que convierte un listado BASIC en un fichero de cinta que se puede cargar en el emulador. Para Amstrad no encontré nada parecido. Pero, aunque lo hubiese encontrado, no tengo claro que lo hubiera usado; al no conocer la máquina, se necesita teclear en ella, con el manual a mano, y ver cómo se comporta ante las instrucciones que le das; es la manera más rápida de ir aprendiendo sobre la marcha.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/09/manual-usuario-amstrad-464.jpg', 'alt': 'Manual de usuario del Amstrad CPC 464', 'position': 'center'} %}
+
+<p>La clave para sacar adelante un "proyecto" de este tipo es, lo primero, ponerse una meta corta y asequible. Dedicar todo, o gran parte del tiempo libre, a la consecución de ese proyecto. Y, por supuesto, robar alguna que otra hora de sueño. Pero no es lo único. En este caso, ayudó bastante el ir viendo progresos de forma rápida. También el ir compartiendo los avances con los compañeros de Compiler en nuestro grupo privado de Telegram, y que ellos te vayan animando y haciendo sugerencias y correcciones.</p>
+
+<p>Me costó un par de semanas (a ratos) tener una primera versión completa. Durante ese tiempo aprendí algunas de las diferencias entre el Spectrum y el Amstrad, y tuve que darle vueltas a la cabeza para implementar alguna cosa de otra forma diferente. Aunque por mi trabajo me dedico a programar bastantes horas al día, para programar en BASIC tengo que "desaprender" muchos de los conceptos que he ido adquiriendo a lo largo de estos más de treinta años desde que escribí mi primera línea de código. Y no sólo eso sino que, recordemos, el objetivo es traducir el listado de la forma más directa posible, sin cambiar algoritmos ni optimizarlos.</p>
+
+<p>Ya casi lo tenía, pero quedaba un último <em>bug</em>; el personaje hacía cosas raras al acercarse a los bordes superior o inferior del mapeado. Hablándolo con Miguel, me hizo ver dónde estaba el problema. En realidad su código y el mío funcionaban igual, pero por cómo yo había tenido que adaptar la parte donde se guardan los datos del mapeado, en su caso no afectaba y en el mío sí. Así que una vez arreglado todo, y ajustada la parte gráfica, llegaba el punto casi más arduo de lo que viene siendo hacer un juego: probar todo bien y pulir los detallitos.</p>
+
+<p>Si tenéis curiosidad, en el repositorio donde está publicado el código fuente del proyecto, he añadido un <a href="https://github.com/compilersoftware/cpc-dead-end/blob/master/README.md">documento técnico explicando los detalles</a> más relevantes.</p>
+
+<p>Y la decepción fue mayúscula al ir a probar el juego en un Amstrad CPC 464 (emulado). Y es que el menú no se pintaba bien, devolvía un error de sintaxis, al corregirlo el mapeado se pintaba también mal, el personaje se comportaba erráticamente... un desastre. Ni en las peores previsiones hubiera imaginado que algo así podría pasar.</p>
+
+<p>Presa de la desesperación, lo comenté en el grupo de Telegram de desarrolladores retro donde, por suerte, me contestó <a href="https://twitter.com/frangallegobr">Fran Gallego</a>, toda una eminencia en el Amstrad, y comentándole cuáles eran los síntomas, y echando un ojo al código, supo orientarme sobre qué pasaba.</p>
+
+<p>Algo me olía cuando, revisando con calma, me di cuenta de que en la pantalla del 464 indica que la versión de BASIC es la 1.0, mientras que el 6128 lleva la versión 1.1. Y es que, según me contó Fran, la versión 1.0 tiene un bug a la hora de imprimir caracteres en pantalla bajo según qué condiciones (no voy a entrar en detalles por no aburrir al personal). Yo creo que jamás en la vida habría imaginado que algo así podría ocurrir. Supongo que, revisando todo una y mil veces, y más por cabezonería que otra cosa, lo habría acabado sacando; no que hay un <em>bug</em>, sino que habría tenido que hacer los ajustes necesarios para que todo funcionase. Pero seguro que me habría costado días.</p>
+
+<p>Afortunadamente, lo pude corregir en el mismo día y, tras algún percance más generando las versiones de disco y cinta, por fin pude publicar el juego en la página de Compiler y su código fuente en GitHub. Seguro que os podéis imaginar la satisfacción que da el llevar un proyecto a término, por pequeño y poco ambicioso que sea. Y también la sensación de escribir un programa que, al ejecutarlo, hace que unos muñequitos cobren vida en la pantalla. Esa sensación que experimenté hace más de treinta años por primera vez, en mi querido ZX Spectrum, y que me orientó a ser lo que soy profesionalmente hoy en día.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/09/cpc-deadend.jpg', 'caption': '<a href="https://compiler.speccy.org/cpc-dead-end_.html">Dead End_ (Amstrad CPC)</a>', 'position': 'center'} %}
+
+<p>Confío que éste no sea el único proyecto que saque adelante de todos los que imaginé este verano.</p>
+
+<p>PS: Al final, entre unas cosas y otras, me ha llevado casi una semana redactar esta entrada. Para que veáis el ritmo que llevo.</p>

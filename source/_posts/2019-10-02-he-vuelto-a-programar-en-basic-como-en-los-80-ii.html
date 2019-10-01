@@ -1,0 +1,58 @@
+---
+layout: post
+title: "He vuelto a programar en BASIC como en los 80 (II)"
+summary: "Seguimos con el plan ideado durante las pasadas vacaciones. Tras el Amstrad CPC, ahora le toca el turno a otro de los microordenadores más conocidos de los 80"
+header_image: /uploads/2019/10/msx-deadend.jpg
+main_image: /uploads/2019/10/msx-deadend.jpg
+text_date: Martes, 2 de octubre de 2019
+tags: [basic, personal, programación, retroinformática]
+disqus_identifier: he-vuelto-a-programar-en-basic-como-en-los-80-ii
+disqus_url: http://blog.falvarez.es/2019/10/he-vuelto-a-programar-en-basic-como-en-los-80-ii.html
+
+---
+
+<p>Después de dar el pistoletazo de salida a mi plan <a href="/2019/09/he-vuelto-a-programar-en-basic-como-en-los-80.html">trasladando el juego Dead End_ al Amstrad CPC</a>, toca elegir la siguiente plataforma que voy a visitar. Tengo dos para elegir: <a href="https://es.wikipedia.org/wiki/Commodore_64">Commodore 64</a> y <a href="https://es.wikipedia.org/wiki/MSX">MSX</a>. Voy a continuar con esta última. En realidad me da más o menos igual una que otra, pero me quedo con el estándar japonés porque creo que es la que más se asemeja a las dos anteriores, Spectrum y Amstrad. Ya veremos al final de todo este proceso si mi intuición ha sido la correcta.</p>
+
+<p>En este caso, MSX no es un único ordenador, sino un estándar. Hubo varios fabricantes que construyeron microordenadores siguiendo esa especificación y, como suele ocurrir, no son todos iguales al 100%. Aunque creo que programando en BASIC no deberíamos tener ningún problema, es posible que nos encontremos alguna sorpresa no muy grata en ese sentido. En principio, la plataforma será un MSX de primera generación, con 64 KB de memoria.</p>
+
+<p>Toda la experiencia adquirida hasta el momento me va a ayudar, no tanto a dar este paso más rápido, sino a tener muy claro cuáles son los puntos que tengo que resolver. Eso sí, antes de empezar a programar nada, tengo que elegir un emulador que me permita trabajar lo más cómodamente posible. Esto es, en el que pueda guardar el estado actual, para continuar más adelante, y que me ofrezca la posibilidad de cargar/guardar el fichero con el programa desde fuera.</p>
+
+<p>Por lo que he visto, la oferta de emuladores para macOS, aunque hay algunos más disponibles, se centra en dos de ellos: <a href="https://openmsx.org/">openMSX</a> y <a href="https://github.com/CocoaMSX/CocoaMSX">CocoaMSX</a> &mdash;que, a su vez, está basado en <a href="http://www.bluemsx.com/">BlueMSX</a> (solo para Windows). De todos ellos, el primero parece el más completo y, desde luego, es el que más actualizado está. No obstante, su configuración no es trivial, en tanto en cuanto hay que configurar el ordenador concreto que queremos emular. Tampoco he dedicado mucho tiempo a trastear; quería entrar rápido en harina, asi que me he decantado por el segundo, con el que más o menos me he apañado. Eso sí, he echado mucho de menos no poder usar el genial <a href="https://www.retrovirtualmachine.org/">Retro Virtual Machine</a> para estos menesteres.</p>
+
+<p>Lo siguiente ha sido dar un repaso rápido al manual del MSX para ver por encima qué posibilidades tengo, principalmente en cuanto a modos gráficos, y también para ir familiarizándome con el juego de instrucciones BASIC.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/10/manuales-basic-msx.jpg', 'caption': 'Manuales de BASIC del MSX', 'position': 'center'} %}
+
+<p>En este punto ha sido donde he empleado más tiempo a la hora de sacar adelante este proyecto. Y me temo que lo seguirá siendo si me decido por continuar portando el juego a más ordenadores. Me refiero a comprender el funcionamiento de los modos gráficos del ordenador y su implementación. Una cosa aparentemente tan sencilla, como poder pintar un carácter con un color de tinta y otro de fondo, algo en lo que se basa el código del juego en sus versiones de Spectrum y Amstrad, no es factible en el MSX.</p>
+
+<p>Voy a intentar explicarlo, centrándome en el funcionamiento del Spectrum, que es el que mejor conozco, y tratando de no perderme en los detalles. En un Spectrum, se almacena por un lado la información de los píxeles (tinta/fondo, es decir, encendido/apagado) y, por otro, la información de color. Para cada grupo de 8x8 píxeles, se establece un color de tinta y otro de fondo. El MSX funciona de manera similar a como lo hacen las consolas antiguas. Hay una tabla donde se almacenan bloques (o <em>tiles</em>), y otra tabla donde se almacenan los colores para esos bloques. La pantalla no se compone píxel a píxel, sino que se construye a partir de esos bloques, como si fueran piezas de Lego. Por tanto, no es posible elegir un bloque (una letra por ejemplo, pero podría ser cualquier gráfico de 8x8 que definamos) y sus colores por separado, sino que bloque y color son todo uno.</p>
+
+<p>Para terminar de "complicar" el asunto, en el modo "Screen 1" de MSX, la tabla de colores solo tiene 32 posiciones, por lo que se asignan colores a cada 8 bloques correlativos. Esto me costó entenderlo; después de leer el manual, yo pensaba que los colores se aplicaban a 8 bloques correlativos de la pantalla, lo cual no tenía sentido. Así que tuve que pedír consejo a <a href="https://twitter.com/jon_cortazar">Jon Cortazar</a>, alma mater de <a href="http://www.relevovideogames.com">Relevo Videogames</a>, experto en el desarrollo para MSX (además de otras plataformas) y, sobre todo, una gran persona, quien amablemente se molestó en explicarme de forma sencilla cómo funcionaba.</p>
+
+<p>Como nota mental, para próximos proyectos, esta parte del código, la encargada de "pintar cosas en la pantalla", debería estar lo suficientemente aislada para que la transición entre diferentes plataformas sea lo más sencilla posible.</p>
+
+<p>Una vez superado este escollo, me quedaban por repasar los siguientes puntos:</p>
+
+<ul>
+    <li>Cómo se edita un programa en BASIC. En particular, cómo se edita o elimina una línea.</li>
+    <li>Cómo se ejecuta y se interrumpe un programa BASIC.</li>
+    <li>Cómo se cargan y almacenan programas BASIC.</li>
+    <li>Cómo se gestionan los GDU (Gráficos Definidos por el Usuario).</li>
+    <li>Cómo se ubica el cursor en una posición determinada de la pantalla.</li>
+</ul>
+
+<p>Como en el caso del Amstrad CPC, voy a elegir un modelo de ordenador con disco, en este caso un MSX2 <a href="https://www.msx.org/wiki/Philips_NMS_8250">Philips NMS-8250</a>, ya que es lo más cómodo para trabajar. Ya veremos si luego no me llevo una sorpresa al probar el juego en un MSX "pelado". El emulador me permite crear una imagen de disco vacía, que puedo leer y escribir directamente desde macOS renombrando la extensión ".dsk" por ".img". Para Windows se puede usar el programa <a href="http://www.lexlechz.at/en/software.html">Disk Manager</a></p>
+
+<p>Gracias a los consejos de Jon y al trasteo previo, ya tenía claro cómo debía hacer para poner los gráficos en pantalla, así que esta vez, en vez de copiar todo el listado desde cero, lo que hice fue partir de la versión de Spectrum, modificar las palabras clave que son diferentes y, en las partes que no me valían, usar la versión de Amstrad, también copiada. Toda la edición la hice en el PC, usando el emulador solo para probar y retocar alguna cosa. Más o menos se me dio bien, casi acerté a la primera con todo, menos con el dichoso <em>bug</em> del buffer, que me lo volví a comer (porque se me olvidó copiar la solución que ya tenía implementada en el listado de CPC).</p>
+
+<p>Debido a cómo se gestiona la pantalla del MSX, eso sí, algunos detalles no están igual que en la versión de Spectrum. Por ejemplo, el gráfico que conforma la barra inferior que separa los marcadores está invertido. Y el fondo del mensaje que aparece cuando completamos un nivel no es azul, sino negro. Tampoco me molesté mucho en indagar en los comandos de sonido. Puse un "BEEP" sin más y a correr.</p>
+
+<p>Por último, sólo faltaba generar los ficheros de cinta (.cas), disco (.dsk) y cartucho (.rom). Para este último he usado la utilidad <a href="https://www.msxblog.es/msx-basic-rom-creator/">MSX-BASIC ROM creator</a>, de José Luis Tur. Enlazo a MSX Blog porque la <span style="text-decoration:line-through"><a href="http://www.telefonica.net/web2/msxpage/#MSX-BASIC_ROM_creator">web original donde se aloja el programa</a> parece que no funciona</span> he localizado la <a href="https://sites.google.com/site/msxpage/pc-tools?authuser=0">web oficial del programa</a>.</p>
+
+<p>Sobre todo el proceso de desarrollo tenéis más detalles técnicos en el <a href="https://github.com/compilersoftware/msx-deadend">repositorio del proyecto</a>.</p>
+
+<p>A posteriori lamento no haber dedicado más tiempo a aprender a manejar OpenMSX. No sé si es problema de mi ordenador; seguramente que sí, porque si no imagino que alguien más se habría quejado y, aunque el emulador hace bastante que no lo actualizan, imagino que tendrían una <a href="https://github.com/CocoaMSX/CocoaMSX/issues"><em>issue</em></a> abierta. El caso es que el teclado no me funciona bien y, cuando estoy editando el listado en BASIC, el cursor se vuelve loco y se borran las líneas enteras. El caso es que, después de finalizar el desarrollo, Miguel me pasó unos ficheros de configuración que, copiados en la ubicación adecuada, permiten disponer de un buen abanico de ordenadores emulados. Y aunque me dio algún problema adicional, y su integración con macOS tampoco es la ideal, parece funcionar mucho mejor. Incluso tiene mapeadas las teclas del teclado del Mac, para no tener que saber/recordar dónde están ubicados los símbolos en el teclado del MSX.</p>
+
+<p>La sensación que me queda os la podéis imaginar. La parte de gestión de vídeo del MSX es bastante diferente a la de los ordenadores de 8 bit que conocía hasta ahora y se me asemeja más a la de una videoconsola. También me queda la impresión, que es una obviedad, de que adaptando el código en vez de copiándolo directamente podría obtener mucho mejores resultados. Desde luego que esta versión no hace honor a lo que se puede conseguir con este ordenador pero, aun a riesgo de repetirme, en esta ocasión el objetivo era otro diferente.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/10/msx-deadend.jpg', 'caption': '<a href="https://compiler.speccy.org/msx-dead-end_.html">Dead End_ (MSX)</a>', 'position': 'center'} %}

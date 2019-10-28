@@ -1,0 +1,54 @@
+---
+layout: post
+title: "He vuelto a programar en BASIC como en los 80 (III)"
+summary: "Completamos, con sufrimiento, la primera parte del plan ideado durante las pasadas vacaciones con la versión para Commodore 64 del Dead End_ en BASIC de Compiler Software"
+header_image: /uploads/2019/10/c64-deadend.jpg
+main_image: /uploads/2019/10/c64-deadend.jpg
+text_date: Domingo, 27 de octubre de 2019
+tags: [basic, commodore 64, personal, programación, retroinformática]
+disqus_identifier: he-vuelto-a-programar-en-basic-como-en-los-80-iii
+disqus_url: http://blog.falvarez.es/2019/10/he-vuelto-a-programar-en-basic-como-en-los-80-iii.html
+
+---
+
+<p>Tras haber llevado el juego Dead End_ al <a href="/2019/09/he-vuelto-a-programar-en-basic-como-en-los-80.html">Amstrad CPC</a> y al <a href="/2019/10/he-vuelto-a-programar-en-basic-como-en-los-80-ii.html">MSX</a>, tocaba el turno de la última plataforma, por descarte: el Commodore 64. Tras haber adquirido experiencia en los dos desarrollos previos, pensaba que este último paso iba a resultar más sencillo, pese a que tenía mis reticencias sobre qué me iba a encontrar en esta plataforma prácticamente desconocida para mí.</p>
+
+<p>El primer paso ha sido, obviamente, localizar un emulador de Commodore 64 para macOS. De entre los disponibles, <a href="http://www.dirkwhoffmann.de/virtualc64/">VirtualC64</a> fue el que más me ha convencido. Como características interesantes de cara a la tarea a la que me voy a enfrentar, mapea el teclado del Mac de forma automática, lo que permite no tener que recordar (o aprender en mi caso) la distribución de teclas del Commodore. Además permite copiar texto desde el Mac, de forma que lo convierte en pulsaciones de teclas. Esto posibilita, por ejemplo, introducir una línea de BASIC copiándola desde nuestro editor favorito sin tener que teclearla a mano. Por supuesto, permite el manejo de ficheros imagen de disco en varios formatos, e incluso tiene opciones de depuración que, como no voy a programar en ensamblador, no me van a resultar útiles en este momento.</p>
+
+<p>Como herramienta adicional, disponemos de <a href="https://www.facebook.com/c64List">C64List</a>, que nos permite convertir un listado BASIC de un fichero de texto en un fichero imagen de disco que podemos cargar directamente en el emulador. De esta forma, podemos programar en nuestro editor de texto favorito &mdash;en mi caso he usado <a href="https://code.visualstudio.com/">Visual Studio Code</a>, y probarlo en el emulador.</p>
+
+<p>El siguiente paso también fue el lógico: obtener una copia del manual de usuario del ordenador (en este caso no dispongo de una copia física del mismo) desde la web de <a href="https://www.commodorespain.es/manuales-sobre-commodore-en-espanol/">Commodore Spain</a>, y hacer una lectura por encima para hacerme una idea de cómo funciona el ordenador. También aproveché que había comprado el libro <a href="https://programacion-retro-c64.blog/">Programación Retro del Commodore 64</a> para echarle un vistazo.</p>
+
+<p>He optado por dividir la tarea en dos partes. Por un lado, creo que acertadamente, me centré en trasladar el juego entero desde el listado original de Spectrum, basándome en algunas partes de la versión para Amstrad CPC, al Commodore 64, pero obviando la parte gráfica. Para pintar los objetos usé letras. De esa forma, obtuve una versión funcional "relativamente" pronto.</p>
+
+<p>Por otro lado, me puse a investigar cómo funciona el Commodore 64 en su apartado gráfico, examinar los modos de pantalla disponibles y elegir cuál es el que más se adapta a lo que el juego necesita. Adicionalmente, tenía que averiguar cómo redefinir los caracteres gráficos.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/10/c64-pruebas-color-modo-fondo-extendido.jpg', 'alt': 'Hice algunas pruebas para usar el modo de color extendido, pero no me resolvía la papeleta', 'position': 'center'} %}
+
+<p>Pensaba que iba a tener más rápido la versión funcional. En teoría debería de ser así mezclando código de las versiones de Spectrum y Amstrad, pero no contaba con que, en el BASIC de Commodore 64, no podemos hacer RESTORE de los datos de una línea concreta &mdash;el BASIC de Commodore tiene algunas otras carencias, pero ésta era la más relevante hasta el momento. Estuve tiempo investigando cómo sortear este escollo. La dirección de memoria de la línea DATA que se está leyendo se almacena en memoria, pero por algún motivo mis pruebas no funcionaban. Hasta que me di cuenta que, como es lógico, si modificaba mi programa, esos valor cambiaban. Eso me obligaba a reorganizar todo el código para poner las líneas con los datos al principio.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/10/c64-error-recuperando-datos.jpg', 'alt': 'Algo en la recuperación de datos no estaba bien, y eso hacía que las pantallas se dibujasen incorrectamente', 'position': 'center'} %}
+
+<p>Y, además, al final no llegué a implementar esa solución, porque me lié más adelante con el tema gráfico y esto lo dejé apartado. Lo que se hace cada vez es leer todos los datos y descartarlos hasta que llegamos a los que nos interesa. Un método que funciona pero que es lento y poco elegante.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/10/prototipo-dead-end-c64.jpg', 'alt': 'Prototipo de Dead End_ sin caracteres gráficos', 'position': 'center'} %}
+
+<p>Una vez tuve esa versión funcional, tocaba meterse en harina con el tema gráfico. Aquí no me quedó otro remedio que indagar sobre la arquitectura interna del Commodore 64 y, en concreto, su mapa de memoria. Es algo que quería evitar a toda costa y que habría conseguido en las versiones para los otros ordenadores. Me llevó algo de tiempo, porque no acababa de entender muy bien la información que iba encontrando, montar un prototipo en el que conseguía copiar el juego de caracteres desde la memoria ROM a la memoria RAM y, una vez allí, modificar los que me interesaban para poder generar los gráficos del juego.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/10/c64-primer-caracter-grafico.jpg', 'alt': 'La primera vez que conseguí redefinir un carácter gráfico', 'position': 'center'} %}
+
+<p>Varios fueron los escollos. Por un lado, entender bien cómo funciona la memoria del Commodore, cómo se mapean las diferentes zonas de ROM, RAM y puertos de entrada/salida, así como la configuración del chip gráfico VIC II. Por otro, me costó bastante darme cuenta de que en la memoria no se almacenan los datos en código PETSCII (el ASCII del Commodore), sino que la codificación es otra. Usé <a href="https://www.c64-wiki.com/wiki/PETSCII_Codes_in_Listings">esta tabla</a> para poder obtener la correspondencia. Como algunos códigos coinciden y otros no, me volví loco hasta que lo hice funcionar.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/10/c64-algo-falla-con-los-graficos.jpg', 'alt': 'Hasta que me di cuenta de que los códigos de memoria no son PETSCII, me llevó varias horas de pruebas', 'position': 'center'} %}
+
+<p>El chasco fue mayúsculo al llevarme mi prototipo al código del juego. Y es, que, con la configuración por defecto, que es la que se encuentra en el manual de instrucciones y en casi todos los ejemplos que hay por ahí, el propio programa BASIC terminaba corrompiéndose, sobreescrito por los datos gráficos. Nuevamente, me costó bastante entender qué estaba pasando y cómo tenía que configurar el ordenador para ubicar la memoria RAM de gráficos en la parte alta, para no interferir con el listado.</p>
+
+<p>Además de no hacer ningún tipo de optimización, siguiendo el enfoque de este proyecto, he tenido que renunciar a adaptar los gráficos tal y como están en las otras versiones, debido a la limitación de un único color de fondo (o bien hasta cuatro en uno de los modos gráficos disponibles, a costa de otras restricciones, y que tampoco me solucionaba la papeleta). Así que veréis que el rótulo del menú principal y el gráfico de la salida de cada nivel son algo diferentes. Tampoco he implementado ninguna solución al hecho de que, en el Commodore, no se auto repite la pulsación de teclas, por lo que no basta con dejarla pulsada, sino que hay que apretar cada vez para mover el muñeco a una posición adyacente.</p>
+
+<p>Finalmente he conseguido apañar una versión bastante similar al resto y creo que digna, aunque se podría optimizar bastante, sobre todo teniendo en cuenta la arquitectura de este ordenador y la idiosincrasia de su lenguaje BASIC. Sólo he volcado una versión en imagen de disco, porque no he encontrado la manera de hacerlo con una imagen de cinta. En ese sentido estoy bastante atado a lo que me puedan ofrecer el emulador y las herramientas utilizadas.</p>
+
+{% include 'image.twig' with {'src': '/uploads/2019/10/c64-deadend.jpg', 'caption': '<a href="https://compiler.speccy.org/c64-dead-end_.html">Dead End_ (Commodore 64)</a>', 'position': 'center'} %}
+
+<p>Eso sí, en algún momento he llegado a pensar en tirar la toalla, de lo desesperado que estaba de no hacer funcionar las cosas. Eso sí, sacar este proyecto adelante me ha llevado a conocer más en profundidad una máquina que desconocía casi por completo, aunque no era el objetivo.</p>
+
+<p>En próximas fechas haré un resumen de lo que ha supuesto esta "aventura" de llevar un juego en BASIC del ZX Spectrum al resto de plataformas de 8 bit más conocidas. Y, si todo se da bien, seguiremos trabajando en cosas que compartir en este blog.</p>

@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Cómo añadir texto a un PDF escaneado"
+summary: "Veamos cómo añadir textos de forma automática a un PDF creado a partir de una serie de escaneos, usando OCRmyPDF y Docker"
+main_image: /uploads/2019/11/revista-codigo-juego.jpg
+text_date: Sábado, 23 de noviembre de 2019
+tags: [informática, minitutorial]
+disqus_identifier: como-anadir-texto-a-un-pdf-escaneado
+disqus_url: http://blog.falvarez.es/2019/11/como-anadir-texto-a-un-pdf-escaneado.html
+
+---
+
+<p>Hace algunas semanas, hablando con algunos colegas del <em>retro</em>, saltó a la palestra la revista "Código Juego", una publicación del año 1994 en la que se incluían cursos de programación para diferentes lenguajes y plataformas, orientados principalmente, como su título da a entender, al desarrollo de videojuegos. Si buscamos en Internet no encontraremos nada, salvo una entrada en una web de compra/venta de artículos de coleccionista.</p>
+
+<p>El caso es que yo en aquella época ya tenía el gusanillo de programar videojuegos, y compré algunos ejemplares de la revista, en concreto los números 3, 4 y 5, que aún conservo. Así que me he liado la manta a la cabeza para preservarlos.</p>
+
+<p>Un buen sitio hoy día para alojar ese tipo de contenidos es el proyecto <a href="https://archive.org">archive.org</a>. Así que después de escanearlos, los he subido <a href="https://archive.org/details/@falvarez">a mi cuenta</a>. Una vez allí, me he dado cuenta de que se ofrece la posibilidad de descargarlos en PDF con texto. ¿Cómo puede ser eso, si lo que yo subí fueron simples imágenes? Obviamente, tiene que haber alguna manera de automatizarlo, así que me he puesto a investigar.</p>
+
+<p>Tras la clásica búsqueda en Google, he encontrado el proyecto <a href="https://github.com/jbarlow83/OCRmyPDF/">OCRmyPDF</a>, que permite hacer justo lo que estamos comentando. Toma un PDF como entrada y le añade una capa de texto por encima, mediante técnicas de OCR (Optical Character Recognition, o reconocimiento óptico de caracteres).</p>
+
+<p>En la <a href="https://ocrmypdf.readthedocs.io/">documentación del proyecto</a> tenemos toda la información, en concreto la manera de instalarlo. Yo he optado por usarlo con <a href="https://www.docker.com/">Docker</a>, que creo que es la manera más cómoda de hacerlo porque no tienes que instalar nada en tu ordenador (salvo Docker, claro, que en mi caso ya lo tenía), y así te ahorras lidiar con problemas de dependencias y cosas por el estilo.</p>
+
+<p>Sí que me ha resultado extraño que la documentación parezca incorrecta, o quizás desactualizada. Me di cuenta al intentar instalar el idioma español para enriquecer la revista (la primera prueba la hice con una revista inglesa). Las instrucciones para instalar un idioma nuevo no funcionan y, además, el español ya viene instalado por defecto, por lo que no es necesario hacer nada más. El método que se indica para usar la entrada y salida estándara tampoco me ha funcionado.</p>
+
+<p>Finalmente, la lista de comandos que he usado para procesar la revista ha sido la siguiente:</p>
+
+<p><code>docker pull jbarlow83/ocrmypdf</code><br>
+<code>docker tag jbarlow83/ocrmypdf ocrmypdf</code><br>
+<code>docker run --rm -i -v $(pwd):/data  ocrmypdf -l spa /data/CodigoJuego.pdf /data/CodigoJuegoOCR.pdf</code></p>
+
+<p>Una vez descubierto este mundo, se me ocurren bastantes aplicaciones. Por ejemplo, de cara a la indexación de contenidos en PDF. Pero ése será un jardín en el que me meta cuando disponga de más tiempo libre, que ahora no es el caso.</p>

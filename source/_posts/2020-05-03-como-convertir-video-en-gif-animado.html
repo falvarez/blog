@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Cómo convertir un vídeo en un GIF animado con ffmpeg en macOS"
+summary: "Dejo aquí anotado un pequeño script que he usado para generar GIFs animados a partir de vídeos y que he usado ya en alguna otra entrada de este blog"
+text_date: Domingo, 3 de mayo de 2020
+tags: [briconsejo, gif animado, macos, vídeo]
+disqus_identifier: como-convertir-video-en-gif-animado
+disqus_url: http://blog.falvarez.es/2020/05/como-convertir-video-en-gif-animado.html
+
+---
+
+<p>En algunos análisis de videojuegos he puesto vídeos cortos para ilustrar algún momento concreto, generalmente un <em>bug</em>. Lo podría haber hecho subiendo el vídeo a Youtube o, más sencillo, enlazándolo directamente, ya que hoy día todos los navegadores permiten reproducir vídeos de manera nativa.</p>
+
+<p>No obstante, por el motivo que sea, he preferido convertirlos en <a href="https://giphy.com/">GIFs animados</a>. Aunque existen <a href="https://www.onlineconverter.com/mp4-to-gif">herramientas online</a> que permiten realizar la transformación, yo la he hecho desde el ordenador con el siguiente <em>script</em> (requiere tener instalado <a href="https://www.albertoluebbert.com/blog/instalar-ffmpeg-en-macos/">ffmpeg</a>):</p>
+
+<p><code>ffmpeg -i video-original.mp4 -vf "fps=10,scale=600:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 gif-animado.gif</code></p>
+
+<p>El script lo encontré, cómo no, buscando en Stack Overflow (más concretamente, en su web hermana <a href="https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality/556031#556031">Superuser</a>).</p>

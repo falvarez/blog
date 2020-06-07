@@ -1,0 +1,22 @@
+<div class="card {% if (starred) %}starred{% endif %}" {% if (id) %}id="{{ id }}"{% endif %}>
+    {% if (link) %}<a href="{{ link }}">{% endif %}
+    {% if (url) %}<a href="{{ url }}">{% endif %}
+        {% if (img) %}
+            <img class="card-img-top" src="{{ img }}" alt="{{ title|e('html_attr') }}" style="width: 100%">
+            {% if (starred) %}<div class="star"><span class="rounded-circle"><i class="fas fa-star"></i></span></div>{% endif %}
+        {% endif %}
+    {% if (url) %}</a>{% endif %}
+    <div class="card-body">
+        <h5 class="card-title">
+            {% if (url) %}<a href="{{ url }}">{% endif %}{{ title }}{% if (url) %}</a>{% endif %}</h5>
+        {% if (subtitle) %}
+            <h6 class="card-subtitle mb-2 text-muted">{{ subtitle }}</h6>
+        {% endif %}
+        {% if (progress) %}
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: {{ progress }}%" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        {% endif %}
+    </div>
+    {% if (link) %}</a>{% endif %}
+</div>

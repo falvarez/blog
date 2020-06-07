@@ -22,7 +22,7 @@ use:
         {% if post.meta.tags %}
             <div class="tags">
             {% for tag in post.meta.tags %}
-                <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}" class="btn btn-primary btn-sm" title="Ver entradas relacionadas con {{ tag|escape('html_attr') }}"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {{ tag }}</a>{% if not loop.last %} {% endif %}
+                <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}" class="btn btn-primary btn-sm" title="Ver entradas relacionadas con {{ tag|escape('html_attr') }}"><i class="fa fa-tag"></i> {{ tag }}</a>{% if not loop.last %} {% endif %}
             {% endfor %}
             </div>
         {% endif %}

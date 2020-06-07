@@ -1,0 +1,8 @@
+<figure>
+    <img class="{{ position }}-block img-fluid" src="{{ src }}" alt="{{ alt | escape('html_attr')}}">
+    {% if caption %}
+        <span class="figure-caption text-muted text-right">{{ caption | raw }}</p>
+    {% else %}
+        <span class="figure-caption text-muted text-right">{{ alt }}</span>
+    {% endif %}
+</figure>

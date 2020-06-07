@@ -1,0 +1,92 @@
+/** @falvarez customizations **/
+.intro-header .post-heading {
+    text-shadow: 1px 1px 1px #666;
+}
+
+.tag-cloud {
+    text-align: center;
+}
+
+article p {
+    hyphens: auto;
+    text-align: justify;
+}
+
+code {
+    display: block;
+}
+
+.figure-caption {
+    display: block;
+    font-size: 80%;
+}
+
+.tags .btn {
+    padding-left: 15px;
+}
+
+.tags .btn, .alphabet .btn {
+    margin-bottom: 0.2em;
+    font-size: 60%;
+}
+
+.alphabet .btn {
+    border-bottom: none;
+}
+
+.btn-primary {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn-primary:hover {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.main-content a, article a {
+    text-decoration: none;
+    border-bottom: 1px dotted #404040;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+    color: #337ab7;
+    border-color: #337ab7;
+}
+
+a, body {
+    color: #404040;
+}
+
+.card-deck, .card-columns {
+    margin-bottom: 30px;
+}
+
+/** card **/
+.card a h5 {
+    color: #337ab7;
+}
+
+.starred {
+    background-color: palegoldenrod;
+    border-color: goldenrod;
+}
+.starred .card-body {
+    border-top: 1px solid goldenrod;
+}
+.star {
+    position: relative;
+}
+.star span {
+    position: absolute;
+    top: -0.9em;
+    right: 0.5em;
+    background-color: goldenrod;
+    padding: 3px;
+    text-align: center;
+    width: 1.8em;
+}
+.star i {
+    color: #fff;
+}

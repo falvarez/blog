@@ -28,14 +28,14 @@
 {% block header %}
 
 <!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
-<header class="intro-header" style="background-image: url({% if page.header_image %}{{ page.header_image }}{% else %}'/img/home-bg.jpg'{% endif %});">
+<header class="masthead" style="background-image: url({% if page.header_image %}{{ page.header_image }}{% else %}'/img/home-bg.jpg'{% endif %});">
+    <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
                     <h1>{{ page.title }}</h1>
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                    <span class="subheading">{{ page.subtitle }}</span>
                     <span class="meta">{{ page.text_date }}</span>
                 </div>
             </div>
@@ -48,23 +48,26 @@
 {% block content_wrapper %}
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="col-lg-8 col-md-10 mx-auto">
 <!-- Post Content -->
 {% if page.tags %}
 <div class="tags">
     {% for tag in page.tags %}
-    <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}/" class="btn btn-primary btn-sm" title="Ver entradas relacionadas con {{ tag|escape('html_attr') }}"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {{ tag }}</a>{% if not loop.last %} {% endif %}
+    <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}/" class="btn btn-primary btn-sm" title="Ver entradas relacionadas con {{ tag|escape('html_attr') }}"><i class="fa fa-tag"></i> {{ tag }}</a>{% if not loop.last %} {% endif %}
     {% endfor %}
 </div>
 {% endif %}
 
 <div class="main-content">
+    <article>
 
 {{ page.blocks.content|raw }}
 
 {% for widget in page.widgets %}
     {% include 'widgets/' ~ widget ~ '.twig' ignore missing %}
 {% endfor %}
+
+    </article>
 
 </div>
 

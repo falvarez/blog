@@ -22,7 +22,7 @@ use:
         {% if post.meta.tags %}
             <div class="tags">
             {% for tag in post.meta.tags %}
-                <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}" class="btn btn-primary btn-sm" title="Ver entradas relacionadas con {{ tag|escape('html_attr') }}"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {{ tag }}</a>{% if not loop.last %} {% endif %}
+                <a href="{{ site.url }}/tags/{{ tag|url_encode(true) }}" class="btn btn-primary btn-sm" title="Ver entradas relacionadas con {{ tag|escape('html_attr') }}"><i class="fa fa-tag"></i> {{ tag }}</a>{% if not loop.last %} {% endif %}
             {% endfor %}
             </div>
         {% endif %}
@@ -32,9 +32,9 @@ use:
 
 {% if page.pagination.previous_page or page.pagination.next_page %}
     <nav>
-        <ul class="pager">
-            {% if page.pagination.next_page %}<li class="next"><a href="{{ site.url }}{{ page.pagination.next_page.url }}">Entradas anteriores &rarr;</a></li>{% endif %}
-            {% if page.pagination.previous_page %}<li class="previous"><a href="{{ site.url }}{{ page.pagination.previous_page.url }}"> &larr; Entradas siguientes</a></li>{% endif %}
-        </ul>
+        <div class="clearfix">
+            {% if page.pagination.next_page %}<a class="btn btn-outline-primary float-left" href="{{ site.url }}{{ page.pagination.next_page.url }}"> <span aria-hidden="true">&larr;</span> Entradas anteriores </a>{% endif %}
+            {% if page.pagination.previous_page %}<a class="btn btn-outline-primary float-right" href="{{ site.url }}{{ page.pagination.previous_page.url }}"> Entradas siguientes <span aria-hidden="true">&rarr;</span> </a>{% endif %}
+        </div>
     </nav>
 {% endif %}

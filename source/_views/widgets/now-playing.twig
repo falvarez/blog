@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-xs-12">
         <h3>¿A qué estoy jugando?</h3>
@@ -5,20 +6,10 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-        <div class="card">
-            <img class="card-img-top" src="/uploads/widgets/assassins-creed-odyssey.jpg" alt="Assassin's Creed Odyssey (PS4)" style="width: 100%">
-            <div class="card-body">
-                <h5 class="card-title">Assassin's Creed Odyssey (PS4)</h5>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-        <div class="card">
-            <img class="card-img-top" src="/uploads/widgets/blackthorne.jpg" alt="Blackthorne (SNES)" style="width: 100%">
-            <div class="card-body">
-                <h5 class="card-title">Blackthorne (SNES)</h5>
-            </div>
+    <div class="col-xs-12">
+        <div class="card-columns">
+            {% include 'components/multimedia-card.twig' with {'img': '/uploads/widgets/assassins-creed-odyssey.jpg', 'title': 'Assassin\'s Creed Odyssey', 'subtitle': 'PS4', 'progress': 50} only %}
+            {% include 'components/multimedia-card.twig' with {'img': '/uploads/widgets/blackthorne.jpg', 'title': 'Blackthorne', 'subtitle': 'SNES', 'progress': 40} only %}
         </div>
     </div>
 </div>

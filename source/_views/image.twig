@@ -1,8 +1,0 @@
-<figure>
-    <img class="{{ position }}-block img-responsive" src="{{ src }}" alt="{{ alt | escape('html_attr')}}">
-    {% if caption %}
-        <figcaption>{{ caption | raw }}</figcaption>
-    {% else %}
-        <figcaption>{{ alt }}</figcaption>
-    {% endif %}
-</figure>

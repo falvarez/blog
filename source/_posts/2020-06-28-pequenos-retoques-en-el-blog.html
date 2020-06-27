@@ -1,0 +1,22 @@
+---
+layout: post
+title: "Pequeños retoques en el blog"
+summary: "Por fin he conseguido sacar muchos pequeños ratitos para dar un empujón para algunas mejoras que tenía pendientes desde hace meses"
+text_date: Domingo, 28 de junio de 2020
+tags: [blog]
+disqus_identifier: pequenos-retoques-en-el-blog
+disqus_url: http://blog.falvarez.es/2020/06/pequenos-retoques-en-el-blog.html
+
+---
+
+<p>Hace ya unas semanas que modifiqué la pequeña ficha que incluyo debajo de los comentarios de los juegos, en la que indico a qué estoy jugando actualmente y un <a href="/2004/11/jugando.html">enlace al listado de juegos que he completado hasta la fecha</a>, añadiendo las carátulas de los juegos. Me gustó la idea y pensé en hacer lo mismo en dicho listado de juegos. Pero para hacerlo de forma cómoda, tenía que actualizar la versión de <a href="https://getbootstrap.com/">Bootstrap</a>, que es la librería en la que se basa el tema <a href="https://startbootstrap.com/themes/clean-blog/">Clean Blog</a> que estoy usando. El diseño actual lo incorporé <a href="/2016/03/nueva-etapa-en-el-blog.html">hace poco más de 4 años</a> y, salvo pequeños ajustes, no había tocado nada hasta ahora. No deja de tener cierta ironía que actualice el código a Bootstrap 4, justo cuando acaba de salir la primera versión alfa de Boostrap 5. Siempre a remolque.</p>
+
+<p>Total, que me puse a tirar del hilo y casi me quedo sin jersey. Actualizar Bootstrap implicaba actualizar también Clean Blog. Y, una vez actualizado, volver a incorporar mis propias personalizaciones en el diseño. En este punto ya tenía todo listo para cambiar el listado de juegos por un conjunto de tarjetas con imágenes, lo cual me llevó bastante tiempo. Y, ¿por qué no hacer lo mismo con la lista de libros y películas? Y… me di cuenta de que tenía que parar y poner un límite; delimitar el alcance de hasta dónde quería llegar.</p>
+
+<p>Usando <a href="https://trello.com/es">Trello</a> a modo de tablero virtual (es la herramienta que yo uso, pero hay docenas de ellas), rellené una tarjeta con cada cosa que se me ocurría que podía mejorar o arreglar. Las ordené y tracé una línea. Por encima de ella, tenía que hacerlas todas antes de actualizar el blog. Por debajo de la línea, las iré haciendo, de una en una, y actualizaré según las vaya completando, en vez de esperar a tener todas. Esto me ha ayudado a centrarme en los pocos ratos libres de los que he dispuesto y tener claro en qué tenía que centrar los esfuerzos. Por ejemplo, el listado de libros lo he dejado sin imágenes de momento; ya las añadiré. Y el listado de películas vistas ni lo he tocado. Ya lo iréis viendo. También he aprovechado para añadir una librería de carga diferida de imágenes, ya que las carátulas de los juegos que he subido no están optimizadas. De esta forma sólo se cargan las que se ven en pantalla. Y, finalmente, he retocado ligeramente la apariencia de los textos; he ajustado las fuentes y ahora uso párrafos justificados. Creo que ahora se lee un poquito mejor.</p>
+
+<p>Y, curiosamente, sólo una de las tarjetas coincide con los <a href="https://github.com/falvarez/blog/issues">temas pendientes</a> que di de alta en el repositorio del blog hace aproximadamente 4 años, y que ni siquiera recordaba. Tendría que añadirlas.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/06/trello-tablero-blog.jpg', 'alt': 'Tablero Trello con las tareas pendientes del blog', 'position': 'center'} %}
+
+<p>¿Qué enseñanzas me llevo de este "proyecto"? He aprendido un poco más de Bootstrap, de <a href="https://twig.symfony.com/">Twig</a> y, sobre todo, he explorado esa manera de organizarme que me puede ir bien cuando sólo puedo dedicar ratos muy cortos y no planificados a avanzar con ciertos temas. Siempre que cada tarjeta incluya una tarea pequeña que no se demore demasiado en el tiempo. Es muy gratificante ver cómo las tarjetas pasan de la columna <em>Backlog</em> a <em>Finished</em>, y da ánimos para seguir y no agobiarse cuando tienes demasiadas cosas pendientes por hacer.</p>

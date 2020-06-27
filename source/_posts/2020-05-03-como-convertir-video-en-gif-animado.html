@@ -13,6 +13,8 @@ disqus_url: http://blog.falvarez.es/2020/05/como-convertir-video-en-gif-animado.
 
 <p>No obstante, por el motivo que sea, he preferido convertirlos en <a href="https://giphy.com/">GIFs animados</a>. Aunque existen <a href="https://www.onlineconverter.com/mp4-to-gif">herramientas online</a> que permiten realizar la transformación, yo la he hecho desde el ordenador con el siguiente <em>script</em> (requiere tener instalado <a href="https://www.albertoluebbert.com/blog/instalar-ffmpeg-en-macos/">ffmpeg</a>):</p>
 
-<p><code>ffmpeg -i video-original.mp4 -vf "fps=10,scale=600:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 gif-animado.gif</code></p>
+<pre>
+ffmpeg -i video-original.mp4 -vf "fps=10,scale=600:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 gif-animado.gif
+</pre>
 
 <p>El script lo encontré, cómo no, buscando en Stack Overflow (más concretamente, en su web hermana <a href="https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality/556031#556031">Superuser</a>).</p>

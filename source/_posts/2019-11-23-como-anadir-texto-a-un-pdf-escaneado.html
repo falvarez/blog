@@ -23,8 +23,10 @@ disqus_url: http://blog.falvarez.es/2019/11/como-anadir-texto-a-un-pdf-escaneado
 
 <p>Finalmente, la lista de comandos que he usado para procesar la revista ha sido la siguiente:</p>
 
-<p><code>docker pull jbarlow83/ocrmypdf</code><br>
-<code>docker tag jbarlow83/ocrmypdf ocrmypdf</code><br>
-<code>docker run --rm -i -v "$(pwd)":/data  ocrmypdf -l spa /data/CodigoJuego.pdf /data/CodigoJuegoOCR.pdf</code></p>
+<pre>
+docker pull jbarlow83/ocrmypdf
+docker tag jbarlow83/ocrmypdf ocrmypdf
+docker run --rm -i -v "$(pwd)":/data  ocrmypdf -l spa /data/CodigoJuego.pdf /data/CodigoJuegoOCR.pdf
+</pre>
 
 <p>Una vez descubierto este mundo, se me ocurren bastantes aplicaciones. Por ejemplo, de cara a la indexación de contenidos en PDF. Pero ése será un jardín en el que me meta cuando disponga de más tiempo libre, que ahora no es el caso.</p>

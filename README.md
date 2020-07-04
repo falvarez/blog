@@ -1,12 +1,12 @@
-# ¡VAPF!
+# El blog de Fede Álvarez
 
-Sculpin code for my personal blog ¡VAPF!
+Sculpin code for my personal blog.
 
 Powered by [Sculpin](http://sculpin.io).
 
 Inspired by [Sculpin blog skeleton code](https://github.com/sculpin/sculpin-blog-skeleton).
 
-Needs to have PHP installed locally on your machine.
+Needs to have PHP >= 7.3 installed locally on your machine.
 
 ## Publishing Production Builds
 

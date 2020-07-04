@@ -1,6 +1,6 @@
 {
     "name": "sculpin/vapf-blog",
-    "description": "¡VAPF! blog source code based on Sculpin, inspired by https://github.com/sculpin/sculpin-blog-skeleton, built on Clean Blog Theme http://startbootstrap.com/template-overviews/clean-blog/",
+    "description": "Blog source code based on Sculpin, inspired by https://github.com/sculpin/sculpin-blog-skeleton, built on Clean Blog Theme http://startbootstrap.com/template-overviews/clean-blog/",
     "type": "sculpin-skeleton",
     "license": "CC Attribution-NonCommercial-NoDerivatives 4.0 International",
     "authors": [

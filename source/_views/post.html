@@ -71,6 +71,17 @@
 
 </div>
 
+<div>
+    {% if page.previous_post or page.next_post %}
+    <nav>
+        <div class="clearfix">
+            {% if page.next_post %}<a class="btn btn-outline-primary float-left" href="{{ site.url }}{{ page.next_post.url }}" title="{{ page.next_post.title }}"> <span aria-hidden="true">&larr;</span> Siguiente </a>{% endif %}
+            {% if page.previous_post %}<a class="btn btn-outline-primary float-right" href="{{ site.url }}{{ page.previous_post.url }}" title="{{ page.previous_post.title }}"> Anterior <span aria-hidden="true">&rarr;</span> </a>{% endif %}
+        </div>
+    </nav>
+    {% endif %}
+</div>
+
 <hr>
 
 <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="23945749"></div>

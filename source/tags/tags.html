@@ -51,18 +51,14 @@ pagination:
 {% endfor %}
 
 <div>
-{% if page.pagination.previous_page or page.pagination.next_page %}
-    <nav class="article clearfix">
-        <ul class="pager">
-    {% if page.pagination.previous_page %}
-    <li class="previous"><a href="{{ site.url }}{{ page.pagination.previous_page.url }}" title="Previous Page"><span aria-hidden="true">&larr;</span> Página anterior</a></li>
-    {% endif %}
-    {% if page.pagination.next_page %}
-    <li class="next"><a class="next" href="{{ site.url }}{{ page.pagination.next_page.url }}" title="Next Page">Página siguiente <span aria-hidden="true">&rarr;</span></a></li>
-    {% endif %}
-        </ul>
+    {% if page.pagination.previous_page or page.pagination.next_page %}
+    <nav>
+        <div class="clearfix">
+            {% if page.pagination.previous_page %}<a class="btn btn-outline-primary float-left" href="{{ site.url }}{{ page.pagination.previous_page.url }}"> <span aria-hidden="true">&larr;</span> Siguientes</a>{% endif %}
+            {% if page.pagination.next_page %}<a class="btn btn-outline-primary float-right" href="{{ site.url }}{{ page.pagination.next_page.url }}"> Anteriores <span aria-hidden="true">&rarr;</span> </a>{% endif %}
+        </div>
     </nav>
-{% endif %}
+    {% endif %}
 </div>
 
 {% endblock content %}

@@ -48,8 +48,8 @@ use:
     {% if page.pagination.previous_page or page.pagination.next_page %}
         <nav>
             <div class="clearfix">
-                {% if page.pagination.next_page %}<a class="btn btn-outline-primary float-left" href="{{ site.url }}{{ page.pagination.next_page.url }}"> <span aria-hidden="true">&larr;</span> Entradas anteriores </a>{% endif %}
-                {% if page.pagination.previous_page %}<a class="btn btn-outline-primary float-right" href="{{ site.url }}{{ page.pagination.previous_page.url }}"> Entradas siguientes <span aria-hidden="true">&rarr;</span></a>{% endif %}
+                {% if page.pagination.previous_page %}<a class="btn btn-outline-primary float-left" href="{{ site.url }}{{ page.pagination.previous_page.url }}"> <span aria-hidden="true">&larr;</span> Siguientes</a>{% endif %}
+                {% if page.pagination.next_page %}<a class="btn btn-outline-primary float-right" href="{{ site.url }}{{ page.pagination.next_page.url }}"> Anteriores <span aria-hidden="true">&rarr;</span> </a>{% endif %}
             </div>
         </nav>
     {% endif %}

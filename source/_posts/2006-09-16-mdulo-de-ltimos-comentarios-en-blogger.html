@@ -9,13 +9,21 @@ disqus_url: http://blog.falvarez.es/2006/09/mdulo-de-ltimos-comentarios-en-blogg
 
 ---
 <p>Se suele decir que no conviene morder la mano que te da de comer. Pues bien, aunque no voy a darle un mordisco, sí que va un pequeño "pellizco".</p>
+
 <p>Está claro que <a href="http://www.blogger.com/">Blogger</a> no es, ni de lejos, la mejor plataforma de blogs, técnicamente hablando. Carece de muchas características de las que disponen otras soluciones, como <a href="http://www.movabletype.org/">Movable Type</a>, <a href="http://wordpress.org/">Wordpress</a>, etc. Pero el caso es que voy a cumplir un par de años en Blogger y no tengo intención de cambiar a corto plazo. Una de las ventajas de Blogger es que la indexación y el posicionamiento en <a href="http://www.google.es/">Google</a> están bastante bien.</p>
+
 <p>En realidad, para juntar cuatro palabras, pegar un par de fotos y poner algunos enlaces tampoco hace falta un gran despliegue tecnológico. Pero una característica que sí echaba en falta es la posibilidad de tener un listado de los últimos comentarios enviados. El blog tiene un tráfico ridículo, pero tener esa funcionalidad siempre ayuda a seguir las conversaciones, sobre todo si se producen comentarios en hilos antiguos.</p>
+
 <p>Tener un cajetín de últimos comentarios en Blogger, lamentablemente, no es tan sencillo como ir al panel de control y marcar dicha opción; tendremos que trabajar un poco más.</p>
+
 <p>Lo más cómodo sería tener un RSS en el que se fueran publicando los últimos comentarios. Así que nada más sencillo que dar de alta un nuevo blog (llamémoslo blogcomentarios.blogger.com, por ejemplo), en el que iremos recogiendo los comentarios publicados. Para ello, haremos uso de dos funciones que ofrece Blogger:</p>
 <ul><li>publicar contenidos enviando un correo electrónico a una dirección determinada.</li>
 <p> <li>avisar de que se ha publicado un nuevo comentario enviando un correo electrónico.</li></p></ul><p>Pero, como todo en la vida, no podía ser tan fácil. La dirección de correo para publicar en el blog de comentarios es de la forma usuario.palabra_secreta@blogger.com, y dicha dirección no la acepta Blogger como destinatario de aviso de publicación de comentarios. Por tanto, lo que haremos será dar de alta una cuenta en <a href="http://www.gmail.com/">GMail</a> y configurar el reenvío automático. De esta forma, quedará algo como:</p>
 <ul><li>Cuenta de aviso de comentarios: foobar@gmail.com</li>
-<p> <li>Cuenta de publicación en el blog de comentarios: usuario.palabra_secreta@blogger.com</li></p><p> <li>Configuraremos GMail para que reenvíe los correos que reciba a usuario.palabra_secreta@blogger.com (y, si queremos, que guarde una copia en el archivo, así tendremos un histórico de los comentarios publicados).</li></p></ul><p>Así, tendremos en http://blogcomentarios.blogspot.com/rss.xml el RSS con los últimos comentarios.</p>
+<p> <li>Cuenta de publicación en el blog de comentarios: usuario.palabra_secreta@blogger.com</li></p>
+
+<p> <li>Configuraremos GMail para que reenvíe los correos que reciba a usuario.palabra_secreta@blogger.com (y, si queremos, que guarde una copia en el archivo, así tendremos un histórico de los comentarios publicados).</li></p></ul><p>Así, tendremos en http://blogcomentarios.blogspot.com/rss.xml el RSS con los últimos comentarios.</p>
+
 <p>Para añadirlos a nuestra plantilla, podemos usar algún servicio para <a href="http://www.rss2javascript.com/">convertir RSS a Javascript</a>, o que permita incrustar feeds en páginas web mediante Javascript. Una vez tengamos el tag Javascript correspondiente, bastará con usar el panel de Blogger para ponerlo en nuestra plantilla en el lugar que deseemos.</p>
+
 <p>En mi caso, por esta vez, en casa de herrero el cuchillo no es de palo. Me he programado mi propio conversor de RSS a Javascript, ya que quería personalizar el formato de los datos que se devuelven. Tampoco tiene mucho misterio. Si lo consideráis necesario lo puedo explicar. El único "inconveniente" es que tengo que tener el conversor alojado en algún sitio.</p>

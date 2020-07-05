@@ -11,18 +11,29 @@ disqus_url: http://blog.falvarez.es/2016/07/primera-averia-grave-en-el-mac.html
 
 ---
 <p>Durante los más de cuatro años que llevo con el Mac, no voy a decir que no haya tenido ningún problema. Se me habrá colgado dos o tres veces, y alguna vez ha aparecido fugazmente algún aviso de problemas con el disco duro, desde que lo cambié por un SSD. No obstante, se pueden contar con los dedos de una mano y, teniendo en cuenta que he realizado cuatro actualizaciones sucesivas de sistema operativo (Mountain Lion, Mavericks, Yosemite y El Capitan), no es mal balance. Ningún problema de configuración, ni con dispositivos y software existentes ni con nuevos y todo funcionando de manera fluida.</p>
+
 <p>Así que ayer me llevé entre un susto y un pequeño berrinche cuando fui a arrancar el ordenador y me encontré con este icono en la pantalla.</p>
-<div><img class="center-block img-fluid w-100" width="600" src="/uploads/2016/07/mac-boot-forbidden.png" alt="Error en el arranque del Mac - Imagen obtenida de https://derflounder.wordpress.com/2014/08/12/problems-decrypting-filevault-2-encrypted-drives-while-booted-from-mavericks-recovery-hd/"></div>
+
+{% include 'components/image.twig' with {'src': '/uploads/2016/07/mac-boot-forbidden.png', 'alt': 'Error en el arranque del Mac - Imagen obtenida de https://derflounder.wordpress.com/2014/08/12/problems-decrypting-filevault-2-encrypted-drives-while-booted-from-mavericks-recovery-hd/', 'position': 'center'} %}
+
 <p>Como digo, he perdido la costumbre de cacharrear. Entre eso y la rabia que me da que se estropeen las cosas, pasé una tarde de todo menos divertida intentando solucionar el problema. La herramienta de reparación de discos no era capaz de hacer su trabajo, así que todo indicaba que la unidad SSD se había estropeado. No obstante, tampoco estaba seguro del todo, y mis dudas se acrecentaron cuando, tras conseguir descargar una copia de El Capitan para reinstalar el sistema, y dejarlo toda la noche restaurando la copia de seguridad del bendito Time Machine, a la mañana siguiente me encontré con que el portátil seguía encendido pero con toda la información recuperada, como por arte de magia, y en orden de marcha.</p>
+
 <p>Todo iba a ser un espejismo ya que, al llegar al trabajo y encenderlo, nuevamente el mismo icono. Mientras me prestaban otro equipo para poder salvar la jornada de trabajo, dejé nuevamente instalando El Capitan. Y esta vez no se pudo completar la instalación, dando errores en el disco.</p>
+
 <p>He comprado un nuevo SSD y confío en que sea ese el problema y no otro más rebuscado (quizás una avería en la placa base). No creo que la reparación fuera nada barata.</p>
-<div><img class="center-block img-fluid w-100" width="600" src="/uploads/2016/07/mbp-desmontado.jpg" alt="Mac Book Pro totalmente desmontado"></div>
+
+{% include 'components/image.twig' with {'src': '/uploads/2016/07/mbp-desmontado.jpg', 'alt': 'Mac Book Pro totalmente desmontado', 'position': 'center'} %}
+
 <p>Puede que aproveche el momento para hacer una instalación “limpia” del sistema, algo que siempre es recomendable. Aunque la idea de recuperar de nuevo la copia de seguridad y seguir como si no hubiera pasado nada es bastante tentadora.</p>
+
 <p>También he estado tentado de encender el Macintosh Classic y hacer una foto junto al Mac Book Pro, el primero funcionando y el segundo averiado. Lógicamente sería una comparación muy injusta, pero no exenta de cierta gracia.</p>
 <h3>Actualización 2 de agosto de 2016</h3>
 <p>Estaba yo tan feliz (y con un buen agujero en el bolsillo) con mi disco duro nuevo, cuando he vuelto a encender el ordenador y me he encontrado con el mismo problema. Es una muy mala noticia por varios motivos. El principal es no saber ahora cuál puede ser la causa del problema. El segundo es que, muy probablemente, he comprado un disco SSD sin necesidad (y 50 euros más caro de lo que estaba hace unos pocos días en el Amazon Prime Day). Además el error me ha pillado en el pueblo, con lo que mi margen de maniobra ha sido nulo hasta ayer.</p>
+
 <p>Arrancando en modo verboso, he visto que el error es el siguiente:</p>
-<div><img class="center-block img-fluid w-100" width="600" src="/uploads/2016/08/mbp-read-error-0x6.jpg" alt="Error 0x6 al arrancar OSX"></div>
+{% include 'components/image.twig' with {'src': '', 'alt': '', 'position': 'center'} %}
+{% include 'components/image.twig' with {'src': '/uploads/2016/08/mbp-read-error-0x6.jpg" alt="Error 0x6 al arrancar OSX', 'alt': '', 'position': 'center'} %}
+
 <p>Transcripción del mensaje de error:</p>
 <pre>
 efiboot loaded from device: Acpi (PNP0A03,0)/Pci(1F|2)/SATA(0,0)/HD(Part3,Sig58075
@@ -33,7 +44,10 @@ ERROR!!! Load prelinked kernel with status 0x80000000000000006
 Error loading kernel cache (0x6)
 </pre>
 <p>Y, tras mucho buscar por Internet y leer hilos interminables en foros (llevo haciéndolo desde el fin de semana), he llegado a la conclusión, tremendamente chocante para mí, de que el problema puede estar en el cable SATA que conecta la unidad SSD con la placa. No logro entender cómo puede ser, pero parece que es un <a href="http://www.macuarium.com/foro/index.php?showtopic=351748">defecto</a> <a href="https://m.reddit.com/r/applehelp/comments/4t91vz/trouble_making_el_capitan_work_on_new_ssd_in/">común</a> <a href="http://www.applesfera.com/portatil/posible-solucion-a-los-problemas-con-el-conector-sata-iii-de-los-macbook-pro-del-2011">en los Mac Book Pro no retina de 13"</a>. Estamos hablando de un cable plano que va muy fijado, prácticamente sin margen de movimiento, ya que pasa entre la unidad SSD y el chasis de aluminio. Y quizás ahí está el problema, amén del calor que hace estos días y que hace sobrecalentarse el equipo todavía más.</p>
+
 <p>Digo que no lo comprendo porque, una vez que consigue arrancar, el ordenador no da síntoma de fallo, pudiendo trabajar con él el tiempo que se desee. Justo eso fue lo que me ocurrió el fin de semana. Después de un buen rato haciendo cosas, lo reinicié y ya no arrancaba. La prueba del nueve ha sido extraer el disco SSD y conectarlo mediante una caja USB externa para comprobar que el sistema operativo arrancaba a la primera y funcionaba con total normalidad.</p>
+
 <p>De momento, a falta de comprar un cable de repuesto, he aplicado la solución de baja tecnología que comentan en el siguiente vídeo, y que consiste en proteger el cable con cinta aislante para que no haga contacto con el chasis. Tan increible como que estoy escribiendo estas líneas desde el propio ordenador averiado.</p>
 <div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube.com/embed/Amg5w0rlwDo" frameborder="0" allowfullscreen></iframe></div>
+
 <p>No acabo de creérmelo del todo. Esperemos que sea este el problema verdadero y que la solución empleada sea la correcta.</p>

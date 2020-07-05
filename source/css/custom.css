@@ -7,9 +7,17 @@
     text-align: center;
 }
 
+.post .tags {
+    margin-bottom: 30px;
+}
+
 article p {
     hyphens: auto;
     text-align: justify;
+}
+
+article > ul {
+    margin: 30px 0;
 }
 
 iframe {
@@ -23,6 +31,15 @@ code {
 .figure-caption {
     display: block;
     font-size: 80%;
+}
+
+figure .float-left {
+    margin-right: 1rem;
+}
+
+figure .float-right {
+    margin-left: 1rem;
+    padding-top: 1.5rem;
 }
 
 .tags .btn {

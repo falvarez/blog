@@ -11,21 +11,35 @@ disqus_url: http://blog.falvarez.es/2013/04/como-adaptar-un-joystick-telemach-20
 
 ---
 <p>Tenía por aquí muerto de risa un joystick Telemach 200. De las muchas versiones que hubo, éste es un poco raro, porque el conmutador trasero sólo tiene dos posiciones: una para seleccionar la norma Atari y otra para la norma SJS (Sinclair Joystick System). Ignoro cuál fue el motivo que llevo a Amstrad a hacer este cambio en los conectores de sus modelos de Spectrum, ya que el propio Amstrad CPC sí que es compatible con el estándar de Atari. Supongo que querían vender más joysticks de su propia cosecha.</p>
-<div><a href="http://4.bp.blogspot.com/-HGEuaxAsIa4/UXb85kjZVGI/AAAAAAAAB90/txYlbRiKCR0/s1600/IMG_0062.JPG"><img class="center-block img-fluid w-100" src="/uploads/2013/04/img-0062.jpg" width="600"></a></div>
+
+{% include 'components/image.twig' with {'src': '/uploads/2013/04/img-0062.jpg', 'alt': '', 'position': 'center'} %}
+
 <p>En cualquier caso, el joystick que nos ocupa dispone además de dos botones de disparo que están puenteados, por lo que ambos realizan la misma función.</p>
+
 <p>Como veis, todo un desperdicio, ya que los componentes empleados por <a href="http://www.industrias-lorenzo.com/">Industrias Lorenzo</a> para su montaje eran los mismos que se usaban en las máquinas recreativas. De hecho, los siguen fabricando. Por tanto, no es de extrañar que, a día de hoy, y tras muchos años de uso, este joystick se conserve prácticamente como nuevo.</p>
+
 <p>Una buena opción de mejora puede ser añadir la funcionalidad del segundo botón de disparo. Además, al disponer de un conmutador, vamos a colocar el segundo botón en el pin 7 (MSX) o pin 9 (Commodore o Sega Master System), con lo cual le podremos sacar todavía más partido, ya que seguirá siendo compatible con Spectrum y Amstrad CPC.</p>
-<div><a href="http://2.bp.blogspot.com/--rK-xwNgjwk/UXb85foEXyI/AAAAAAAAB9w/y2UXjMvcf1s/s1600/IMG_0063.JPG"><img class="center-block img-fluid w-100" src="/uploads/2013/04/img-0063.jpg" width="600"></a></div>
+
+{% include 'components/image.twig' with {'src': '/uploads/2013/04/img-0063.jpg', 'alt': '', 'position': 'center'} %}
+
 <p>Al abrirlo nos encontramos lo que esperábamos. Efectivamente, los dos botones de disparo están puenteados entre sí. Los cables van a una placa intermedia que es la que lleva el conmutador y la que hace el mapeo de pines entre la norma Atari y SJS. Por último, aunque el joystick sólo usa 6 hilos (4 direcciones, disparo y masa), el cable DB9 tiene los 9 hilos, por lo que vamos a poder llevar a cabo la mejora planeada sin mayores problemas.</p>
+
 <p>Lo primero que haremos será empalmar los cables correspondientes a las 4 direcciones, el botón 1 de disparo y la masa (que es común a todos los elementos). Lo podemos hacer tranquilamente con unas clemas, desoldándolos previamente de la plaquita intermedia.</p>
-<div><a href="http://4.bp.blogspot.com/-xTiDfW_HLZc/UXb85mM2HOI/AAAAAAAAB-E/T7IW1TivsTQ/s1600/IMG_0064.JPG"><img class="center-block img-fluid w-100" src="/uploads/2013/04/img-0064.jpg" width="600"></a></div>
+
+{% include 'components/image.twig' with {'src': '/uploads/2013/04/img-0064.jpg', 'alt': '', 'position': 'center'} %}
+
 <p>Llegados a este punto, lo que resta es colocar los cables del botón 2 de disparo de manera que, empleando el conmutador, en una posición vaya conectado al pin 7 (MSX) y, en la otra, al pin 9 (Commodore). Eso lo conseguiremos soldando los cables de esta manera:</p>
+
 <ul>
     <li>Botón 2 a lo que era la dirección S.</li>
     <li>Cable 9 lo dejamos donde está</li>
     <li>Cable 7 lo movemos a la posición 2.</li>
 </ul>
-<div><a href="http://2.bp.blogspot.com/-rijq8KcLlvA/UXb86SQUemI/AAAAAAAAB-Q/-E9Ud-Vnw_A/s1600/IMG_0066.JPG"><img class="center-block img-fluid w-100" src="/uploads/2013/04/img-0066.jpg" width="600"></a></div>
+
+{% include 'components/image.twig' with {'src': '/uploads/2013/04/img-0066.jpg', 'alt': '', 'position': 'center'} %}
+
 <p>Y ya está. Hemos conseguido un joystick robusto y duradero compatible con un montón de ordenadores y consolas de 8 y 16 bits. Para usalo en un Spectrum +2 o +3 podemos echar mano del <a href="http://magazinezx.speccy.org/08/hardware.html">convertidor Atari-SJS</a>.</p>
-<div><a href="http://1.bp.blogspot.com/-j-V5k5-Im0E/UXb86GBOOKI/AAAAAAAAB-A/Spl4qKEsAJc/s1600/IMG_0065.JPG"><img class="center-block img-fluid w-100" src="/uploads/2013/04/img-0065.jpg" width="600"></a></div>
+
+{% include 'components/image.twig' with {'src': '/uploads/2013/04/img-0065.jpg', 'alt': '', 'position': 'center'} %}
+
 <p>Tenemos acceso a más información sobre los joysticks Telemach gracias al <a href="http://zonadepruebas.org/deepfb/ordenadores/joystick/telemach.htm">artículo que Jaime Soriano escribió en Zona De Pruebas</a>.</p>

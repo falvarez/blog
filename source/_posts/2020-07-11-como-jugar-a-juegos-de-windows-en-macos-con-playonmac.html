@@ -1,0 +1,66 @@
+---
+layout: post
+title: "Cómo jugar a juegos de Windows en macOS con PlayOnMac"
+summary: "Tener un Mac no significa renunciar a joyas como las que publican desarrolladores como Locomalito, que suelen trabajar solo para Windows. Os explico cómo hacerlo."
+text_date: Sábado, 11 de julio de 2020
+header_image: /uploads/2020/07/playonmac-logo.png
+main_image: /uploads/2020/07/playonmac-logo.png
+tags: [briconsejo, locomalito, macos, videojuegos]
+disqus_identifier: como-jugar-a-juegos-de-windows-en-macos-con-playonmac
+disqus_url: http://blog.falvarez.es/2020/07/como-jugar-a-juegos-de-windows-en-macos-con-playonmac.html
+
+---
+
+<p>No soy mucho de jugar en el ordenador, y mira que de pequeño le he metido horas y horas (probablemente menos de las que creo, lo que ocurre es que el tiempo transcurre más despacio cuando eres un crío). Pero, desde que me compré la PlayStation, precisamente con el objetivo de no tener que andar actualizando los componentes del ordenador cada pocos meses, ni andar lidiando con configuraciones y optimizaciones, no he jugado asiduamente. Quizás a emuladores más que otra cosa, pero cada vez menos. Y desde que me compré el Mac, apenas nada.</p>
+
+<p>Eso sí, ha habido algunos títulos, principalmente los de <a href="https://locomalito.com/">Locomalito</a> y algunos más, que he querido jugar. Aunque lo ideal sería disponer de versiones compiladas para macOS, no siempre es posible. Hasta ahora me he apañado usando <a href="https://www.winehq.org/">Wine</a>, que añade una capa de compatibilidad que hace posible lanzar ejecutables de Windows en otros sistemas operativos. Pero con <a href="https://locomalito.com/solar_gladiators.php">Solar Gladiators</a> no hay manera. El juego arranca, porque se oye la música, pero la pantalla se queda en negro. En la consola aparece una lista de avisos y errores que, obviamente, no soy capaz de descifrar para saber qué debo cambiar en mi configuración. Es algo extraño porque el anterior juego, Darkula, sí lo pude disfrutar sin problemas.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/solar-gladiators.jpg', 'alt': 'Solar Gladiators, un juego para Windows de Locomalito y Gryzor87', 'position': 'center'} %}
+
+<p>Pregunté en el canal de Telegram de <a href="http://www.retromaniac.es/">RetroManiac</a> y el compañero José María me recomendó que probase con <a href="https://www.playonmac.com/">PlayOnMac</a>. En el pasado había usado alguna herramienta similar, como <a href="http://wineskin.urgesoftware.com/tiki-index.php">Wineskin</a>, pero ésta en concreto no la conocía.</p>
+
+<p>Al arrancar PlayOnMac tenemos dos opciones: instalar un programa nuevo o ajustar las opciones de configuración.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-01.png', 'alt': 'PlayOnMac - pantalla de inicio', 'position': 'center'} %}
+
+<p>Vamos pues a instalar un programa. En realidad, PlayOnMac se basa también en Wine, pero ya viene preparado para instalar multitud de programas con la configuración óptima, de forma que no tengamos que preocuparnos por ello. No obstante, como era de esperar, Solar Gladiators no está en la lista. No hay problema, se puede instalar cualquier cosa, solo que no dispondremos de ayuda al respecto. Tenemos la opción justo abajo a la izquierda: "Install a non-listed program".</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-02.png', 'alt': 'PlayOnMac - menú de instalación', 'position': 'center'} %}
+
+<p>A continuación, tenemos que elegir si vamos a instalar un programa nuevo, como es nuestro caso, o vamos a actualizar uno preexistente.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-03.png', 'alt': 'PlayOnMac - selección de nueva instalación o actualización', 'position': 'center'} %}
+
+<p>Crearemos una unidad virtual con el nombre del juego.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-04.png', 'alt': 'PlayOnMac - nueva instalación, nombre de la unidad', 'position': 'center'} %}
+
+<p>Nos da la opción de hacer algún ajuste especial antes de la instalación. En nuestro caso no es necesario.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-05.png', 'alt': 'PlayOnMac - opciones previas a la instalación', 'position': 'center'} %}
+
+<p>Nos pregunta si queremos hacer una instalación sobre Windows de 32 ó 64 bits. Como somos de la vieja escuela, elegimos 32. Con 64 también funciona.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-06.png', 'alt': 'PlayOnMac - 32 ó 64 bits', 'position': 'center'} %}
+
+<p>Por último, tenemos que indicar cuál es el instalador. Pero en nuestro caso no tenemos, así que pulsaremos en "Cancel".</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-07.png', 'alt': 'PlayOnMac - selección del fichero de instalación', 'position': 'center'} %}
+
+<p>Lo que haremos en vez de lanzar el instalador (que no existe) será copiar los ficheros de Solar Gladiators directamente en la unidad virtual que acabamos de crear, que se encuentra si seguimos el enlace simbólico "PlayOnMac's virtual drives" que se encuentra en nuestra home. Lo mejor es copiar el directorio entero del juego dentro de "drive_c".</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-08.png', 'alt': 'PlayOnMac - unidad virtual de Solar Gladiators', 'position': 'center'} %}
+
+<p>Una vez copiados los ficheros, volveremos a PlayOnMac y entraremos en la configuración. A la izquierda, seleccionamos SolarGladiator, y hacemos clic en el botón para crear un nuevo atajo en esta unidad virtual: "Make a new shortcut from this virtual drive".</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-09.png', 'alt': 'PlayOnMac - selección del fichero de instalación', 'position': 'center'} %}
+
+<p>El asistente de PlayOnMac habrá detectado unos cuantos ejecutables. Uno de ellos es el del juego, que aparece gracias a que lo acabamos de copiar dentro de la unidad virtual.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-10.png', 'alt': 'PlayOnMac - asistente de creación de atajos', 'position': 'center'} %}
+
+<p>Lo seleccionamos y, al volver a la pantalla principal de PlayOnMac, tendremos nuestro juego listo para ser lanzado.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/07/playonmac-11.png', 'alt': 'PlayOnMac - pantalla principal con acceso directo a Solar Gladiators', 'position': 'center'} %}
+
+<p>Ya sólo queda comprobar si el juego sí funciona. Y, efectivamente, ahora la pantalla acompaña al sonido que escuchábamos cuando lo intentamos la primera vez con Wine a pelo. Es momento, ahora sí, de disfrutar de este regalo que nos brindan Locomalito y Gryzor87.</p>

@@ -198,3 +198,8 @@ a, body {
 /* CSharp */
 .code-style-dark .source .sharp-keywords {color: #DF5D6E}
 .code-style-dark .source .sharp-default-types {color: #718DBD}
+
+.site-heading .meta .update-date {
+    display: block;
+    color: lightpink;
+}

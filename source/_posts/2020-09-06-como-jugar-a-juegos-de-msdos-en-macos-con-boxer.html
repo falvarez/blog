@@ -1,0 +1,56 @@
+---
+layout: post
+title: "Cómo jugar a juegos de MS-DOS en macOS con Boxer"
+summary: "Una manera sencilla de disfrutar los clásicos de MS-DOS en nuestros ordenadores Mac."
+text_date: Domingo, 6 de septiembre de 2020
+header_image: /uploads/2020/09/boxerapp-header.png
+main_image: /uploads/2020/09/boxerapp-logo.png
+tags: [briconsejo, macos, ms-dos, retro, videojuegos]
+disqus_identifier: como-jugar-a-juegos-de-msdos-en-mac-con-boxer
+disqus_url: http://blog.falvarez.es/2020/08/como-jugar-a-juegos-de-msdos-en-mac-con-boxer.html
+
+---
+
+<p>Después de acabar con <a href="/2020/08/juegos-blackthorne-snes.html">Blackthorne</a>, hice el propósito de terminarme el Prince Of Persia en algún momento. Hace años que lo tenía instalado gracias a algún pack que me bajé de algún sitio, pero parece que en alguna de las actualizaciones del sistema operativo se ha roto la compatibilidad y ya no funciona. ASí que he estado buscando alguna herramienta que me permita instalar y ejecutar con facilidad y comodidad juegos de MS-DOS en el Mac. Y he encontrado <a href="http://boxerapp.com/">Boxer</a>, que no sé si será la mejor, pero en principio ofrece un comportamiento más que correcto.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-00-splash-screen.png', 'alt': 'Boxer - Pantalla inicial', 'position': 'center'} %}
+
+<p>Desde la pantalla de inicio podemos acceder a la lista de juegos que tenemos instalados, instalar uno nuevo o abrir una ventana de MS-DOS. Vamos a la segunda de ellas para instalar el juego que queramos.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-01-drop-game.png', 'alt': 'Boxer - Arrastrar el juego que queramos instalar', 'position': 'center'} %}
+
+<p>Simplemente tenemos que arrastrar una carpeta donde tengamos el instalador (o el juego, si carece de él), y Boxer se encargará de todo lo necesario de manera automática, o bien nos preguntará la información adicional que necesite para hacerlo.</p>
+
+<p>En el caso de Prince Of Persia, el juego dispone de un instalador; tenemos que seleccionar el ejecutable ("SETUP.EXE").</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-02-choose-installer.png', 'alt': 'Boxer - Elegir el ejecutable del instalador', 'position': 'center'} %}
+
+<p>Seleccionamos la tarjeta de sonido; en nuestro caso cambiaremos "PC Speaker" por "Sound Blaster". Esto dependerá por completo del juego que estemos instalando.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-03-setup-game.png', 'alt': 'Boxer - Configurar la instalación', 'position': 'center'} %}
+
+<p>Hecho lo cual, se completará la instalación.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-04-setup-complete.png', 'alt': 'Boxer - Instalación completada', 'position': 'center'} %}
+
+<p>Una vez instalado, podemos personalizar tanto el nombre como la carátula del juego, y así lo haremos.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-05-setup-customized.png', 'alt': 'Boxer - Personalizar el nombre y la carátula', 'position': 'center'} %}
+
+<p>Si abrimos el juego, veremos que se nos muestra el símbolo de sistema de MS-DOS y, en la parte inferior, Boxer nos pregunta cuál es el ejecutable que debe abrir. En este caso, seleccionaremos "prince.exe". Al hacerlo nos preguntará si debe abrir siempre ese ejecutable o sólo por esta vez.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-06-game-first-launch.png', 'alt': 'Boxer - Lanzar el juego por primera vez', 'position': 'center'} %}
+
+<p>Y con eso básicamente estaría. Si queremos realizar algún ajuste posterior, podemos hacerlo accediendo al menú File > Get Info (o con el atajo ⌘I).</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-07-preferences-menu.png', 'alt': 'Boxer - Menú de información / opciones', 'position': 'center'} %}
+
+<p>Ahora sólo queda disfrutar del juego.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-08-prince-of-persia.png', 'alt': 'Boxer - Prince Of Persia MS-DOS', 'position': 'center'} %}
+
+<p>En la biblioteca de juegos se irán mostrando los que vayamos instalando en lo sucesivo, junto con algunos juegos y demos que se instalan por defecto.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/09/boxer-09-game-library.png', 'alt': 'Boxer - Biblioteca de juegos', 'position': 'center'} %}
+
+<p>Y eso es todo. Según le vaya dando uso, si veo algún aspecto interesante o detecto alguna tara importante, actualizaré esta entrada para darle seguimiento.</p>

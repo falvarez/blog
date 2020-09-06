@@ -19,8 +19,8 @@ var donutDataGamesByPlatform = {
     'PlayStation (16)',
     'PlayStation 2 (10)',
     'PlayStation 3 (17)',
-    'PlayStation 4 (21)',
-    'SNES (1)',
+    'PlayStation 4 (22)',
+    'SNES (2)',
     'Xbox (7)',
     'Xbox 360 (17)',
     'ZX Spectrum (2)',
@@ -42,8 +42,8 @@ var donutDataGamesByPlatform = {
         16, // PlayStation
         10, // PlayStation 2
         17, // PlayStation 3
-        21, // PlayStation 4
-        1, // SNES
+        22, // PlayStation 4
+        2, // SNES
         7, // Xbox
         17, // Xbox 360
         2 // ZX Spectrum

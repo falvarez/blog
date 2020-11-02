@@ -1,0 +1,60 @@
+---
+layout: post
+title: "Amibian y Amiberry: emulación de Commodore Amiga en 2020"
+summary: "Cómo disfrutar del Commodore Amiga en 2020 sin gastarnos un pastizal"
+header_image: /uploads/2020/11/amibian-menu-amiberry.jpg
+main_image: /uploads/2020/11/amibian-splash.jpg
+text_date: Martes, 3 de noviembre de 2020
+tags: [cacharreo, commodore amiga, emulación, raspberry pi]
+disqus_identifier: amibian-y-amiberry-emulacion-de-commodore-amiga-en-2020
+disqus_url: http://blog.falvarez.es/2020/11/amibian-y-amiberry-emulacion-de-commodore-amiga-en-2020.html
+
+---
+
+<p>A principios de los 90 caí rendido ante los encantos de un ordenador, el Commodore Amiga 500, que no solo superaba con creces lo que podía ofrecerme mi ya vetusto ZX Spectrum, sino que también dejaba a la altura del betún (en ciertos aspectos, sobre todo los relacionados con videojuegos y capacidades multimedia) al PC compatible que teníamos en casa.</p>
+
+<p>Por desgracia ya no estaba mi abuelo para darle todos los caprichos a su nieto favorito, y mis padres no estaban por la labor. Así que me tenía que conformar con jugar ocasionalmente en casa de mi amigo Jaime hasta que pude ahorrar lo suficiente para comprarme uno de segunda mano.</p>
+
+<p>El ordenador me proporcionó sus buenas horas de vicio lúdico durante 4 ó 5 años hasta que un nuevo PC, esta vez con Super VGA, Sound Blaster y disco duro ya sí era capaz de superarlo. Todavía lo conservo, aunque la carcasa está amarilla y algo rota. Y aunque me gasté unos buenos dineros en adquirir una <a href="http://hxc2001.free.fr/">unidad HxC</a> para poder cargar (y descargar) juegos de manera más cómoda, es bastante incómodo andar montando toda la parafernalia de cables y periféricos.</p>
+
+<p>Hace unas semanas, hablando con Santi, me descubrió la existencia de <a href="https://gunkrist79.wixsite.com/amibian">Amibian</a> y <a href="https://blitterstudio.com/amiberry/">Amiberry</a>. La primera es una distribución de Linux para Rasbperry Pi que viene preconfigurada para usar cómodamente lo segundo, que es un emulador de Amiga para dicha plataforma.</p>
+
+<p>La gracia del asunto es que la instalación y configuración es tan sencilla como descargar Amibian y "tostarla" en una tarjeta MicroSD. Algo que podemos hacer de manera sencilla como algún programa como <a href="https://www.balena.io/etcher/">Etcher</a>. Perfecto, porque ya tenía una Raspberry Pi 3B, un teclado, un ratón, un mando USB (el de Xbox 360 es compatible) y hasta una MicroSD de 16GB, y siendo tan sencillo no iba a necesitar gastar demasiado tiempo para probarlo.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/11/amibian-splash.jpg', 'alt': 'Amibian - Splash screen', 'position': 'center'} %}
+
+<p>Tras unos pocos segundos, el arranque se completa y tendremos ante nosotros el menú de Amiberry, totalmente operativo. No obstante, se recomienda realizar unos pasos adicionales, que no nos llevarán más que unos minutos, para dejarlo todo más fino.</p>
+
+<p>Lo primero es salir del emulador mediante el botón "Quit".</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/11/amibian-menu-amiberry.jpg', 'alt': 'Amibian - Menú Amiberry', 'position': 'center'} %}
+
+<p>Se nos presenta la consola de Linux con el menú de Amibian, que proporciona algunos accesos rápidos. Usamos la opción 6 (Settings) para acceder a otro menú.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/11/amibian-launcher.jpg', 'alt': 'Amibian - Menú principal', 'position': 'center'} %}
+
+<p>Aquí teclearemos "raspiconf" para acceder a la configuración de la Raspberry Pi.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/11/amibian-settings.jpg', 'alt': 'Amibian - Settings', 'position': 'center'} %}
+
+<p>Usamos la opción 7 (Advanced Options).</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/11/amibian-raspi-config.jpg', 'alt': 'Amibian - Menú raspiconf', 'position': 'center'} %}
+
+<p>Lo que vamos a hacer es extender el sistema de ficheros de la tarjeta MicroSD (A1 Expand Filesystem) para poder usarla en su totalidad.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/11/amibian-advanced-options.jpg', 'alt': 'Amibian - Opciones avanzadas Raspiconf', 'position': 'center'} %}
+
+<p>Saldremos con Back y Finish. Una vez hecho, lo más cómodo para copiar juegos es grabarlos en un pendrive que habremos conectado por USB y usar Midnight Commander para copiarlos. Desde donde estábamos, "menu" y "4" para arrancarlo.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/11/amibian-midnight-commander.jpg', 'alt': 'Amibian - Midnight Commander', 'position': 'center'} %}
+
+<p>Y ya estaría. Volvemos a arrancar Amiberry (opción 3 del menú principal de Amibian), seleccionamos el modelo de Amiga que queremos emular, las imágenes que queremos montar en las disqueteras, y arrancamos la emulación.</p>
+
+<p>Yo no he podido evitar echar una partidita rápida a los Lemmings.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2020/11/amiberry-lemmings.jpg', 'alt': 'Amiberry - Lemmings', 'position': 'center'} %}
+
+<p>Evidentemente no es lo mismo que usar el <em>hardware</em> real o una implementación FPGA como <a href="http://www.forofpga.es/viewforum.php?f=3">UnAmiga</a> o <a href="https://manuferhi.com/p/mister-fpga">MiSTer</a>. También es mucho más económico, sobre todo si ya tenemos la Raspberry y los periféricos adicionales. Pero también os digo que, por ejemplo, ayer probé el Lemmings en el ordenador real y no funcionaba, imagino que por algún programa con la imagen que descargué de Internet. Y la unidad HxC no lee directamente el formato .adf, cosa que el emulador sí que hace. Es necesario convertirlos, así que es todo más engorroso. Si queremos usar discos de verdad la cosa se complica todavía más, ya que los ordenadores PC (o Mac) no son capaces de leer ni mucho menos escribir su formato. Con lo cual, para matar el gusanillo de la nostalgia, me parece la solución más adecuada.</p>
+
+<p>Recordad acabar siempre la sesión usando la opción "Shutdown" de Amiberry, para evitar que la tarjeta SD se corrompa.</p>

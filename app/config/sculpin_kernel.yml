@@ -10,6 +10,10 @@ services:
         class: Falvarez\Blog\TagsExtension
         tags:
             - { name: twig.extension }
+    twig.extension.lcfirst:
+        class: Falvarez\Blog\LcfirstExtension
+        tags:
+            - { name: twig.extension }
 parameters:
     locale: "es_ES"
     timezone: "Europe/Madrid"

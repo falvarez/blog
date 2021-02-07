@@ -38,7 +38,7 @@
                     <span class="subheading">{{ page.subtitle }}</span>
                     <span class="meta">{{ page.text_date }}</span>
                     {% if page.last_update_date %}
-                        <span class="meta update-date">Actualizado el {{ page.last_update_date }}</span>
+                        <br><span class="meta update-date">Actualizado el {{ page.last_update_date | lcfirst }}</span>
                     {% endif %}
                 </div>
             </div>

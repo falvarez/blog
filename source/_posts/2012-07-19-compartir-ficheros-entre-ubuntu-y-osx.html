@@ -16,7 +16,8 @@ disqus_url: http://blog.falvarez.es/2012/07/compartir-ficheros-entre-ubuntu-y-os
 
 <p>Abajo a la izquierda se pueden ver los tres recursos de red que tengo conectados: mediacenter (samba), vubuntu (appletalk) y fuse4x (sshfs).</p>
 
-{% include 'components/image.twig' with {'src': '/uploads/2012/07/screen-2520shot-25202012-07-19-2520at-252000.43.45.jpg" alt="Unidades de red" width="600" height="355', 'alt': '', 'position': 'center'} %}
+{% include 'components/image.twig' with {'src': '/uploads/2012/07/screen-2520shot-25202012-07-19-2520at-252000.43.45.jpg', alt: 'Unidades de red', 'position': 'center'} %}
+
 <h2>    Samba</h2>Es un protocolo original de Windows cuyo uso, debido a la popularidad de dicho sistema operativo, se ha extendido a otros múltiples dispositivos. Curiosamente, en este caso lo emplearíamos para compartir entre sistemas ninguno de los cuales son Windows, pero configurar Samba es muy sencillo (al menos en Ubuntu) y es una primera opción casi inmediata. Creo que no merece la pena entrar en detalles de cómo se configura.
 <h2>    Appletalk</h2>Con esta solución me topé intentando exportar en el servidor un recurso de red que me permitiera hacer copias de seguridad del Mac con Time Machine. Appletalk (en realidad AFP, Apple Filing Protocol) es el protocolo de Mac, pero como la comunidad del software libre es así de apañada, también podemos configurar nuestro Ubuntu para compartir ficheros de esta manera.
 <p>Necesitamos instalar en Ubuntu los siguientes paquetes:</p><ul><li>avahi-daemon</li>

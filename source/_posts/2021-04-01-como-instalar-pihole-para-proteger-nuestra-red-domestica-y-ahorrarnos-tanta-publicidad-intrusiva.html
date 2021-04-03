@@ -1,0 +1,110 @@
+---
+layout: post
+title: "Cómo instalar Pi-hole para proteger nuestra privacidad"
+summary: "Os cuento cómo he instalado Pi-hole en la misma Raspberry Pi donde tengo Kodi sobre Xbian, usando Docker para mayor comodidad, y así poder bloquear rastreadores y publicidad invasiva"
+header_image: /uploads/2021/04/pi-hole-header.jpg
+main_image: /uploads/2021/04/pi-hole.jpg
+text_date: Jueves, 1 de abril de 2021
+tags: [adblock, briconsejo, cacharreo, docker, internet, kodi, linux, pi-hole]
+disqus_identifier: como-instalar-pihole-para-proteger-nuestra-privacidad
+disqus_url: http://blog.falvarez.es/2021/04/como-instalar-pihole-para-proteger-nuestra-privacidad.html
+
+---
+
+<p>Hace ya años que algún compañero del trabajo me habló de <a href="https://pi-hole.net/">Pi-hole</a>, un desarrollo de software libre que permite bloquear las peticiones a una lista de dominios que podemos configurar a nuestro gusto. Hasta ahora me he apañado con <a href="https://www.ghostery.com/">Ghostery</a> para dichos menesteres, pero Pi-hole va un paso más allá.</p>
+
+<p>Este producto trabaja a nivel de DNS en nuestra red local y, por lo tanto, no es necesario que instalemos nada en nuestros equipos: ordenadores, móviles, tabletas, etc. El funcionamiento, explicado de forma sucinta y lo menos técnicamente posible, es el siguiente: a los dispositivos electrónicos, al conectarse a las redes, se les asigna lo que se denomina una dirección IP. Es un código de 4 números entre 0 y 255 que los identifica unívocamente. Es como si fuera su "número de teléfono". Pero, igual que no nos solemos aprender los números de teléfono de memoria, sino que los anotamos en una agenda (o, más bien, los tenemos anotados en la agenda del móvil), cuando en el ordenador queremos acceder a Google, por poner un ejemplo, no ponemos en la barra la dirección IP de Google, sino que tecleamos "www.google.es". Por debajo, el ordenador hace una consulta a un servidor DNS (Domain Name Resolver), que es el que se encarga de decirle al ordenador que www.google.es se corresponde con, por ejemplo, la direción IP 142.250.184.163, y es a esa dirección a la que se conectar.</p>
+
+<p>Pues bien, Pi-hole lo que hace es implementar ese servicio dentro de nuestra red local, pero de tal manera que, si el dominio que le estamos pidiendo se corresponde con uno de la lista de bloqueo, no devuelve la dirección IP y, por tanto, nunca se efectuará la conexión. Existen listas públicas que se van actualizando constantemente, y que suelen contener dominios de rastreadores, servidores de publicidad, webs de <em>phishing</em> (que intentan hacerse pasar por otras legítimas para robar nuestros datos), sitios que distribuyen software malicioso, páginas pornográficas, etc. Y todo esto, como digo, sin necesidad de instalar nada en cada uno de los dispositivos que usamos en el hogar.</p>
+
+<p>Para que todo funcione de forma transparente, además del servicio de DNS necesitamos habilitar otro, que se llama DHCP, y que suele prestarnos el router que tenemos en casa. Básicamente consiste en que, a cada dispositivo que se conecta a la red (WiFi o por cable) se le "presta" una dirección IP de forma temporal. Normalmente se le suele asignar siempre la misma, pero no es obligatorio salvo que lo indiquemos. Además de la dirección IP, se le dice al dispositivo cuál es la dirección IP del router y la dirección IP del servidor DNS. Como os podréis imaginar, tenemos que desactivar dicho servicio en el router y usar el que incluye Pi-hole, para poder decir a nuestros dispositivos de forma automática que Pi-hole también es el servidor DNS que deben utilizar. Esto debería ser posible de configurar en el router, pero normalmente suele venir capado para que sólo se puedan usar los DNS de nuestro proveedor de Internet.</p>
+
+<p>En casa tengo algunos equipos que están siempre encendidos, como son un <a href="https://es.wikipedia.org/wiki/Almacenamiento_conectado_en_red">NAS</a> o una <a href="/2017/07/hasta-siempre-zotac-gracias-por-todo.html">Raspberry Pi</a> que usamos con <a href="https://kodi.tv/">Kodi</a> para ver series y películas. O, más bien, usábamos, porque ahora con las plataformas y las suscripciones, la verdad es que poco uso le damos. Así que esta Raspberry parece la candidata ideal para instalar Pi-hole en ella. El NAS sería otra opción, pero el modelo que poseo no dispone de soporte para <a href="https://www.docker.com/">Docker</a>, así que lo descartamos. Pero si lo tuviera también sería una opción perfectamente válida.</p>
+
+<p>En teoría la instalación es tan sencilla como ejecutar la siguiente línea:</p>
+
+<pre>
+curl -sSL https://install.pi-hole.net | bash
+</pre>
+
+<p>Xbian no está en la <a href="https://docs.pi-hole.net/main/prerequisites/#supported-operating-systems">lista de sistemas operativos soportados</a>. No obstante, es posible obviar la comprobación y completar la instalación. En mi caso, así lo hice, pero no llegó a funcionar del todo, y no fui capaz de descubrir la causa. Las peticiones DNS llegaban a Pi-hole, pero la respuesta de vuelta no, por lo que no se podía navegar desde los dispositivos.</p>
+
+<p>Así que intenté la segunda opción, que es <a href="https://github.com/pi-hole/docker-pi-hole/#running-pi-hole-docker">instalarlo sobre Docker</a>. No voy a entrar a explicar lo que es Docker, daría para un blog entero, y no es el objetivo de este texto. Lo que sí, primeramente, necesité instalar Docker en la Raspberry Pi. Para ello, usé la <a href="http://forum.xbian.org/thread-4021-post-35922.html#pid35922">receta indicada en este foro</a>:</p>
+
+<pre>
+#!/bin/sh
+
+#
+# Script to install and check docker on XBian system
+# Commands token from here:
+#     https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository
+#
+
+# Update the apt package index:
+sudo apt-get update
+
+# Install packages to allow apt to use a repository over HTTPS:
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    software-properties-common
+
+# Add Docker’s official GPG key:
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+# Set up the stable repository:
+sudo add-apt-repository \
+   "deb [arch=armhf] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+
+# Update the apt package index:
+sudo apt-get update
+
+# Install the latest version of Docker CE and containerd, or go to the next step to install a specific version:
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+# Check, of docker is already running, it should be
+
+status docker
+
+# Verify that Docker CE is installed correctly by running the hello-world image.
+sudo docker run hello-world
+</pre>
+
+<p>Una vez instalado Docker, me basé en un par de referencias que encontré para escribir mi propio script:</p>
+
+<pre>
+sudo docker run -d \
+--name pihole \
+-p 53:53/tcp -p 53:53/udp \
+-p 67:67/udp \
+-p 89:80 \
+-p 443:443 \
+-e TZ="Europe/Madrid" \
+-e WEBPASSWORD="$PASSWORD" \
+-v "$HOME/.pihole/pihole/:/etc/pihole/" \
+-v "$HOME/.pihole/dnsmasq.d/:/etc/dnsmasq.d/" \
+--dns=1.1.1.1 --dns=1.0.0.1 \
+--restart=unless-stopped \
+--cap-add=NET_ADMIN \
+--net host \
+pihole/pihole:latest
+</pre>
+
+<p>Y ya estaría todo funcionando y sin necesidad de hacer ninguna instalación adicional. Este método de instalación ya incluye una lista de bloqueo, pero podemos añadir más sin ningún tipo de problema. La configuración se guarda en el disco local, en la ruta <code style="display: inline-block">/home/xbian/.pihole</code>, así que no hay problema si reiniciamos el contenedor, el propio servicio de Docker o la Raspberry.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/04/pi-hole-screenshot.jpg', 'alt': 'La consola de administración de Pi-hole', 'position': 'center'} %}
+
+<p>He probado a usar Kodi y aparentemente no se nota nada en el rendimiento, así que por ese lado también podemos estar tranquilos. El único inconveniente que he encontrado hasta ahora es que la interfaz web escucha el puerto 80, por lo que no podemos usarlo para otras cosas. Eso es por la opción <code style="display: inline-block">"--net host"</code>, sin la cual el servicio DHCP parece no funcionar correctamente. En mi caso no es problema, pero si así lo fuera, habría que pensar alguna forma de solventarlo.</p>
+
+<h2>Referencias</h2>
+
+<ul>
+    <li><a href="http://forum.xbian.org/thread-4021.html">Install Docker</a></li>
+    <li><a href="https://rlodeiro.info/blog/pihole_docker/">PI-HOLE & DOCKER - ADIÓS PUBLICIDAD, HOLA DOMINIOS LOCALES!</a></li>
+    <li><a href="https://fictionbecomesfact.com/2019/03/17/installing-docker-pi-hole-image-with-dhcp-server/">
+        Installing the Pi-hole docker image with DHCP server enabled</a></li>
+</ul>

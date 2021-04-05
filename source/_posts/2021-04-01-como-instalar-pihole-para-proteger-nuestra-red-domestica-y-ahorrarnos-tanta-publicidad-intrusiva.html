@@ -79,10 +79,6 @@ sudo docker run hello-world
 <pre>
 sudo docker run -d \
 --name pihole \
--p 53:53/tcp -p 53:53/udp \
--p 67:67/udp \
--p 89:80 \
--p 443:443 \
 -e TZ="Europe/Madrid" \
 -e WEBPASSWORD="$PASSWORD" \
 -v "$HOME/.pihole/pihole/:/etc/pihole/" \

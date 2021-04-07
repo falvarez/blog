@@ -125,6 +125,10 @@ a, body {
     color: #fff;
 }
 
+code.inline {
+    display: inline-block;
+}
+
 /** Code source https://codepen.io/romgerman/pen/xOZrZB **/
 
 /* CODE BLOCK */

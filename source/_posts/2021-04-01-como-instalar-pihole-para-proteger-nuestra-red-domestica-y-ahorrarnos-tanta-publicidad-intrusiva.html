@@ -90,11 +90,11 @@ sudo docker run -d \
 pihole/pihole:latest
 </pre>
 
-<p>Y ya estaría todo funcionando y sin necesidad de hacer ninguna instalación adicional. Este método de instalación ya incluye una lista de bloqueo, pero podemos añadir más sin ningún tipo de problema. La configuración se guarda en el disco local, en la ruta <code style="display: inline-block">/home/xbian/.pihole</code>, así que no hay problema si reiniciamos el contenedor, el propio servicio de Docker o la Raspberry.</p>
+<p>Y ya estaría todo funcionando y sin necesidad de hacer ninguna instalación adicional. Este método de instalación ya incluye una lista de bloqueo, pero podemos añadir más sin ningún tipo de problema. La configuración se guarda en el disco local, en la ruta <code class="inline">/home/xbian/.pihole</code>, así que no hay problema si reiniciamos el contenedor, el propio servicio de Docker o la Raspberry.</p>
 
 {% include 'components/image.twig' with {'src': '/uploads/2021/04/pi-hole-screenshot.jpg', 'alt': 'La consola de administración de Pi-hole', 'position': 'center'} %}
 
-<p>He probado a usar Kodi y aparentemente no se nota nada en el rendimiento, así que por ese lado también podemos estar tranquilos. El único inconveniente que he encontrado hasta ahora es que la interfaz web escucha el puerto 80, por lo que no podemos usarlo para otras cosas. Eso es por la opción <code style="display: inline-block">"--net host"</code>, sin la cual el servicio DHCP parece no funcionar correctamente. En mi caso no es problema, pero si así lo fuera, habría que pensar alguna forma de solventarlo.</p>
+<p>He probado a usar Kodi y aparentemente no se nota nada en el rendimiento, así que por ese lado también podemos estar tranquilos. El único inconveniente que he encontrado hasta ahora es que la interfaz web escucha el puerto 80, por lo que no podemos usarlo para otras cosas. Eso es por la opción <code class="inline">"--net host"</code>, sin la cual el servicio DHCP parece no funcionar correctamente. En mi caso no es problema, pero si así lo fuera, habría que pensar alguna forma de solventarlo.</p>
 
 <h2>Referencias</h2>
 

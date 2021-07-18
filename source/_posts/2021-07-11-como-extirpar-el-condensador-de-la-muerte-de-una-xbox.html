@@ -1,0 +1,70 @@
+---
+layout: post
+title: "Cómo extirpar el \"condensador de la muerte\" de una Xbox"
+summary: "No lo sabía hasta ahora, pero estas consolas están condenadas a una desastrosa muerte por ácido si no aplicamos una sencilla operación."
+header_image: /uploads/2021/07/10-xbox-tornillos-placa-base.jpg
+main_image: /uploads/2021/07/13-xbox-el-condensador-de-la-muerte-eliminado.jpg
+text_date: Domingo, 11 de julio de 2021
+tags: [briconsejo, microsoft, personal, retroinformática, xbox]
+disqus_identifier: como-extirpar-el-condensador-de-la-muerte-de-una-xbox
+disqus_url: http://blog.falvarez.es/2021/06/como-extirpar-el-condensador-de-la-muerte-de-una-xbox.html
+
+---
+
+<p>Me alarmé bastante cuando me enteré de rebote de este tema, gracias a un comentario en el <a href="https://t.me/joinchat/Ec7iXBEKxnsgj4-aNi__Zg">grupo de Telegram de RetroManiac</a>. He de reconocer que no sabía nada, y mira que intento estar al tanto de este tipo de historias, sobre cómo modificar consolas y preservarlas de la mejor forma posible. La consola está operativa, aunque obviamente ahora la enciendo una ínfima cantidad de veces en comparación a cuando la compré allá por unas lejanas navidades de 2001. Muy de vez en cuando la pongo para jugar algunas partidas al Out Run 2 y poco más. La última vez, en septiembre de 2020. Sí, apunto cuándo fue la última vez que encendí cada uno de mis antiguos cacharros. Los condensadores, aparte de otros componentes electrónicos, suelen dar problemas con el paso del tiempo.</p>
+
+<p>Por lo visto, hay un condensador en la placa base, el encargado de mantener la hora del sistema (en vez de usar la típica pila CR2032) que tiene una tendencia suicida a reventar y desparramar su ácido contenido por la placa, provocando un desastre que puede acabar con el funcionamiento de la propia consola. Si hacemos la búsqueda "<a href="https://www.google.com/search?q=xbox+death+capacitor">Xbox death capacitor</a>" encontraremos algunas referencias.</p>
+
+<p>Lo primero que hice fue desarmarla lo antes posible y confirmar su estado de manera visual. Afortunadamente, aún no se apreciaba ningún rastro del posible desastre, así que sólo quedaba buscar un hueco en el que reservar media hora para poder realizar la intervención.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/01-xbox-cabezas-torx-10-y-15-necesarias-para-el-desmontaje.jpg', 'alt': 'Cabezas Torx 10 y 15 necesarias para el desmontaje.', 'position': 'center'} %}
+
+<p>En mi caso, al ser una consola versión 1.4 y con chip, la solución es bien sencilla: basta con extirpar el condensador, sin más. Para ello, una de las formas de hacerlo es localizar los puntos de soldadura en la parte posterior de la placa y calentarlos con la punta del soldador mientras sujetamos el condensador con unas pinzas y lo vamos moviendo de un lado a otro, con cuidado pero algo de tracción, haciendo vaivén hasta que termina por soltarse. Obviamente, sólo podremos hacerlo accediendo a dicha parte trasera de la placa, para lo cual deberemos desmontar la consola casi por completo. A continuación os cuento cómo:</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/02-xbox-carcasa-inferior.jpg', 'alt': 'Carcasa inferior de la Xbox.', 'position': 'center'} %}
+
+<p>Lo primero que tendremos que hacer dar la vuelta a la consola y retirar los 6 tornillos de su parte posterior; 4 de ellos están ocultos tras los soportes de goma de las esquinas y, los 2 restantes, bajo sendas pegatinas. En mi caso, como ya había abierto la consola previamente para instalarle un modchip, dichas pegatinas ya estaban rotas.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/03-xbox-los-tornillos-de-la-carcasa.jpg', 'alt': 'Los 6 tornillos que sujetan la carcasa.', 'position': 'center'} %}
+
+<p>Volvemos a poner la consola boca arriba y podemos retirar la tapa superior. Quedarán a la vista la unidad óptica y el disco duro, que están colocados en sus respectivos soportes de plástico. Para poder retirarlos, lo primero es desconectar el cable IDE que va de la unidad de DVD al disco duro.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/04-xbox-cable-ide-disco-duro.jpg', 'alt': 'Cable IDE DVD y disco duro.', 'position': 'center'} %}
+
+<p>Después deberemos sacar los 3 tornillos que inmovilizan los soportes de ambas unidades:</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/05-xbox-tornillos-dvd-disco-duro.jpg', 'alt': 'Soportes DVD y disco duro. Tornillo 1.', 'position': 'center'} %}
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/06-xbox-tornillos-dvd-disco-duro.jpg', 'alt': 'Soportes DVD y disco duro. Tornillo 2.', 'position': 'center'} %}
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/07-xbox-tornillos-dvd-disco-duro.jpg', 'alt': 'Soportes DVD y disco duro. Tornillo 3.', 'position': 'center'} %}
+
+<p>Una vez lo hayamos hecho, si desconectamos el cable de datos que va a la parte trasera del disco duro, podemos retirar ambos componentes sin desmontar más cosas: uno hacia atrás y el otro hacia la derecha, de la manera que se indica en la imagen.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/08-xbox-desmontaje-dvd-disco-duro.jpg', 'alt': 'Apartamos el DVD y el disco duro para poder acceder a la placa base.', 'position': 'center'} %}
+
+<p>Lo siguiente será desconectar todos los conectores que llevan cables desde los distintos componentes a la placa base. Hay 7 que están marcados en la siguiente imagen.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/09-xbox-conectores-placa.jpg', 'alt': 'Conectores a la placa base que debemos desconectar.', 'position': 'center'} %}
+
+<p>Por último, tendremos que retirar los tornillos que sujetan la placa base a la carcasa. Son 10 y están marcados en la siguiente imagen.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/10-xbox-tornillos-placa-base.jpg', 'alt': 'Tornillos que sujetan la placa base a la carcasa.', 'position': 'center'} %}
+
+<p>Una vez con la placa en nuestras manos tendremos total acceso al condensador maldito. Hay varias formas de extirparlo; yo lo he desoldado empleando la técnica que explicaba más arriba.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/11-xbox-condensador-de-la-muerte.jpg', 'alt': 'El condensador de la muerte.', 'position': 'center'} %}
+
+<p>Así queda la placa una vez hemos desoldado el condensador. En mi caso he tenido tanta suerte que no ha sido necesario limpiar nada. En caso de que haya vertido algo de ácido, y la avería no sea definitiva, se puede limpiar con un bastoncillo impregnado en alcohol.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/12-xbox-placa-sin-condensador.jpg', 'alt': 'La placa base liberada de su silencioso asesino.', 'position': 'center'} %}
+
+<p>Un primer plano del condensador.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/13-xbox-el-condensador-de-la-muerte-eliminado.jpg', 'alt': 'Carcasa inferior de la Xbox', 'position': 'center'} %}
+
+<p>Y ya estaría. Ahora hay que volver a montar la consola siguiendo los pasos anteriormente citados en orden inverso. Aunque yo recomiendo conectar los cables y comprobar que funciona antes de atornillar y cerrar.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2021/07/14-xbox-probando-que-la-consola-funciona-sin-el-condensador.jpg', 'alt': 'La consola funciona como siempre liberada del yugo del condensador de la muerte.', 'position': 'center'} %}
+
+<p>Si tenéis una Xbox, no dejéis pasar mucho tiempo sin revisarla y extirpar este componente. Quien sabe si ya podría estar dañada. Ojalá que no y que tengáis la misma suerte que yo he tenido en esta ocasión.</p>

@@ -3,7 +3,7 @@ use: ["posts"]
 permalink: atom.xml
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
     <title><![CDATA[{{ site.title }}]]></title>
     <link href="{{ site.url }}/atom.xml" rel="self"/>
     <link href="{{ site.url }}/"/>
@@ -23,6 +23,9 @@ permalink: atom.xml
             <updated>{{ post.date|date('c') }}</updated>
             <id>{{ site.url }}{{ post.url }}</id>
             <content type="html"><![CDATA[{{ post.blocks.content|raw }}]]></content>
+            {% if post.main_image %}
+                <media:content type="image/jpeg" medium="image" url="{{ site.url }}{{ post.main_image }}"/>
+            {% endif %}
         </entry>
     {% endfor %}
 </feed>

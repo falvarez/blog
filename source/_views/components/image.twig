@@ -1,8 +1,9 @@
 <figure>
     <img class="{{ position }}-block img-fluid lozad {% if additionalClasses %}{{ additionalClasses }}{% else %}w-100{% endif %}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HgAGgwJ/lK3Q6wAAAABJRU5ErkJggg==" data-src="{{ src }}" alt="{{ alt | escape('html_attr')}}">
     {% if caption %}
-        <span class="figure-caption text-muted text-right">{{ caption | raw }}</p>
+        <span class="figure-caption text-muted text-right">{{ caption | raw }}</span>
     {% else %}
         <span class="figure-caption text-muted text-right">{{ alt }}</span>
     {% endif %}
+    <noscript><img class="{{ position }}-block img-fluid {% if additionalClasses %}{{ additionalClasses }}{% else %}w-100{% endif %}" src="{{ src }}" alt="{{ alt | escape('html_attr')}}"></noscript>
 </figure>

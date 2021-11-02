@@ -10,8 +10,8 @@ var donutDataGamesByPlatform = {
     'Game Boy Advance (6)',
     'GameCube (2)',
     'Nintendo DS (9)',
-    'Nintendo 3DS (7)',
-    'Nintendo Switch (3)',
+    'Nintendo 3DS (8)',
+    'Nintendo Switch (4)',
     'Nintendo Wii (4)',
     'Nintendo WiiU (13)',
     'Nintendo 64 (1)',
@@ -33,8 +33,8 @@ var donutDataGamesByPlatform = {
         6, // Game Boy Advance
         2, // GameCube
         9, // Nintendo DS
-        7, // Nintendo 3DS
-        3, // Nintendo Switch
+        8, // Nintendo 3DS
+        4, // Nintendo Switch
         4, // Nintendo Wii
         13, // Nintendo WiiU
         1, // Nintendo 64

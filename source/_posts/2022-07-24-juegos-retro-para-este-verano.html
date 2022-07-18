@@ -1,0 +1,37 @@
+---
+layout: post
+title: "Preparando juegos retro para este verano"
+summary: "Este año no me pilla el toro, y ya he seleccionado los (dos) juegos que voy a intentar pasarme este verano"
+header_image: /uploads/2022/07/preparando-juegos-retro-verano-cabecera.jpg
+main_image: /uploads/2022/07/preparando-juegos-retro-verano.jpg
+text_date: Lunes, 18 de julio de 2022
+tags: [everdrive, nes, nintendo, prince of persia, retro, verano, videojuegos]
+widgets: [now-playing]
+disqus_identifier: preparando-juegos-retro-para-este-verano
+disqus_url: http://blog.falvarez.es/2022/07/preparando-juegos-retro-para-este-verano.html
+
+---
+
+<p>Hoy vamos directos al grano, sin rodeos.</p>
+
+<p>Este verano me voy a llevar la NES al pueblo, con el Everdrive recién comprado. La versión chinesca de AliExpress, eso sí. Lo siento, Krikzz. No me puedo permitir los más de 100 euros que cuesta el tuyo. Aunque el chino no es que sea especialmente barato, habida cuenta de cómo han subido los precios de todo. Aun así, el juego elegido lo tengo original: <a href="https://www.nintendo.es/Juegos/NES/Super-Mario-Bros-3-279558.html">Super Mario Bros 3</a>. No sé si me dará tiempo a terminármelo (no creo), pero al menos podré echar buenos ratos. Quizás sería más cómodo jugarlo en la Switch, o la Nintendo Classic Mini, por aquello de poder guardar partida en cualquier momento y tal, pero en verano, ya que puedo, prefiero usar la consola original en una buena tele de tubo.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2022/07/everdrive-chino.jpg', 'alt': 'Everdrive N8 chinesco', 'position': 'center'} %}
+
+<p>No obstante, aprovechando el Everdrive, supongo que dedicaré tiempo a probar algunos otros juegos. <a href="https://es.wikipedia.org/wiki/Battletoads">Battletoads</a> será uno de ellos, ya que todo el mundo habla maravillas y no lo he arrancado nunca, ni siquiera en emulador.</p>
+
+<p>El otro título elegido es uno que ya lleva muchos, muchísimos años en la recámara: <a href="https://princeofpersia.fandom.com/es/wiki/Prince_of_Persia">Prince Of Persia</a>. El original de PC. Bueno, no es el original, ya que fue programado por Jordan Mechner para Apple II, pero se me entiende. Vamos, que no me refiero a ninguno de los relanzamientos ni versiones posteriores. Ni tampoco a las versiones de consola de la época, que eran diferentes en algunos casos.</p>
+
+<p>Aprovechando que el verano pasado me compré el pad inalámbrico de Saturn (la versión compatible con Mega Drive y Mega Drive Mini), quería usarlo para jugar a Prince Of Persia. Lo he estado probando con <a href="/2020/09/como-jugar-a-juegos-de-msdos-en-macos-con-boxer.html">Boxer</a> y me estaba ocurriendo una cosa muy rara: todo el rato se estaba mostrando por pantalla información de depuración del joystick. No tenía ni idea de qué podía estar pasando, pero para eso tenemos a nuestro perverso amigo Google. Una búsqueda ("prince of persia macos boxer joystick") arrojaba este resultado: <a href="https://www.vogons.org/viewtopic.php?t=33618">Prince of Persia Joystick info all over the screen!? :/ (SOLVED)</a>.</p>
+
+<p>Por resumir, y sin entrar en demasiados detalles técnicos, este es uno de los casos en los que DosBox no emula fielmente el comportamiento de un ordenador con MS-DOS. Para solucionar el problema, hay que descargar el fichero <a href="/uploads/2022/07/INT29.ZIP">INT29.ZIP</a> de <a href="https://www.vogons.org/viewtopic.php?t=27687">este otro hilo</a> y descomprimirlo en el directorio donde tenemos el juego. Luego no he seguido el resto de instrucciones. Lo que he hecho ha sido crear un fichero PRINCE.BAT con este contenido:</p>
+
+<p>
+<pre>
+INT29.COM
+PRINCE.EXE
+</pre>
+</p>
+
+<p>Recordemos que los ficheros .BAT (batch o procesamiento por lotes) lo que hacen es ir ejecutando línea a línea las instrucciones que pongamos dentro. Lo que hace es cargar el programa INT29.COM y luego arrancar el juego con PRINCE.EXE. Por último, he editado el fichero Game Info.plist y sustituido donde ponía "PRINCE.EXE" por "PRINCE.BAT". Con eso tendremos arreglado el problema y podremos jugar a Prince Of Persia con joystick.</p>
+

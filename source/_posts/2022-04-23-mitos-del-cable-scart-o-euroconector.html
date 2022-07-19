@@ -1,0 +1,45 @@
+---
+layout: post
+title: "Mitos del cable Euroconector (o SCART)"
+summary: "Vamos a intentar explicar las confusiones más comunes relativas al cable SCART, más conocido en España como Euroconector."
+header_image: /uploads/2022/04/scart-cabecera.jpg
+main_image: /uploads/2022/04/scart.jpg
+text_date: Sábado, 23 de abril de 2022
+tags: [briconsejo, tecnología, vídeo]
+disqus_identifier: mitos-del-cable-scart-o-euroconector
+disqus_url: http://blog.falvarez.es/2022/04/mitos-del-cable-scart-o-euroconector.html
+
+---
+
+<p>Cuando me regalaron el ZX Spectrum, allá por 1985, este se conectaba a la televisión mediante un cable de antena. Hacerlo de esa forma provocaba que se dejasen de ver el resto de canales (los dos que había). Pero aquella televisión no tenía otro tipo de entrada. Ni el ordenador otro tipo de salida de vídeo. La última videoconsola que he comprado, 37 años después, usa un cable HDMI 2.1 para conectarse al monitor. Curiosamente, este monitor y aquella primera televisión tienen algo en común: ninguno de los dos dispone de un Euroconector (o SCART, que son las siglas de Syndicat des Constructeurs des Appareils Radiorécepteurs et Téléviseurs, la compañía que lo diseñó).</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2022/04/euroconector.jpg', 'alt': 'Adaptador vídeo compuesto y S-Video a Euroconector', 'position': 'center'} %}
+
+<p>Este tipo de conector ha sido muy importante durante todos estos años, permitiendo la conexión de multitud de aparatos audiovisuales. Es un conector que permite el envío y recepción de múltiples señales de audio y vídeo de manera simultánea, y justo por eso da pie a algunas confusiones bastante comunes que me gustaría aclarar.</p>
+
+<p>Pero antes debería hacer un rápido repaso, sin entrar en tecnicismos, y seguramente que incurriendo en alguna imprecisión o error, de los tipos más habituales de señales de vídeo y los cables y conectores usados para transportarlas. De menor a mayor calidad de imagen son las siguientes:</p>
+
+<ul>
+    <li>RF (antena): La señal de vídeo compuesto va modulada en una señal de antena.</li>
+    <li>Vídeo compuesto: La señal de vídeo se transmite de forma analógica por un único cable. El conector es de tipo RCA y suele ser de color amarillo, o bien un Euroconector.</li>
+    <li>S-Video (separated video): La señal de vídeo se transmite de forma analógica por dos cables, brillo y color. El conector es Mini DIN de 4 pines, o bien un Euroconector.</li>
+    <li>RGB: La señal de vídeo se transmite de forma analógica por cuatro cables, uno por cada color primario (rojo, verde y azul), y un cable adicional para el sincronismo. El conector suele ser SCART.</li>
+    <li>Vídeo por componentes: La señal de vídeo se transmite de forma analógica por tres cables, Luminancia, diferencia entre azul y luminancia, diferencia entre rojo y luminancia. Los conectores son de tipo RCA y suelen ser de color azul, verde y rojo.</li>
+    <li>HDMI: La señal de vídeo se transmite de forma digital. El conector es de tipo HDMI, y los hay de varios tamaños.</li>
+</ul>
+
+<p>Como veis, el Euroconector permite enviar/recibir señales de vídeo compuesto, S-video y RGB. Pero para ello, tanto el emisor como el receptor deben dar soporte a cada uno de los tipos. Y el cable debe tener todos los hilos (hay cables que no los tienen). Y aquí aparecen las confusiones. Las más típicas son las siguientes:</p>
+
+<ul>
+    <li>
+        Tener un cable en el que uno de los lados tiene un Euroconector, y dar por hecho que es un cable RGB. No necesariamente, puede ser un cable de vídeo compuesto.
+        {% include 'components/image.twig' with {'src': '/uploads/2022/04/cable-rgb-super-famicom.jpg', 'alt': 'Cable RGB Super Famicom (funciona también con GameCube)', 'position': 'center'} %}
+    </li>
+    <li>Conectar un cable RGB con Euroconector a la televisión y que la calidad sea mala. Hay televisiones que tienen varios Euroconectores y el modo RGB sólo funciona en algunos de ellos (normalmente el primero).</li>
+    <li>
+        Confundir el término "vídeo compuesto" con "vídeo por componentes". Nada que ver el uno con el otro.
+        {% include 'components/image.twig' with {'src': '/uploads/2022/04/cable-multisistema-video-por-componentes.jpg', 'alt': 'Cable multisistema a vídeo por componentes', 'position': 'center'} %}
+    </li>
+</ul>
+
+<p>Si teníais alguna duda con estos conceptos, espero haberla resuelto. Y, sobre todo, no haber metido la pata, ya que no soy para nada experto en estos temas. Sólo me baso en mi experiencia de años como usuario conectando diversos ordenadores y consolas a diversas televisiones y monitores.</p>

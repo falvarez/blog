@@ -10,7 +10,6 @@
 s3.conf
 /source/_posts/*draft*
 !/source/_posts/1970-01-01-post-template.draft.html
-
 /vendor/
-
 /data
+.DS_Store

@@ -1,0 +1,42 @@
+---
+layout: post
+title: "Cómo efectuar una grabación de pantalla con sonido en macOS"
+summary: "Para publicar una tontería en Twitter, necesitaba hacer una grabación con sonido de la pantalla del ordenador. Le cuento a mi yo del futuro lo conseguí."
+header_image: /uploads/2022/08/pantalla-sonido-macos-cabecera.jpg
+main_image: /uploads/2022/08/pantalla-sonido-macos.jpg
+text_date: Viernes, 19 de agosto de 2022
+tags: [briconsejo, macos, pantalla, quicktime, sonido]
+disqus_identifier: como-grabar-pantalla-con-sonido-macos
+disqus_url: http://blog.falvarez.es/2022/08/como-grabar-pantalla-con-sonido-macos.html
+
+---
+
+<p>Quería publicar en Twitter un vídeo de algo que estaba haciendo con <a href="https://www.apple.com/es/logic-pro/">Logic Pro X</a>. Como es lógico, la gracia es que, además de verse la pantalla, pudiera escucharse el sonido. Curiosamente, al menos que yo sepa, no hay una forma directa de hacerlo. Usando <a href="https://es.wikipedia.org/wiki/QuickTime">QuickTime</a> podemos hacer una grabación de pantalla con el sonido recogido por un micrófono (interno o externo), pero no con el sonido emitido por el propio ordenador.</p>
+
+<p>El sentido común nos dice que, si podemos reconducir el sonido desde la salida hasta la entrada, podríamos conseguir nuestro objetivo. Probablemente, sería posible hacerlo con una tarjeta de sonido externa. En casa tengo una, y también una mesa de mezclas con conexión USB. Pero no estoy en casa, así que no una opción ahora mismo.</p>
+
+<p>Seguro que hay alguien más listo que yo que se ha tropezado con este problema, lo ha solucionado, y lo ha compartido por Internet. Una búsqueda en <del>nuestra plataforma publicitaria</del> nuestro buscador de confianza nos hace llegar al siguiente vídeo, donde se expone una solución válida:</p>
+
+<div class="embed-responsive embed-responsive-4by3"><iframe width="420" height="315" src="https://www.youtube.com/embed/prUVS0HF2gU" frameborder="0" allowfullscreen></iframe></div>
+
+<p>Para los que no queráis ver el vídeo e ir al grano, y eso incluye a mi <em>yo del futuro&trade;</em>, o a quien sepa usar QuickTime para grabar la pantalla y no quiera tragarse el <em>product placement</em> del vídeo, o por si el vídeo llega a desaparecer en algún momento, dejo por aquí resumida la información más relevante.</p>
+
+<p>Tendremos que instalar <a href="https://github.com/ExistentialAudio/BlackHole">BlackHole</a> que, pese a su escatológico nombre, no es más que un "bucle virtual" que permite hacer justo lo que queremos: enviar audio de una aplicación a otra sin latencia. En mi caso, he preferido instalarlo usando el gestor de aplicaciones <a href="https://formulae.brew.sh/cask/blackhole-2ch#default">Brew</a>.</p>
+
+<p>A continuación, en Audio MIDI Setup, tenemos que hacer clic en el botón + para crear un dispositivo agregado nuevo ("Create aggregate device"). Le ponemos un nombre descriptivo para nuestro caso de uso. Por ejemplo, "QuickTime Player Input", y le asignamos el dispositivo "BlackHole 2ch".</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2022/08/quicktime-player-input.jpg', 'alt': 'Configuramos el dispositivo QuickTime Player Input', 'position': 'center'} %}
+
+<p>Proseguimos creando un dispositivo multi-salida ("Create Multi-Output Device"). Le ponemos nuevamente un nombre descriptivo, por ejemplo, "Screen Record w/ Audio". Aquí, marcamos sendos dispositivos, "Built-in Output" y "BlackHole 2ch", asegurándonos de que el dispositivo "Built-in Output" está seleccionado como Master Device y es el primero de la lista.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2022/08/screen-record-w-audio.jpg', 'alt': 'Configuramos el dispositivo Screen Record w/ Audio', 'position': 'center'} %}
+
+<p>En la configuración de Audio, seleccionaremos el dispositivo "Screen Record w/ Audio" como dispositivo de salida.</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2022/08/pantalla-sonido-macos.jpg', 'alt': 'Configuramos la salida de audio', 'position': 'center'} %}
+
+<p>Por último, al iniciar la grabación con QuickTime, lo configuramos para que la entrada de audio sea "QuickTime Player Input" (de ahí la importancia de los nombres descriptivos, porque si no la próxima vez difícilmente nos acordaremos).</p>
+
+{% include 'components/image.twig' with {'src': '/uploads/2022/08/configurar-quicktime.jpg', 'alt': 'Configuramos QuickTime para hacer la grabación', 'position': 'center'} %}
+
+<p><em>Et, voilà!</em> Ya estaría. Tenemos nuestra grabación de pantalla con sonido incorporado.</p>

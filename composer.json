@@ -23,5 +23,8 @@
         "allow-plugins": {
             "sculpin/sculpin-theme-composer-plugin": true
         }
+    },
+    "require": {
+        "twig/intl-extra": "^3.5"
     }
 }

@@ -29,7 +29,7 @@ pagination:
   {% set month = '0' %}
   {% set year = this_year %}
 {% endif %}
-{% set this_month %}{{ post.date | localizeddate('none', 'none', locale, timezone, 'MMMM') | capitalize }}{% endset %}
+{% set this_month %}{{ post.date | format_date(pattern='MMMM', locale=locale) | capitalize }}{% endset %}
 {% if month != this_month %}
   {% set month = this_month %}
   <h3>{{ month }} {{ year }}</h3>

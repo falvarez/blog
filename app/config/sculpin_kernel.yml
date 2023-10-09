@@ -2,6 +2,10 @@ sculpin_content_types:
     posts:
         permalink: :year/:month/:filename.html
 services:
+    twig.extension.intl-extra:
+        class: Twig\Extra\Intl\IntlExtension
+        tags:
+            - { name: twig.extension }
     twig.extension.pcre:
         class: Jasny\Twig\PcreExtension
         tags:

@@ -1,9 +1,10 @@
 <?php
 namespace Falvarez\Blog;
 
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-class LcfirstExtension extends \Twig_Extension
+class LcfirstExtension extends AbstractExtension
 {
     public function getName()
     {

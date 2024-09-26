@@ -1,7 +1,10 @@
 <?php
 namespace Falvarez\Blog;
 
-class TagsExtension extends \Twig_Extension
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+
+class TagsExtension extends AbstractExtension
 {
     public function getName()
     {
@@ -14,7 +17,7 @@ class TagsExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('tagSort', [$this, 'tagSort']),
+            new TwigFilter('tagSort', [$this, 'tagSort']),
         ];
     }
 

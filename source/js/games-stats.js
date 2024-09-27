@@ -11,7 +11,7 @@ var donutDataGamesByPlatform = {
     'GameCube (2)',
     'Nintendo DS (9)',
     'Nintendo 3DS (8)',
-    'Nintendo Switch (6)',
+    'Nintendo Switch (7)',
     'Nintendo Wii (4)',
     'Nintendo WiiU (13)',
     'Nintendo 64 (1)',
@@ -20,7 +20,7 @@ var donutDataGamesByPlatform = {
     'PlayStation 2 (10)',
     'PlayStation 3 (17)',
     'PlayStation 4 (32)',
-    'PlayStation 5 (1)',
+    'PlayStation 5 (2)',
     'SNES (2)',
     'Xbox (7)',
     'Xbox 360 (17)',
@@ -35,7 +35,7 @@ var donutDataGamesByPlatform = {
         2, // GameCube
         9, // Nintendo DS
         8, // Nintendo 3DS
-        6, // Nintendo Switch
+        7, // Nintendo Switch
         4, // Nintendo Wii
         13, // Nintendo WiiU
         1, // Nintendo 64
@@ -44,7 +44,7 @@ var donutDataGamesByPlatform = {
         10, // PlayStation 2
         17, // PlayStation 3
         32, // PlayStation 4
-        1, // PlayStation 5
+        2, // PlayStation 5
         2, // SNES
         7, // Xbox
         17, // Xbox 360

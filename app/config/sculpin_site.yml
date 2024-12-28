@@ -3,5 +3,4 @@
 # in a template to get the contents of the `title` key.
 title: El blog de Fede Álvarez
 subtitle: Videojuegos, libros, música, cine y nostalgia de los 80 y 90
-disqus:
-    shortname: blog-falvarez-es
+years: Online desde 2004

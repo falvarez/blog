@@ -16,7 +16,7 @@ article p {
     text-align: justify;
 }
 
-article table {
+article table, .main-content h3 {
     margin-bottom: 30px;
 }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d00abfae5038c7c2009c74addd3e1541",
+    "content-hash": "de09a804690435482d63d4b7aba0d40c",
     "packages": [],
     "packages-dev": [
         {
@@ -1438,15 +1438,15 @@
         },
         {
             "name": "sculpin/sculpin",
-            "version": "dev-main",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sculpin/sculpin.git",
+                "url": "https://github.com/falvarez/sculpin.git",
                 "reference": "03af6498c32663e3d307ebfe346bb8d48feddec5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sculpin/sculpin/zipball/03af6498c32663e3d307ebfe346bb8d48feddec5",
+                "url": "https://api.github.com/repos/falvarez/sculpin/zipball/03af6498c32663e3d307ebfe346bb8d48feddec5",
                 "reference": "03af6498c32663e3d307ebfe346bb8d48feddec5",
                 "shasum": ""
             },
@@ -1515,7 +1515,28 @@
                     "Sculpin\\": "src/Sculpin/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "check": [
+                    "@cs-check",
+                    "@phpstan",
+                    "@test"
+                ],
+                "cs-check": [
+                    "phpcs"
+                ],
+                "cs-fix": [
+                    "phpcbf"
+                ],
+                "phpstan": [
+                    "phpstan analyse -l 4 src/"
+                ],
+                "test": [
+                    "phpunit --colors=always"
+                ],
+                "test-coverage": [
+                    "phpdbg -qrr vendor/bin/phpunit --coverage-clover clover.xml --coverage-text --colors=always"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -1539,8 +1560,7 @@
                 "static"
             ],
             "support": {
-                "issues": "https://github.com/sculpin/sculpin/issues",
-                "source": "https://github.com/sculpin/sculpin/tree/main"
+                "source": "https://github.com/falvarez/sculpin/tree/master"
             },
             "time": "2025-02-17T00:29:07+00:00"
         },

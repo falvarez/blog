@@ -11,7 +11,7 @@ var donutDataGamesByPlatform = {
     'GameCube (2)',
     'Nintendo DS (9)',
     'Nintendo 3DS (8)',
-    'Nintendo Switch (9)',
+    'Nintendo Switch (10)',
     'Nintendo Wii (4)',
     'Nintendo WiiU (13)',
     'Nintendo 64 (1)',
@@ -35,7 +35,7 @@ var donutDataGamesByPlatform = {
         2, // GameCube
         9, // Nintendo DS
         8, // Nintendo 3DS
-        9, // Nintendo Switch
+        10, // Nintendo Switch
         4, // Nintendo Wii
         13, // Nintendo WiiU
         1, // Nintendo 64

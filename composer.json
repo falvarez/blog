@@ -34,5 +34,8 @@
             "sculpin/sculpin": "source",
             "*": "dist"
         }
-    }
+    },
+  "require": {
+    "ext-intl": "*"
+  }
 }

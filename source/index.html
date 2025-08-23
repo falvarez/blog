@@ -10,7 +10,7 @@ use:
 {% for post in page.pagination.items %}
     <article>
         <header class="post-preview">
-            <p class="post-meta">{{ post.text_date }}</p>
+            <p class="post-meta">{{ post.date | spanish_date }}</p>
             <a href="{{ site.url }}{{ post.url }}">
                 <h2 class="post-title">{{ post.title }}</h2>
                 {% if post.subtitle %}<h3 class="post-subtitle">{{ post.subtitle }}</h3>{% endif %}

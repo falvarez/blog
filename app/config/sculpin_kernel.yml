@@ -19,6 +19,10 @@ services:
         class: Falvarez\Blog\LcfirstExtension
         tags:
             - { name: twig.extension }
+    twig.extension.spanish_date:
+        class: Falvarez\Blog\SpanishDateExtension
+        tags:
+            - { name: twig.extension }
 parameters:
     locale: "es_ES"
     timezone: "Europe/Madrid"

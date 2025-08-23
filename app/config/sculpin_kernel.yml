@@ -1,5 +1,6 @@
 sculpin_content_types:
     posts:
+        path: _posts/**
         permalink: :year/:month/:filename.html
 services:
     twig.extension.intl-extra:

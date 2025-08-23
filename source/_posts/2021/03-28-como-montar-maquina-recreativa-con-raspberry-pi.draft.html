@@ -1,0 +1,66 @@
+---
+layout: post
+title: "Cómo montar una máquina recreativa con una Raspberry Pi"
+summary: "Después de 16 años, ya iba siendo hora de actualizar un poco la máquina recreativa que tengo en casa. Os cuento qué mejoras he hecho, que en realidad sólo ha sido una, reemplazar su corazón por uno más moderno."
+header_image: /uploads/2021/04/recreativa-header.jpg
+main_image: /uploads/2021/04/recreativa.jpg
+text_date: Domingo, 18 de abril de 2021
+tags: [arcade, briconsejo, personal, raspberry pi, recreativas, retropie]
+draft: true
+
+---
+<p>Lo primero de todo, quiero matizar el título de esta entrada, para que quien haya llegado hasta aquí no se lleve un chasco. Aunque lo que voy a contar se puede aplicar a quien quiera montar una máquina recreativa a partir de una Raspberry Pi, en mi caso ya tenía una. Lo que he hecho ha sido cambiar el ordenador que ejecutaba <a href="https://www.mamedev.org/">MAME</a> en su interior por una <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/">Raspberry Pi 3B+</a> con <a href="https://github.com/krahsdevil/Retropie-CRT-Edition">RetroPie CRT Edition</a>.</p>
+
+<p>Hace ya más de 15 años que cumplí mi sueño de tener una máquina recreativa en casa. Aún no me había independizado, e hice un intento de <a href="http://arcadeathome.blogspot.com/">documentar el proceso en un blog</a>. Un blog en el que va a hacer 15 años que no publico nada y en el que, visto con retrospectiva, tampoco cumplí el objetivo de ilustrar todos los pasos que seguí al detalle.</p>
+
+<p>Cuando compré la máquina no me hice con ninguna placa de juego &mdash;creo recordar que el vendedor me ofrecía un <a href="https://es.wikipedia.org/wiki/Super_Pang">Super Pang!</a>&mdash; pues tenía claro que iba a meter dentro un PC. En aquella época era como se hacían las cosas. El emulador que usaba era <a href="https://www.advancemame.it/">Advance MAME</a>, una versión especial de MAME que permitía (permite) usar un monitor CRT de 15KHz, como es el caso del monitor Hantarex &mdash;que traía la mía&mdash; o una televisión, en vez del típico monitor VGA de ordenador.</p>
+
+<p>Empecé con un Pentium II que, más tarde, cambié por un Pentium III. No recuerdo de dónde salío, imagino que de saldo tras alguna renovación de equipos en el trabajo. Una tarjeta gráfica normalita, una Sound Blaster, un par de discos duros, un <a href="https://www.ultimarc.com/control-interfaces/i-pacs/i-pac-2-classic-ps-2-version./">iPac</a> para conectar los mandos... Ni me acuerdo de la configuración exacta, pero así estuvo todos estos años, funcionando sin mayores problemas. Tampoco es que encienda la máquina a diario.</p>
+
+<p>La verdad es que llevaba años barruntando la posibilidad de sustituir el viejo, ruidoso y poco potente PC por algo más moderno y compacto; una Raspberry Pi o similar. Estos mini-ordenadores han ido aumentando de potencia significativamente con el paso de los años, manteniendo un precio bastante contenido, lo que los hace unos perfectos candidatos para estos menesteres. El plan era, más o menos, esperar a la avería del monitor (porque se terminará rompiendo, seguro), para cambiarlo por una pantalla moderna conectada a una Raspberry.</p>
+
+<p>Pero también, en estos últimos años, han ido apareciendo alternativas, como <a href="https://www.rgb-pi.com/">RGB-Pi</a>, <a href="https://www.arcadexpress.com/es/convertidores-de-video/259-1709-pi2scart-pcb.html">Pi2SCART</a> o <a href="https://www.antoniovillena.es/store/product/%CF%80crt-addon/">πcrt</a>, que permiten usar un monitor CRT de 15KHz o una televisión, justo el caso que comentaba antes. Además resulta que, investigando, llegué a la conclusión de que se podía obtener el mismo resultado usando un adaptador <a href="https://www.tiendatec.es/raspberry-pi/accesorios/433-vga666-adaptador-vga-por-gpio-para-raspberry-pi-8404330110002.html">VGA666</a> y un cable VGA a SCART, lo cual es una solución todavía más económica (el VGA se puede encontrar <a href="https://es.aliexpress.com/w/wholesale-vga666.html">tirado de precio en AliExpress</a>). Pregunté por la diferencia entre unos y otros adaptadores, pero nadie supo darme una explicación convincente. Por lo que, finalmente, me animé a hacer el cambio.</p>
+
+<p>La clave, como he comentado anteriormente, está en el uso del VGA666 y de RetroPie CRT Edition, que permite conectar la Raspberry al monitor Hantarex. Para los mandos, pensaba reutilizar el iPac (usando un adaptador PS2 a USB), o bien comprar un par de dispositivos <a href="https://www.arcadexpress.com/es/interfaces-encoders/31-315-interfaz-zero-delay-pc-raspberry.html">Arcade Zero Delay</a>. Sin embargo, Santi me habló de los "Arduino de AliExpress", unas placas <a href="https://es.aliexpress.com/item/32888212119.html">Pro Micro ATMEGA32U4</a> que pueden programarse con <a href="https://github.com/MickGyver/DaemonBite-Arcade-Encoder">DaemonBite Arcade Encoder</a>.</p>
+
+<p>Para conectar la VGA666 al monitor compré un <a href="https://es.aliexpress.com/item/4001221063163.html">conector VGA</a>, reutilizando un cable SCART-SCART de los muchos que tengo por casa de épocas pasadas y usando este esquema de conexiones:</p>
+
+@TODO enlazar esquema de http://david.dantoine.org/envio/2009/
+
+<p>Por último, tanto el trackball como el sistema de altavoces y el interruptor del monedero se pueden conectar a la Raspberry de la misma forma que lo estaban al PC antiguo. Con esto, ya tendríamos conectado todo lo que había antes.</p>
+
+<p>Internamente el montaje es algo temporal, lo mínimo para que los componentes no se muevan, los cables no cuelguen demasiado y, aun así, pueda hacer cambios con facilidad y agilidad. Aunque apuesto a que se va a quedar así muchos meses.</p>
+
+<p>Finalmente, la lista de la compra ha sido la siguiente:</p>
+<ul>
+    <li>Raspberry Pi 3B+ con su alimentador oficial - 53,45€.</li>
+    <li>VGA 666 - 3,62€.</li>
+    <li>Cable VGA a SCART - 2,57€ (la clavija VGA, el cable ya lo tenía por ahí).</li>
+    <li>Pro Micro ATMEGA32U4 &times;2 - 7,48€.</li>
+    <li>Cableado para conectar los joysticks a los Arduino - 2,34€.</li>
+    <li>Pendrive de 64GB - 9,19€.</li>
+    <li><strong>TOTAL: 78,65€</strong></li>
+</ul>
+
+<p>Ya que tenemos todo el material, vamos a empezar la instalación.</p>
+@TODO EXPLICAR CÓMO INSTALAR RETROPIE DESDE CERO
+
+<p>No me quiero volver loco, así que voy a cargar la misma selección de juegos arcade que tenía en el ordenador antiguo. La única diferencia estriba en que, en aquél, usaba la versión MAME 0.37b5, mientras que el MAME 2003 de RetroArch usa la versión 0.78, por lo que algunas ROMs cambian, y los ficheros de "hi scores" no parecen compatibles, al menos no en todos los juegos. Así que no voy a poder conservar las mejores puntuaciones que tenía en la antigua máquina.</p>
+
+<p>También he tenido que gastar bastante tiempo en configurar los controles de entrada para adaptarlos a mi panel, que tiene 3 botones por jugador más los botones de 1P y 2P, y el interruptor del monedero. Lo que he hecho ha sido mapear también la combinación P1B3 + P2B3 para introducir monedas de forma más cómoda, y P1B3+1P como "Escape", para salir de la emulación.</p>
+
+@TODO EXPLICAR CÓMO SE CONFIGURA
+
+@TODO EXPLICAR CÓMO HACER BACKUP DE LA CONFIGURACIÓN
+
+<p>También me he querido dar el gusto de usar <a href="https://github.com/muldjord/skyscraper">Skyscraper</a> para descargar las carátulas y los vídeos de los juegos, de forma que el menú de selección resulte más llamativo. Lo sé, es una frivolidad, pero quería hacer la prueba.</p>
+
+@TODO EXPLICAR CÓMO SE CONFIGURA
+
+
+
+<p>El principal inconveniente que le encuentro al nuevo sistema es que los juegos verticales se ven peor reescalados que en el antiguo. Aunque si uso AdvanceMame se ven un poco mejor que con el Mame de RetroArch, no he conseguido la misma calidad. Este problema entra dentro de lo normal, ya que estas placas de juego se montan con el monitor en posición vertical y la pantalla rotada 90&deg;. Mi mueble lo permite, pero hay que desmontar el monitor entero y volverlo a anclar, lo cual no es nada operativo. Además de que no me atrevo a tocar ahí, no me vaya a dar un buen chispazo. Lo "suyo" sería tener dos muebles, uno en vertical y el otro en horizontal. Pero eso no tiene pinta de ocurrir, al menos en esta vida.</p>
+
+<p>Por lo demás, pese a haberme gastado finalmente más dinero de lo que pensaba, he quedado muy contento con el cambio. Me da la impresión de que la calidad de imagen es superior, más nítida y con colores más vivos. Al tener más potencia, la emulación se resiente menos en algunos juegos, e incluso hay unos cuantos que antes no me funcionaban y ahora sí. A bote pronto puedo citar los siguientes: Popeye, Michael Jackson's Moonwalker, Rampage y Super Sprint, entre otros.</p>
+
+<p>Para terminar, en el estado actual ha quedado todo muy funcional y aparente. Tengo pendiente ver si puedo mejorar más (si es que es posible) la visualización de los juegos verticales, ya que hay unos cuantos que son de mis favoritos: Bomb Jack, Dock Man, Frogger o Traverse USA. Y también probar a configurar <a href="https://howchoo.com/retropie/how-to-use-netplay-on-retropie-for-online-multiplayer">Netplay</a>, así como <a href="https://retroachievements.org/">Retroachievements</a>. También debería molestarme en fijar mejor tanto los cables como la Raspberry Pi. E, incluso, mirar de sustituir el ventilador del monitor Hantarex, algo ruidoso, por uno más moderno y silencioso. Pero no son cosas que vaya a afrontar a corto plazo, lo tengo claro. De momento dedicaré los ratos que tenga a jugar, a ver si puedo ser capaz de volver a terminarme juegos como Pang!, Snow Bros, Golden Axe o Ghosts'n Goblins.</p>

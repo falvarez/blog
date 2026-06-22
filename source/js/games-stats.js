@@ -11,7 +11,7 @@ var donutDataGamesByPlatform = {
     'GameCube (2)',
     'Nintendo DS (9)',
     'Nintendo 3DS (8)',
-    'Nintendo Switch (10)',
+    'Nintendo Switch (13)',
     'Nintendo Wii (4)',
     'Nintendo WiiU (13)',
     'Nintendo 64 (1)',
@@ -20,10 +20,11 @@ var donutDataGamesByPlatform = {
     'PlayStation 2 (10)',
     'PlayStation 3 (17)',
     'PlayStation 4 (33)',
-    'PlayStation 5 (6)',
+    'PlayStation 5 (8)',
     'SNES (2)',
     'Xbox (7)',
     'Xbox 360 (17)',
+    'Xbox One (1)',
     'ZX Spectrum (2)',
   ],
   datasets: [
@@ -35,7 +36,7 @@ var donutDataGamesByPlatform = {
         2, // GameCube
         9, // Nintendo DS
         8, // Nintendo 3DS
-        10, // Nintendo Switch
+        13, // Nintendo Switch
         4, // Nintendo Wii
         13, // Nintendo WiiU
         1, // Nintendo 64
@@ -44,10 +45,11 @@ var donutDataGamesByPlatform = {
         10, // PlayStation 2
         17, // PlayStation 3
         33, // PlayStation 4
-        6, // PlayStation 5
+        8, // PlayStation 5
         2, // SNES
         7, // Xbox
         17, // Xbox 360
+        1, // Xbox One
         2 // ZX Spectrum
       ],
       backgroundColor : [
@@ -70,6 +72,7 @@ var donutDataGamesByPlatform = {
         '#f20a21', // SNES
         '#9bc848', // Xbox
         '#7ca138', // Xbox 360
+        '#fabada', // Xbox One
         '#aaaaaa' // ZX Spectrum
       ],
     }

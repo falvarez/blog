@@ -1,0 +1,4 @@
+FROM node:20-alpine
+WORKDIR /app
+COPY server.js .
+CMD ["sh", "-c", "mkdir -p /output_prod && node server.js"]

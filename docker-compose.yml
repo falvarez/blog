@@ -1,0 +1,21 @@
+services:
+  sculpin:
+    build: .
+    volumes:
+      - .:/app
+    command:
+      - sh
+      - -c
+      - composer install --no-interaction --no-ansi --no-progress && php -d intl.default_locale=es_ES vendor/bin/sculpin generate --watch --env=prod --url=http://localhost:3000
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./output_prod:/output_prod
+
+    depends_on:
+      - sculpin

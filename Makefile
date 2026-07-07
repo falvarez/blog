@@ -1,7 +1,7 @@
-.PHONY = run deploy
+.PHONY: run build
 
 run:
-	bin/run-dev.sh
+	docker compose up --build
 
-deploy:
-	bin/macos/generate-and-deploy.sh
+build:
+	docker compose build

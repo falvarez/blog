@@ -1,0 +1,7 @@
+.git
+.gitignore
+vendor
+node_modules
+output_prod
+Makefile
+Dockerfile.web

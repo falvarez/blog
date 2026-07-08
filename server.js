@@ -102,7 +102,13 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
-  let filePath = path.resolve(ROOT, '.' + (u.pathname === '/' ? '/index.html' : u.pathname));
+  let decodedPath = decodeURI(u.pathname);
+  let filePath = decodedPath === '/'
+    ? path.resolve(ROOT, './index.html')
+    : path.resolve(ROOT, '.' + decodedPath);
+  if (decodedPath.endsWith('/') && decodedPath !== '/') {
+    filePath = path.join(filePath, 'index.html');
+  }
   if (!filePath.startsWith(ROOT)) {
     res.writeHead(403);
     res.end('Forbidden');

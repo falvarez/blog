@@ -1,44 +1,88 @@
 # El blog de Fede Álvarez
 
-Sculpin code for my personal blog.
+Blog personal estático sobre videojuegos, libros, música, cine y nostalgia de los 80 y 90.
+Online desde 2004. Generado con [Sculpin](https://sculpin.io).
 
-Powered by [Sculpin](http://sculpin.io).
+## Stack tecnológico
 
-Inspired by [Sculpin blog skeleton code](https://github.com/sculpin/sculpin-blog-skeleton).
+- **PHP 8.5** con extensión `intl` + **Sculpin** (generador de sitios estáticos)
+- **Twig** con extensiones: `IntlExtra`, `Jasny\Twig\PcreExtension`, y 3 extensiones personalizadas (`TagsExtension`, `LcfirstExtension`, `SpanishDateExtension`)
+- **Bootstrap 2.3.x**, **Clean Blog Theme**, **jQuery**, **Chart.js**, **highlightjs**
+- **Docker** — `php:8.5-cli` para generación, `node:20-alpine` para servidor dev
+- Sin base de datos, sin tests, sin linters
 
-Needs to have PHP >= 7.3 installed locally on your machine.
+## Requisitos
 
-## Publishing Production Builds
+- Docker y Docker Compose (o servicios compatibles)
 
-When `--env=prod` is specified, the site will be generated in `output_prod/`. This
-is the location of your production build.
+## Comandos (Makefile)
 
-```bash
-sculpin generate --env=prod
-```
+| Comando | Descripción |
+|---------|-------------|
+| `make run` | Arranca entorno de desarrollo con live-reload |
+| `make build` | Construye las imágenes Docker |
+| `make generate-prod` | Genera el sitio estático en `output_prod/` |
+| `make deploy` | Genera + rsync al servidor remoto |
+| `make update-deps` | Actualiza dependencias Composer |
 
-These files are suitable to be transferred directly to a production host. For example:
-
-```bash
-sculpin generate --env=prodrsync -avze 'ssh -p 999' output_prod/ user@yoursculpinsite.com:public_html
-
-```
-
-If you want to make sure that rsync deletes files that you deleted locally on the on the remote too, add the `--delete` option to the rsync command:
-
-```bash
-rsync -avze 'ssh -p 999' --delete output_prod/ user@yoursculpinsite.com:public_html
-```
-
-
-## Development environment
-
-I use [Symfony CLI tool](https://symfony.com/doc/master/cloud/getting-started) to run a standalone PHP server.
-
-To start server:
+## Desarrollo
 
 ```bash
-./bin/run_dev.sh
+make run
 ```
 
-Blog will be accesible at the following URL: https://127.0.0.1:8000
+Esto levanta dos contenedores:
+- **sculpin**: genera el sitio y lo reconstruye al detectar cambios (`--watch`)
+- **web**: servidor Node.js en el puerto 3000 con **live-reload vía SSE**
+
+El blog se accede en `http://localhost:3000`.
+
+## Producción
+
+```bash
+make deploy
+```
+
+Ejecuta `generate-prod` y sincroniza `output_prod/` con el servidor remoto vía rsync.
+
+Para generar solo el sitio estático:
+
+```bash
+make generate-prod
+```
+
+El sitio generado queda en `output_prod/`, listo para subir a cualquier servidor web.
+
+## Estructura del proyecto
+
+```
+source/                # Contenido fuente (procesado por Sculpin)
+├── _posts/            # Posts por año (2004–2026)
+├── _layouts/          # Layouts Twig (default.html, static.html)
+├── _views/            # Plantillas y componentes Twig
+│   ├── post.html
+│   ├── widgets/       # Widgets (now-reading, now-playing, etc.)
+│   └── components/    # Componentes reutilizables (image, multimedia-card)
+├── css/               # Hojas de estilo
+├── js/                # Scripts (app, clean-blog, chart.js, etc.)
+├── img/               # Imágenes
+└── uploads/           # Contenido subido (2004–2019)
+src/                   # Extensiones PHP personalizadas (Twig)
+├── LcfirstExtension.php
+├── SpanishDateExtension.php
+└── TagsExtension.php
+app/config/            # Configuración Sculpin
+├── sculpin_kernel.yml
+└── sculpin_site.yml
+templates/             # Plantillas/borradores de post
+server.js              # Servidor HTTP dev con live-reload (SSE)
+Dockerfile             # Imagen PHP 8.5 + Composer
+Dockerfile.web          # Imagen Node 20 (servidor estático)
+docker-compose.yml     # Orquestación de servicios
+sculpin.json           # Dependencias de componentes frontend
+data/solr/             # Núcleo Solr para búsqueda
+```
+
+## Licencia
+
+CC BY-NC-ND 4.0 — [Fede J. Álvarez Valero](mailto:fede.alvarez@gmail.com)

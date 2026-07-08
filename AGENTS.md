@@ -8,7 +8,7 @@ Idioma: español. Activo desde 2004.
 
 ## Stack tecnológico
 
-- **PHP 8.4** con extensión `intl`
+- **PHP 8.5** con extensión `intl`
 - **Sculpin** (fork en https://github.com/falvarez/sculpin.git) — generador de sitios estáticos
 - **Twig** — motor de plantillas
 - **Bootstrap 2.3.x** + **Clean Blog Theme** + CSS personalizado

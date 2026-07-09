@@ -103,6 +103,11 @@ const server = http.createServer((req, res) => {
     return;
   }
   let decodedPath = decodeURI(u.pathname);
+  if (!decodedPath.endsWith('/') && decodedPath !== '/' && !path.extname(decodedPath)) {
+    res.writeHead(302, { 'Location': u.pathname + '/' + u.search });
+    res.end();
+    return;
+  }
   let filePath = decodedPath === '/'
     ? path.resolve(ROOT, './index.html')
     : path.resolve(ROOT, '.' + decodedPath);

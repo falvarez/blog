@@ -33,8 +33,8 @@ use:
 {% if page.pagination.previous_page or page.pagination.next_page %}
     <nav>
         <div class="clearfix">
-            {% if page.pagination.next_page %}<a class="btn btn-outline-primary float-left" href="{{ site.url }}{{ page.pagination.next_page.url }}"> <span aria-hidden="true">&larr;</span> Entradas anteriores </a>{% endif %}
-            {% if page.pagination.previous_page %}<a class="btn btn-outline-primary float-right" href="{{ site.url }}{{ page.pagination.previous_page.url }}"> Entradas siguientes <span aria-hidden="true">&rarr;</span> </a>{% endif %}
+            {% if page.pagination.next_page %}{% set next_url = page.pagination.next_page.url == '.' ? '/' : page.pagination.next_page.url %}{% if next_url|last != '/' %}{% set next_url = next_url ~ '/' %}{% endif %}<a class="btn btn-outline-primary float-left" href="{{ site.url }}{{ next_url }}"> <span aria-hidden="true">&larr;</span> Entradas anteriores </a>{% endif %}
+            {% if page.pagination.previous_page %}{% set prev_url = page.pagination.previous_page.url == '.' ? '/' : page.pagination.previous_page.url %}{% if prev_url|last != '/' %}{% set prev_url = prev_url ~ '/' %}{% endif %}<a class="btn btn-outline-primary float-right" href="{{ site.url }}{{ prev_url }}"> Entradas siguientes <span aria-hidden="true">&rarr;</span> </a>{% endif %}
         </div>
     </nav>
 {% endif %}

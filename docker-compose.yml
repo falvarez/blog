@@ -2,7 +2,8 @@ services:
   sculpin:
     build: .
     volumes:
-      - .:/app
+      - .:/app:cached
+      - output_prod:/app/output_prod
     command:
       - sh
       - -c
@@ -15,7 +16,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./output_prod:/output_prod
-
+      - output_prod:/output_prod
     depends_on:
       - sculpin
+
+volumes:
+  output_prod:

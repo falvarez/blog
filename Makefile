@@ -9,7 +9,7 @@ build: check-orbstack
 	docker compose build
 
 generate-prod: check-orbstack
-	docker compose run --rm sculpin sh -c "composer install --no-interaction --no-ansi --no-progress && php -d intl.default_locale=es_ES vendor/bin/sculpin generate --env=prod --url=https://blog.falvarez.es"
+	docker compose run --rm -v "$(PWD)/output_prod:/app/output_prod" sculpin sh -c "composer install --no-interaction --no-ansi --no-progress && php -d intl.default_locale=es_ES vendor/bin/sculpin generate --env=prod --url=https://blog.falvarez.es"
 
 update-deps: check-orbstack
 	docker compose run --rm sculpin sh -c "composer update --no-interaction --no-ansi --no-progress"

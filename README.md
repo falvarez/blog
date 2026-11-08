@@ -7,13 +7,14 @@ Online desde 2004. Generado con [Sculpin](https://sculpin.io).
 
 - **PHP 8.5** con extensión `intl` + **Sculpin** (generador de sitios estáticos)
 - **Twig** con extensiones: `IntlExtra`, `Jasny\Twig\PcreExtension`, y 3 extensiones personalizadas (`TagsExtension`, `LcfirstExtension`, `SpanishDateExtension`)
-- **Bootstrap 2.3.x**, **Clean Blog Theme**, **jQuery**, **Chart.js**, **highlightjs**
+- **Bootstrap 4.3.1**, **Clean Blog Theme**, **jQuery 2.1.1**, **Chart.js 2.9.3**, **lozad** (lazy loading)
 - **Docker** — `php:8.5-cli` para generación, `node:20-alpine` para servidor dev
 - Sin base de datos, sin tests, sin linters
 
 ## Requisitos
 
-- Docker y Docker Compose (o servicios compatibles)
+- [OrbStack](https://orbstack.dev) (proporciona Docker y Docker Compose; el Makefile lo arranca con `orbctl` si no está en marcha)
+- `rsync` de Homebrew (`/opt/homebrew/bin/rsync`) y acceso SSH al host `fspeccyorg` para el despliegue
 
 ## Comandos (Makefile)
 
@@ -36,6 +37,8 @@ Esto levanta dos contenedores:
 - **web**: servidor Node.js en el puerto 3000 con **live-reload vía SSE**
 
 El blog se accede en `http://localhost:3000`.
+
+La generación en desarrollo también usa `--env=prod`, por lo que los posts con `draft: true` no se muestran.
 
 ## Producción
 
@@ -66,7 +69,7 @@ source/                # Contenido fuente (procesado por Sculpin)
 ├── css/               # Hojas de estilo
 ├── js/                # Scripts (app, clean-blog, chart.js, etc.)
 ├── img/               # Imágenes
-└── uploads/           # Contenido subido (2004–2019)
+└── uploads/           # Imágenes de los posts por año/mes (2004–2026), portadas y RetroManiac
 src/                   # Extensiones PHP personalizadas (Twig)
 ├── LcfirstExtension.php
 ├── SpanishDateExtension.php
@@ -77,10 +80,11 @@ app/config/            # Configuración Sculpin
 templates/             # Plantillas/borradores de post
 server.js              # Servidor HTTP dev con live-reload (SSE)
 Dockerfile             # Imagen PHP 8.5 + Composer
-Dockerfile.web          # Imagen Node 20 (servidor estático)
+Dockerfile.web         # Imagen Node 20 (servidor estático)
 docker-compose.yml     # Orquestación de servicios
-sculpin.json           # Dependencias de componentes frontend
-data/solr/             # Núcleo Solr para búsqueda
+bin/optimize-images.sh # Conversión y redimensionado de imágenes (sips, macOS)
+sculpin.json           # Legacy: dependencias de componentes antiguas, sin uso
+data/solr/             # Legacy: núcleo Solr sin uso (gitignored)
 ```
 
 ## Licencia
